@@ -1,14 +1,14 @@
 import Footer from '../footer/Footer';
 import React from 'react';
-import './Main.css';
+import './Interactive.css';
 
-function Main() {
+function Interactive() {
 
   return (
-    <div className="main">
+    <div className="interactive">
       <Footer></Footer>
     </div>
   );
 }
 
-export default Main;
+export default Interactive;
