@@ -45,3 +45,16 @@
   background-color: white;
 }
 
+.skip-viz {
+  position: absolute;
+  bottom: 140px;
+  right: 40px;
+  font-size: 16px;
+}
+
+.go-viz {
+  position: absolute;
+  bottom: 140px;
+  right: 40px;
+  font-size: 24px !important;
+}

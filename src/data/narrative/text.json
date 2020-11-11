@@ -1,0 +1,58 @@
+[
+  {
+    "heading": "Human actions have caused a build up of greenhouse gases in the atmosphere, which has <span style=\"color: #ec4d3d;\">increased</span> global temperatures and led to many problems.",
+    "subtext": "",
+    "facts": [
+      {
+        "icon": "sun",
+        "icon_color": "yellow",
+        "text": "Global temperature is up <strong>32ºC</strong> from previous 10 years"
+      },
+      {
+        "icon": "cloudsmith",
+        "icon_color": "green",
+        "text": "Global carbon is up <strong>45 kilotons</strong> in last 10 years"
+      }
+    ]
+  },
+  {
+    "heading": "The increase in global temperatures contributes to sea levels <span style=\"color: #ec4d3d;\">rising</span> and polar ice caps <span style=\"color: #ec4d3d;\">melting</span>, among other complications.",
+    "subtext": "",
+    "facts": [
+      {
+        "icon": "ship",
+        "icon_color": "blue",
+        "text": "Sea levels rising at <strong>10 meters / year</strong>"
+      },
+      {
+        "icon": "cube",
+        "text": "Polar ice caps melting <strong>32 sq km / year</strong>"
+      }
+    ]
+  },
+  {
+    "heading": "How did we get here?",
+    "subtext": "The top 4 most common greenhouse gases are: carbon dioxide (CO2), methane (CH4), nitrous oxide (N2O), and fluorinated gases.",
+    "facts": []
+  },
+  {
+    "heading": "How did we get here?",
+    "subtext": "The Earth has a budget for the amount of greenhouse gases like CO2 that it can handle. If too many gases build up, they trap more of the sun’s heat, allowing less to escape into space.",
+    "facts": []
+  },
+  {
+    "heading": "How did we get here?",
+    "subtext": "And when concentration of greenhouse gases increases above certain budget, trapped heat causes the global temperature to rise.",
+    "facts": []
+  },
+  {
+    "heading": "How do we stay in budget?",
+    "subtext": "We can try to stay on budget by limiting our own emissions of CO2. Here are the greenhouse gas offset rates for swaps you can make to save our planet. But we can really stay on budget if everybody else limits their emissions too. Check out the power of our collective impact on the mini-world!",
+    "facts": []
+  },
+  {
+    "heading": "What is our collective goal?",
+    "subtext": "According to the Paris Accord, if we want to limit global temperature change to under 1.5 degrees Celsius, our global actions must only use 9K gigatons of CO2 per year.",
+    "facts": []
+  }
+]

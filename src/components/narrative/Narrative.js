@@ -12,49 +12,16 @@ function Narrative() {
   const [visible] = useState([true, false, false, false, false, false, false, false]);
   const storyBlocks = [];
 
-  // Set up story blocks
-  storyBlocks.push(
-    <Transition visible={visible[0]} animation='fade' duration={500}>
-      <Container>
-        <StoryBlock name={"slide 1"}/>
-      </Container>
-    </Transition>,
-    <Transition visible={visible[1]} animation='fade' duration={500}>
-      <Container>
-        <StoryBlock name={"slide 2"}/>
-      </Container>
-    </Transition>,
-    <Transition visible={visible[2]} animation='fade' duration={500}>
-      <Container>
-        <StoryBlock name={"slide 3"}/>
-      </Container>
-    </Transition>,
-    <Transition visible={visible[3]} animation='fade' duration={500}>
-      <Container>
-        <StoryBlock name={"slide 4"}/>
-      </Container>
-    </Transition>,
-    <Transition visible={visible[4]} animation='fade' duration={500}>
-      <Container>
-        <StoryBlock name={"slide 5"}/>
-      </Container>
-    </Transition>,
-    <Transition visible={visible[5]} animation='fade' duration={500}>
-      <Container>
-        <StoryBlock name={"slide 6"}/>
-      </Container>
-    </Transition>,
-    <Transition visible={visible[6]} animation='fade' duration={500}>
-      <Container>
-        <StoryBlock name={"slide 7"}/>
-      </Container>
-    </Transition>,
-    <Transition visible={visible[7]} animation='fade' duration={500}>
-      <Container>
-        <StoryBlock name={"slide 8"}/>
-      </Container>
-    </Transition>
-  )
+  // Set up each story block. Needed for the animation between blocks to work.
+  for (let i = 0; i < 7; i++) {
+    storyBlocks.push (
+      <Transition visible={visible[i]} animation='fade' duration={500} key={i}>
+        <Container>
+          <StoryBlock story={i}/>
+        </Container>
+      </Transition>
+    )
+  }
 
   // Handler for keyboard presses.
   function handleKeyPress(event) {
@@ -63,7 +30,7 @@ function Narrative() {
       visible[currentStory - 1] = true;
       setCurrentStory(currentStory - 1);
     }
-    if (event.key === "ArrowRight" && currentStory < 7) {
+    if (event.key === "ArrowRight" && currentStory < 6) {
       visible[currentStory] = false;
       visible[currentStory + 1] = true;
       setCurrentStory(currentStory + 1);
@@ -116,12 +83,15 @@ function Narrative() {
           <Container>
             <StoryProgress story={currentStory} />
             <Container className="story-container">
-            {/* TO DO -- render story blocks better */}
-            {storyBlocks}
+              {storyBlocks}
             </Container>
           </Container>
         </Transition>
       </Container>
+      { currentStory < 6
+        ? <a href="#/interactive" className="skip-viz">Skip to Interactive Viz <Icon name="arrow right"/></a>
+        : <Button href="#/interactive" className="go-viz" positive>Go to Interactive Viz <Icon name="arrow right"/></Button>
+      }
       <Footer />
     </div>
   );

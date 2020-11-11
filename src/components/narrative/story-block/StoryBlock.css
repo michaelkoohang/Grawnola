@@ -3,5 +3,35 @@
   bottom: 0;
   right: 0;
   left: 0;
-  top: 0;
+  top: 6em;
+}
+
+.story-heading {
+  margin-bottom: 1.25em;
+}
+
+.story-subtext {
+  font-size: 20px;
+}
+
+.fact {
+  display: flex;
+  margin-bottom: 1.5em;
+}
+
+.fact-icon {
+  font-size: 2em !important;
+  padding-top: 0.2em;
+}
+
+.fact-text {
+  font-size: 20px;
+  padding-left: 0.8em;
+}
+
+/* Block Specific Graphics */
+
+.earth-bad {
+  padding: 0 0 3em 3em !important;
+  max-width: 400px !important;
 }
