@@ -1,0 +1,47 @@
+
+/* Modal */
+
+.modal-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-icons .icon {
+  margin-left: 0.5em !important;
+  margin-right: 0.5em !important;
+}
+
+.modal-title {
+  margin-top: 1em !important;
+}
+
+.modal-content {
+  text-align: center;
+}
+
+/* Title Block */
+
+.title-block {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -40%);
+}
+
+.title-block img {
+  margin-top: 3em;
+}
+
+#resiliently {
+  color: #65c366;
+}
+
+/* Story Blocks */
+
+.story-container {
+  position: relative;
+  background-color: white;
+}
+

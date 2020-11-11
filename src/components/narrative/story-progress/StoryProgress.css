@@ -1,0 +1,13 @@
+.story-progress {
+  padding-top: 4em;
+  padding-bottom: 3em;
+  transition: opacity 1s;
+}
+
+.bar {
+  height: 1.25em !important;
+}
+
+.inactive .bar {
+  background-color: #333334 !important;
+}
