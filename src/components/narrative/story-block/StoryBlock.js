@@ -26,27 +26,22 @@ function StoryBlock(props) {
             }
           </Grid.Column>
           <Grid.Column>
-            { props.story === 0 &&
+            { props.story === 0 && // temp and co2
               <Container>
                 <Image className="earth-bad" src={earthBad} alt="Red earth" fluid centered/>
               </Container>
             }
-            { props.story === 1 &&
+            { props.story === 1 && // sea levels and ice caps
               <p>INSERT GRAPH</p>
             }
-            { props.story === 2 &&
+            { props.story === 2 && // greenhouse gases
               <Sheet type="emissions"/>
             }
             { props.story === 3 &&
+              // <Sheet type="offsets"/>
               <p>INSERT GRAPH</p>
             }
             { props.story === 4 &&
-              <p>INSERT GRAPH</p>
-            }
-            { props.story === 5 &&
-              <Sheet type="offsets"/>
-            }
-            { props.story === 6 &&
               <p>INSERT GRAPH</p>
             }
           </Grid.Column>

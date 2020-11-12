@@ -6,6 +6,8 @@ import StoryBlock from "./story-block/StoryBlock";
 import './Narrative.css';
 import earth from '../../img/earth.png';
 
+import text from '../../data/narrative/text.json';
+
 function Narrative() {
   const [modalOpen, setModalOpen] = useState(true);
   const [currentStory, setCurrentStory] = useState(-1);
@@ -13,7 +15,7 @@ function Narrative() {
   const storyBlocks = [];
 
   // Set up each story block. Needed for the animation between blocks to work.
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i < text.length; i++) {
     storyBlocks.push (
       <Transition visible={visible[i]} animation='fade' duration={500} key={i}>
         <Container>
@@ -30,7 +32,7 @@ function Narrative() {
       visible[currentStory - 1] = true;
       setCurrentStory(currentStory - 1);
     }
-    if (event.key === "ArrowRight" && currentStory < 6) {
+    if (event.key === "ArrowRight" && currentStory < text.length - 1) {
       visible[currentStory] = false;
       visible[currentStory + 1] = true;
       setCurrentStory(currentStory + 1);
@@ -60,11 +62,11 @@ function Narrative() {
               <Icon name='keyboard' />
               <Icon name='arrow right' />
             </div>
-            <p className="modal-title">Navigate with Your Keyboard</p>
+            <p className="modal-title">Navigate with your keyboard</p>
           </Header>
           <Modal.Content>
             <p className="modal-content">
-              Use the left and right arrow keys on your keyboard to move through the viz.
+              Use the left and right arrow keys on your keyboard to move through the visualizations.
             </p>
           </Modal.Content>
           <Modal.Actions>
@@ -75,7 +77,7 @@ function Narrative() {
         </Modal>
         <Transition visible={currentStory < 0} animation='fade' duration={500}>
           <Container className="title-block">
-            <h1>Our global ecosystem <span id='resiliently'>resiliently</span> supports life on earth. But...</h1>
+            <h1>Our global ecosystem <span id='resiliently'>resiliently</span> supports life on earth, but...</h1>
             <img src={earth} alt='Earth'/>
           </Container>
         </Transition>
@@ -88,7 +90,8 @@ function Narrative() {
           </Container>
         </Transition>
       </Container>
-      { currentStory < 6
+      { currentStory < text.length - 1
+        // TODO rename the button text... and avoid use of "viz" spelling
         ? <a href="#/interactive" className="skip-viz">Skip to Interactive Viz <Icon name="arrow right"/></a>
         : <Button href="#/interactive" className="go-viz" positive>Go to Interactive Viz <Icon name="arrow right"/></Button>
       }
