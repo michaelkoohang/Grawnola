@@ -3,6 +3,7 @@ import './StoryBlock.css';
 import text from '../../../data/narrative/text.json';
 import {Container, Grid, Icon, Image} from "semantic-ui-react";
 import Sheet from "./graphic/sheet/Sheet";
+import EmissionsTotals from "./graphic/emissions/EmissionsTotals";
 import earthBad from '../../../img/earth-bad.png';
 
 function StoryBlock(props) {
@@ -35,7 +36,8 @@ function StoryBlock(props) {
               <p>INSERT GRAPH</p>
             }
             { props.story === 2 && // greenhouse gases
-              <Sheet type="emissions"/>
+              <EmissionsTotals />
+              // <Sheet type="emissions"/>
             }
             { props.story === 3 &&
               // <Sheet type="offsets"/>

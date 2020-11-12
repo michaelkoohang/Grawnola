@@ -1,0 +1,60 @@
+{
+  "children": [
+    {
+      "sector": "Transportation",
+      "sections": [
+        {
+          "sector": "Light-duty vehicles",
+          "percent": "59"
+        },
+        {
+          "sector": "Medium- and heavy-duty trucks",
+          "percent": "23"
+        },
+        {
+          "sector": "Aircraft",
+          "percent": "9"
+        },
+        {
+          "sector": "Other",
+          "percent": "5"
+        },
+        {
+          "sector": "Rail",
+          "percent": "2"
+        },
+        {
+          "sector": "Ships and boats",
+          "percent": "2"
+        }
+      ],
+      "percent": "28",
+      "value": "6676.65"
+    },
+    {
+      "sector": "Electricity",
+      "percent": "27",
+      "value": "1882.56"
+    },
+    {
+      "sector": "Industry",
+      "percent": "22",
+      "value": "1798.93"
+    },
+    {
+      "sector": "Agriculture",
+      "percent": "10",
+      "value": "1470.74"
+    },
+    {
+      "sector": "Commercial",
+      "percent": "7",
+      "value": "658.56"
+    },
+    {
+      "sector": "Residential",
+      "percent": "6",
+      "value": "375.92"
+    }
+  ]
+}
