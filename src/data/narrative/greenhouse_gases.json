@@ -1,14 +1,17 @@
 [
   {
     "name": "Carbon dioxide",
+    "formula": "CO2",
     "value": 81
   },
   {
     "name": "Methane",
+    "formula": "CH4",
     "value": 10
   },
   {
     "name": "Nitrous oxide",
+    "formula": "N2O",
     "value": 7
   },
   {

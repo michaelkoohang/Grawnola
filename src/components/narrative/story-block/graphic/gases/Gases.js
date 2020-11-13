@@ -7,9 +7,9 @@ import {select} from 'd3-selection';
 
 const margin = {top: 10, right: 10, bottom: 10, left: 10};
 // TODO pass width/height and radii as props
-const width = 300;
-const height = 300;
-const innerRadius = 100;
+const width = 320;
+const height = 320;
+const innerRadius = 80;
 const outerRadius = Math.min(width, height) / 2 - margin.top;
 
 function Gases(props) {
@@ -41,15 +41,63 @@ function Gases(props) {
         .padAngle(0)
         .value(d => d.value);
 
-      const doughnut = svg
+      const donut = svg
         .selectAll()
         .data(pieGenerator(data))
         .enter();
 
-      doughnut.append('path')
+      donut.append('path')
         .attr('d', arcGenerator)
         .style('fill', (d, i) => colorScale(i))
         .style('stroke-width', 0);
+      // TODO add interactivity so that when you hover different sections of the
+      // donut, you can preview info on each of the greenhouse gases
+
+      // Add labels
+      donut.append('text')
+        .attr('text-anchor', 'middle')
+        .attr('aligment-baseline', 'middle')
+        .text(d => `${d.data.formula || d.data.name} (${d.value}%)`)
+        .style('fill', 'white')
+        .attr('transform', (d) => {
+          const [x, y] = arcGenerator.centroid(d);
+          return `translate(${x}, ${y})`;
+        });
+
+      // NOTE if you comment out the code for the labels above,
+      // and instead use the code that's commented out below, you get labels
+      // with fancy lines outside of the donut.
+      // TODO figure out how to size the svg properly so that the labels
+      // are not cut out of the svg bounds
+      // const arcLabel = arc()
+      //   .innerRadius(outerRadius * 0.9)
+      //   .outerRadius(outerRadius * 0.9);
+
+      // donut.append('polyline')
+      //   .attr('stroke', 'white')
+      //   .style('fill', 'none')
+      //   .attr('stroke-width', 1)
+      //   .attr('points', (d) => {
+      //     const posA = arcGenerator.centroid(d);
+      //     const posB = arcLabel.centroid(d);
+      //     const posC = arcLabel.centroid(d);
+      //     const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2
+      //     posC[0] = outerRadius * 0.88 * (midAngle < Math.PI ? 1 : -1);
+      //     return [posA, posB, posC];
+      //   });
+      // donut.append('text')
+      //   .text(d => d.data.name)
+      //   .attr('transform', (d) => {
+      //     const pos = arcLabel.centroid(d);
+      //     const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+      //     pos[0] = outerRadius * 0.9 * (midAngle < Math.PI ? 1 : -1);
+      //     return `translate(${pos})`;
+      //   })
+      //   .style('text-anchor', (d) => {
+      //     const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+      //     return (midAngle < Math.PI ? 'start' : 'end');
+      //   })
+      //   .style('fill', 'white');
     }
   },
   [data, d3Container.current]);
