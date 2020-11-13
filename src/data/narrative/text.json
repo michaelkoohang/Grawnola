@@ -32,12 +32,17 @@
   },
   {
     "heading": "How did we get here?",
-    "subtext": "The top 4 most common greenhouse gases are: carbon dioxide (CO2), methane (CH4), nitrous oxide (N2O), and fluorinated gases. The Earth has a budget for the amount of greenhouse gases that it can handle. If too many gases build up, they trap more of the sun’s heat within the atmosphere, and prevent this heat from escaping into space.",
+    "subtext": "The most common greenhouse gases are: carbon dioxide (CO2), methane (CH4), nitrous oxide (N2O), and fluorinated gases. The Earth has a budget for the amount of greenhouse gases that it can handle. If too many gases build up, they trap more of the sun’s heat within the atmosphere",
+    "facts": []
+  },
+  {
+    "heading": "Why do we focus on CO2?",
+    "subtext": "When the concentration of greenhouse gases in the atmosphere increases above the Earth's budget, the trapped heat causes the global temperature to rise. Human activity has caused a steady increase in CO2 in the atmosphere, especially after the industrial revolution.",
     "facts": []
   },
   {
     "heading": "How do we stay in budget?",
-    "subtext": "When the concentration of greenhouse gases in the atmosphere increases above certain point, the trapped heat causes the global temperature to rise. We can try to stay on budget by limiting our own emissions of CO2. Here are the greenhouse gas offset rates for swaps you can make to save our planet. Yet we can only stay on budget if everybody  limits their emissions globally. Check out the power of our collective impact on the next slides!",
+    "subtext": "We can try to stay on budget by limiting our own emissions of CO2. Here are the greenhouse gas offset rates for swaps you can make to save our planet. Yet we can only stay on budget if everybody limits their emissions globally. Check out the power of our collective impact on the next slides!",
     "facts": []
   },
   {

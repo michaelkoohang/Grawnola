@@ -39,11 +39,14 @@ function StoryBlock(props) {
               <EmissionsTotals />
               // <Sheet type="emissions"/>
             }
-            { props.story === 3 &&
+            { props.story === 3 && // why do we focus on co2?
               // <Sheet type="offsets"/>
               <p>INSERT GRAPH</p>
             }
-            { props.story === 4 &&
+            { props.story === 4 && // how do we stay in budget?
+              <Sectors data={sectors} />
+            }
+            { props.story === 5 && // Paris Climate Accord
               <p>INSERT GRAPH</p>
             }
           </Grid.Column>
