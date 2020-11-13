@@ -1,10 +1,15 @@
 import React from 'react';
-import './StoryBlock.css';
-import text from '../../../data/narrative/text.json';
 import {Container, Grid, Icon, Image} from "semantic-ui-react";
+
+import './StoryBlock.css';
+import Sectors from "./graphic/sectors/Sectors";
+import Gases from "./graphic/gases/Gases";
 import Sheet from "./graphic/sheet/Sheet";
-import EmissionsTotals from "./graphic/emissions/EmissionsTotals";
+
 import earthBad from '../../../img/earth-bad.png';
+import greenhouse_gases from '../../../data/narrative/greenhouse_gases.json';
+import sectors from '../../../data/narrative/sectors.json';
+import text from '../../../data/narrative/text.json';
 
 function StoryBlock(props) {
 
@@ -35,9 +40,8 @@ function StoryBlock(props) {
             { props.story === 1 && // sea levels and ice caps
               <p>INSERT GRAPH</p>
             }
-            { props.story === 2 && // greenhouse gases
-              <EmissionsTotals />
-              // <Sheet type="emissions"/>
+            { props.story === 2 && // how did we get here? -- greenhouse gases
+              <Gases data={greenhouse_gases} />
             }
             { props.story === 3 && // why do we focus on co2?
               // <Sheet type="offsets"/>
