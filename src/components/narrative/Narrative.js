@@ -1,5 +1,4 @@
 import {Button, Container, Header, Icon, Modal, Transition} from "semantic-ui-react";
-import Footer from '../footer/Footer';
 import React, {useState, useEffect} from 'react';
 import StoryProgress from "./story-progress/StoryProgress";
 import StoryBlock from "./story-block/StoryBlock";
@@ -95,7 +94,6 @@ function Narrative() {
         ? <a href="#/interactive" className="skip-viz">Skip to Interactive Viz <Icon name="arrow right"/></a>
         : <Button href="#/interactive" className="go-viz" positive>Go to Interactive Viz <Icon name="arrow right"/></Button>
       }
-      <Footer />
     </div>
   );
 }

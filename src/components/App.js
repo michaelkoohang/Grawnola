@@ -3,6 +3,7 @@ import Interactive from './interactive/Interactive';
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import './App.css';
+import Footer from "./footer/Footer";
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
         <Route exact path='/' component={Narrative}/>
         <Route exact path='/interactive' component={Interactive}/>
       </Switch>
+      <Footer />
     </div>
   );
 }

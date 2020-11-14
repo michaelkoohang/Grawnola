@@ -1,12 +1,13 @@
 import React from 'react';
 import './Global.css';
+import {Segment} from "semantic-ui-react";
 
 function Global() {
 
   return (
-    <div className="global">
+    <Segment className="global">
 
-    </div>
+    </Segment>
   );
 }
 

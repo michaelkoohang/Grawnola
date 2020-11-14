@@ -1,0 +1,22 @@
+[
+  {
+    "key": 1,
+    "text": "Ship",
+    "value": "ship"
+  },
+  {
+    "key": 2,
+    "text": "Train",
+    "value": "train"
+  },
+  {
+    "key": 3,
+    "text": "Plane",
+    "value": "plane"
+  },
+  {
+    "key": 4,
+    "text": "Truck",
+    "value": "truck"
+  }
+]

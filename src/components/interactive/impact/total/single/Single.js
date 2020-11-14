@@ -1,12 +1,13 @@
 import React from 'react';
 import './Single.css';
+import {Segment} from "semantic-ui-react";
 
 function Single() {
 
   return (
-    <div className="single">
+    <Segment className="single">
 
-    </div>
+    </Segment>
   );
 }
 

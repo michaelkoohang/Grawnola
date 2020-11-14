@@ -1,12 +1,13 @@
 import React from 'react';
+import {Segment} from "semantic-ui-react";
 import './Temp.css';
 
 function Temp() {
 
   return (
-    <div className="temp">
-
-    </div>
+    <Segment className="temp">
+      <p>Temp</p>
+    </Segment>
   );
 }
 

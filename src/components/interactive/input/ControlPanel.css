@@ -1,0 +1,116 @@
+.input-panel {
+  padding: 0 2em !important;
+  overflow-y: scroll;
+  background-color: white;
+  border-radius: 5px;
+  color: black;
+  height: calc(100vh - 200px);
+}
+
+.offset {
+  padding-bottom: 0.5em;
+  display: block !important;
+}
+
+/* Emissions */
+
+.emissions {
+  padding-bottom: 2em;
+}
+
+.emissions:nth-child(1) {
+  padding-top: 2em;
+}
+
+.emissions-header {
+  padding-bottom: 0.5em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.emissions-title {
+  flex: 1;
+  margin: 0;
+}
+
+.emissions-value {
+  margin-top: 0;
+  color: #3785f7;
+}
+
+/* Labels */
+
+.flight-label {
+  width: 100%;
+  margin-bottom: 1em !important;
+  margin-right: 0 !important;
+}
+
+.flight-arrow {
+  padding-left: 2px;
+}
+
+/* Slider */
+
+.rc-slider {
+  margin-left: 0.5em;
+}
+
+.rc-slider-track {
+  background-color: #3785f7;
+}
+
+.rc-slider-handle {
+  border-color: #3785f7;
+}
+
+.rc-slider-handle:focus {
+  border-color: #3785f7;
+}
+
+.rc-slider-handle:hover {
+  border-color: #3785f7;
+}
+
+.rc-slider-handle:active {
+  border-color: #3785f7;
+}
+
+/* Plant a tree */
+
+.offset-tree {
+  padding-top: 0.5em;
+}
+
+.offset-tree-header {
+  padding-bottom: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.offset-tree-label {
+  flex: 1;
+  margin: 0;
+}
+
+.offset-tree-value {
+  margin: 0;
+}
+
+
+/* Modals */
+
+.modal {
+  color: black;
+}
+
+.modal-header {
+  padding-bottom: 1em !important;
+}
+
+.modal .item {
+  margin-bottom: 0.2em;
+}

@@ -21,6 +21,7 @@
     "d3-transition": "^2.0.0",
     "lodash": "^4.17.20",
     "ngrok": "^3.3.0",
+    "rc-slider": "^9.6.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",

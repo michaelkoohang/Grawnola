@@ -3,8 +3,7 @@
   height: 100px;
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
 }
 
 .footer .segment {
@@ -14,10 +13,6 @@
 
 .footer .menu {
   padding-top: 1em;
-}
-
-.footer .item {
-  font-family: 'Helvetica Neue', sans-serif;
 }
 
 #grawnola {
