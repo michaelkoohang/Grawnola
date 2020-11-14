@@ -14,24 +14,10 @@ function FlightsModal(props) {
   function addFlight() {
     if (toDestination.length > 0 && fromDestination.length > 0) {
       setErrorHidden(true);
-      let flight;
-      if (oneWayRoundTrip === 0) {
-        flight = {
-          "type": "flight",
-          "passengers": 1,
-          "legs": [
-            {"departure_airport": fromDestination, "destination_airport": toDestination},
-          ]
-        };
-      } else {
-        flight = {
-          "type": "flight",
-          "passengers": 1,
-          "legs": [
-            {"departure_airport": fromDestination, "destination_airport": toDestination},
-            {"departure_airport": toDestination, "destination_airport": fromDestination}
-          ]
-        };
+      let flight = {
+        "to": toDestination,
+        "from": fromDestination,
+        "oneWayRound": oneWayRoundTrip ? "Round Trip" : "One Way"
       }
       props.toggleFlightsModal(false);
       setToDestination("");
@@ -56,7 +42,7 @@ function FlightsModal(props) {
       size="tiny"
       className="flight-modal"
     >
-      <Header className="modal-header" icon="plane" content="Add Flight"/>
+      <Header className="modal-header" icon="plane" color='blue' content="Add Flight"/>
       <Modal.Content>
         <Grid>
           <Grid.Row>

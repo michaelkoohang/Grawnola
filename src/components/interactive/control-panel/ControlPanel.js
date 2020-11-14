@@ -24,12 +24,14 @@ function ControlPanel(props) {
   // Modal logic
   function toggleFlightsModal(hidden) { setOpenFlights(hidden); }
   function updateFlights(flight) { props.updateFlights(flight); }
+  function deleteFlight(flight) { props.deleteFlight(flight); }
 
   function toggleCarsModal(hidden) { setOpenCars(hidden); }
   function updateCars(car) { props.updateCars(car); }
 
   function toggleShippingModal(hidden) { setOpenShipping(hidden); }
   function updateShipping(item) { props.updateShipping(item); }
+  function deleteShipping(flight) { props.deleteShipping(flight); }
 
   return (
     <div className="input-panel">
@@ -48,13 +50,17 @@ function ControlPanel(props) {
       </div>
       <div className="emissions">
         <h5>Flights <Icon name="plane" color="blue" /></h5>
-        { props.flights.map((flight) => (
-          <Button as='div' labelPosition='left' className='flight-label' fluid>
-            <Label as='div' basic fluid>
-              2,048
+        { props.flights.map((flight, index) => (
+          <Button as='div' labelPosition='left' className='flight-label' key={index}>
+            <Label as='div' basic>
+              <p>{flight.from.toUpperCase()}
+                <Icon name='right arrow' className='flight-arrow'/>
+                {flight.to.toUpperCase()} ({flight.oneWayRound})
+              </p>
             </Label>
-            <Button fluid>
-              <Icon name='delete' />
+            <Button animated='vertical' color='red' onClick={() => deleteFlight(flight)}>
+              <Button.Content visible><Icon name='delete' /></Button.Content>
+              <Button.Content hidden>Delete</Button.Content>
             </Button>
           </Button>
         ))
@@ -68,7 +74,18 @@ function ControlPanel(props) {
       </div>
       <div className="emissions">
         <h5>Shipping <Icon name="box" color="brown" /></h5>
-        {props.shipping}
+        { props.shipping.map((shipment, index) => (
+          <Button as='div' labelPosition='left' className='flight-label' key={index}>
+            <Label as='div' basic>
+              <p>{shipment.weight} lbs | {shipment.distance} mi | {shipment.method}</p>
+            </Label>
+            <Button animated='vertical' color='red' onClick={() => deleteShipping(shipment)}>
+              <Button.Content visible><Icon name='delete' /></Button.Content>
+              <Button.Content hidden>Delete</Button.Content>
+            </Button>
+          </Button>
+        ))
+        }
         <Button size="mini" onClick={() => setOpenShipping(true)}><Icon name="add" />Add package</Button>
       </div>
       <div className="emissions">
