@@ -5,6 +5,8 @@ import {interpolateCool} from 'd3-scale-chromatic';
 import {scaleSequential} from 'd3-scale';
 import {select} from 'd3-selection';
 
+import '../SvgStyles.css';
+
 const margin = {top: 10, right: 10, bottom: 10, left: 10};
 // TODO pass width/height and radii as props
 const width = 320;
