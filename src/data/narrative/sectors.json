@@ -7,76 +7,65 @@
         {
           "colname": "level3",
           "name": "Passenger cars and small trucks",
-          "value": 59,
-          "percent": 59
+          "value": 59
         },
         {
           "colname": "level3",
           "name": "Medium- and heavy-duty trucks",
-          "value": 23,
-          "percent": 23
+          "value": 23
         },
         {
           "colname": "level3",
           "name": "Aircraft",
-          "value": 9,
-          "percent": 9
+          "value": 9
         },
         {
           "colname": "level3",
           "name": "Other",
-          "value": 5,
-          "percent": 5
+          "value": 5
         },
         {
           "colname": "level3",
           "name": "Rail",
-          "value": 2,
-          "percent": 2
+          "value": 2
         },
         {
           "colname": "level3",
           "name": "Ships and boats",
-          "value": 2,
-          "percent": 2
+          "value": 2
         }
       ],
-      "percent": 28,
-      "value": 6676.65
+      "value": 28
     },
     {
       "colname": "level2",
       "name": "Electricity",
       "children": [],
-      "percent": 27,
-      "value": 1882.56
+      "value": 27
     },
     {
       "colname": "level2",
       "name": "Industry",
       "children": [],
-      "percent": 22,
-      "value": 1798.93
+      "value": 22
     },
     {
       "colname": "level2",
       "name": "Agriculture",
       "children": [],
-      "percent": 10,
-      "value": 1470.74
+      "value": 10
     },
     {
       "colname": "level2",
       "name": "Commercial",
       "children": [],
-      "percent": 7,
-      "value": 658.56
+      "value": 7
     },
     {
       "colname": "level2",
       "name": "Residential",
-      "percent": 6,
-      "value": 375.92
+      "value": 6
     }
-  ]
+  ],
+  "name": "Sectors"
 }
