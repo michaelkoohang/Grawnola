@@ -5,7 +5,7 @@ function Sea() {
 
   return (
     <div className="sea">
-
+      <p>Sea</p>
     </div>
   );
 }

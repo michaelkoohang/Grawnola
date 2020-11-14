@@ -1,12 +1,13 @@
 import React from 'react';
 import './Ice.css';
+import {Segment} from "semantic-ui-react";
 
 function Ice() {
 
   return (
-    <div className="ice">
-
-    </div>
+    <Segment className="ice">
+      <p>Ice</p>
+    </Segment>
   );
 }
 
