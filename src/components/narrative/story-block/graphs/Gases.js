@@ -62,13 +62,27 @@ function Gases(props) {
       donut.append('text')
         .attr('text-anchor', 'middle')
         .attr('aligment-baseline', 'middle')
-        .text(d => `${d.data.formula || d.data.name} (${d.value}%)`)
+        .attr('font-size', '14px')
+        .text(d => d.data.formula || d.data.name)
         .style('fill', 'white')
         .attr('transform', (d) => {
           const [x, y] = arcGenerator.centroid(d);
           return (d.data.name === 'Fluorinated gases')
             ? `translate(${x}, ${y - 15})`
             : `translate(${x}, ${y})`;
+        });
+
+      donut.append('text')
+        .attr('text-anchor', 'middle')
+        .attr('aligment-baseline', 'middle')
+        .attr('font-size', '11px')
+        .text(d => `(${d.value}%)`)
+        .style('fill', 'white')
+        .attr('transform', (d) => {
+          const [x, y] = arcGenerator.centroid(d);
+          return (d.data.name === 'Fluorinated gases')
+            ? `translate(${x}, ${y})`
+            : `translate(${x}, ${y + 11})`;
         });
 
       // NOTE if you comment out the code for the labels above,
