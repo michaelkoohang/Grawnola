@@ -15,7 +15,6 @@ const outerRadius = Math.min(width, height) / 2 - margin.top;
 function Gases(props) {
   const d3Container = useRef(null);
   const {data} = props;
-  console.info('@Gases data', data);
 
   const colorScale = scaleSequential()
     .interpolator(interpolateCool)
@@ -25,13 +24,17 @@ function Gases(props) {
     if (data && d3Container.current) {
       // remove the old svg
       select(d3Container.current)
-        .select('g')
+        .select('svg')
         .remove();
 
       // create new svg
       const svg = select(d3Container.current)
+        .append('svg')
+        .attr('preserveAspectRatio', 'xMinYMin meet')
+        .attr('viewBox', `0 0 ${width} ${height}`)
+        .classed('svg-content', true)
         .append('g')
-        .attr('transform', `translate(${width / 2}, ${height / 2})`);
+        .attr('transform', `translate(${(width - 2 * margin.right) / 2}, ${(height - 2 * margin.top) / 2})`);
 
       const arcGenerator = arc()
         .innerRadius(innerRadius)
@@ -103,11 +106,7 @@ function Gases(props) {
   [data, d3Container.current]);
 
   return (
-    <svg
-      className="gases"
-      height={height}
-      ref={d3Container}
-      width={width} />
+    <div id="container" className="svg-container" ref={d3Container} />
   );
 }
 
