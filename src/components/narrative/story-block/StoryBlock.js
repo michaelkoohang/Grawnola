@@ -43,13 +43,15 @@ function StoryBlock(props) {
               <Gases data={greenhouse_gases} />
             }
             { props.story === 3 && // why do we focus on co2?
-              // <Sheet type="offsets"/>
+              <p>Matrix/table</p>
+            }
+            { props.story === 4 && // why do we focus on individual action?
               <Sectors data={sectors} />
             }
-            { props.story === 4 && // how do we stay in budget?
+            { props.story === 5 && // how do we stay in budget?
               <p>Simple bar graph of "net emissions flow"</p>
             }
-            { props.story === 5 && // Paris Climate Accord
+            { props.story === 6 && // Paris Climate Accord
               <p>Simple line graph of Paris Climate Accord</p>
             }
           </Grid.Column>
