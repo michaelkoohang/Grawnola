@@ -51,7 +51,7 @@ function Interactive() {
     setFlights(flights.concat([{"from": flight.from, "to": flight.to, "oneWayRound": flight.oneWayRound, "carbon": 100}]))
   }
 
-  function deleteFilght(flight) {
+  function deleteFlight(flight) {
     setFlights(flights.filter(item => item.to !== flight.to && item.from !== flight.from && item.oneWayRound !== flight.oneWayRound))
   }
 
@@ -162,7 +162,7 @@ function Interactive() {
               updateElectricity={updateElectricity}
               flights={flights}
               updateFlights={updateFlights}
-              deleteFlight={deleteFilght}
+              deleteFlight={deleteFlight}
               cars={cars}
               updateCars={updateCars}
               shipping={shipping}
