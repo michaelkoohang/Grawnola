@@ -4,6 +4,8 @@ import {hierarchy, treemap} from 'd3-hierarchy';
 import {scaleLinear, scaleOrdinal} from 'd3-scale';
 import {filter, map} from 'lodash';
 
+import './SvgStyles.css';
+
 // set the dimensions and margins of the graph
 const margin = {top: 10, right: 10, bottom: 10, left: 10};
 // TODO pass width and height as props

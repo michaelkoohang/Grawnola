@@ -2,9 +2,8 @@ import React from 'react';
 import {Container, Grid, Icon, Image} from "semantic-ui-react";
 
 import './StoryBlock.css';
-import Sectors from "./graphic/sectors/Sectors";
-import Gases from "./graphic/gases/Gases";
-import Sheet from "./graphic/sheet/Sheet";
+import Sectors from "./graphs/Sectors";
+import Gases from "./graphs/Gases";
 
 import earthBad from '../../../img/earth-bad.png';
 import greenhouse_gases from '../../../data/narrative/greenhouse_gases.json';
