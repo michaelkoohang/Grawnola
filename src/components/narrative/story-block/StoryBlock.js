@@ -1,16 +1,23 @@
-import React from 'react';
-import {Container, Grid, Icon, Image} from "semantic-ui-react";
+import React, {useState} from 'react';
+import {Container, Grid, Icon, Image, Button} from "semantic-ui-react";
 
 import './StoryBlock.css';
 import Sectors from "./graphs/Sectors";
 import Gases from "./graphs/Gases";
+import PolarIce from "./graphs/PolarIce";
+import SeaLevel from "./graphs/SeaLevel";
 
 import earthBad from '../../../img/earth-bad.png';
 import greenhouse_gases from '../../../data/narrative/greenhouse_gases.json';
 import sectors from '../../../data/narrative/sectors.json';
 import text from '../../../data/narrative/text.json';
+import sea_level from '../../../data/narrative/sea_level.json';
+import polar_ice from '../../../data/narrative/polar_ice.json';
+
 
 function StoryBlock(props) {
+
+  const [seaIceActive, setSeaIceActive] = useState(0);
 
   return (
     <div className="story-block">
@@ -37,7 +44,17 @@ function StoryBlock(props) {
               </Container>
             }
             { props.story === 1 && // sea levels and ice caps
-              <p>INSERT GRAPH</p>
+              <Container className='ice-sea-container'>
+                <Button.Group>
+                  <Button className={seaIceActive ? "active" : "primary"} onClick={() => setSeaIceActive(0)}>Sea Level</Button>
+                  <Button.Or />
+                  <Button className={seaIceActive ? "primary" : "active"} onClick={() => setSeaIceActive(1)}>Ice Caps</Button>
+                </Button.Group>
+                { seaIceActive
+                  ? <PolarIce data={polar_ice} />
+                  : <SeaLevel data={sea_level} />
+                }
+              </Container>
             }
             { props.story === 2 && // how did we get here? -- greenhouse gases
               <Gases data={greenhouse_gases} />

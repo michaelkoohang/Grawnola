@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {Grid} from "semantic-ui-react";
 import './Interactive.css';
-import Single from "./impact/total/single/Single";
-import Global from "./impact/total/global/Global";
+import Single from "./impact/carbon/single/Single";
+import Global from "./impact/carbon/global/Global";
 import Temp from '../interactive/impact/planet/temp/Temp';
 import Sea from '../interactive/impact/planet/sea/Sea';
 import Ice from '../interactive/impact/planet/ice/Ice';
-import ControlPanel from "./input/ControlPanel";
+import ControlPanel from "./control-panel/ControlPanel";
 
 function Interactive() {
 
@@ -29,8 +29,30 @@ function Interactive() {
   }
 
   function updateFlights(flight) {
-    console.log(flight);
-    setFlights(flights.concat([{"from": flight.legs[0].departure_airport, "to": flight.legs[0].destination_airport, "type": flight.type}]))
+    let new_flight;
+    if (flight.oneWayRound === 0) {
+      new_flight = {
+        "type": "flight",
+        "passengers": 1,
+        "legs": [
+          {"departure_airport": flight.from, "destination_airport": flight.to},
+        ]
+      };
+    } else {
+      new_flight = {
+        "type": "flight",
+        "passengers": 1,
+        "legs": [
+          {"departure_airport": flight.from, "destination_airport": flight.to},
+          {"departure_airport": flight.to, "destination_airport": flight.from},
+        ]
+      };
+    }
+    setFlights(flights.concat([{"from": flight.from, "to": flight.to, "oneWayRound": flight.oneWayRound, "carbon": 100}]))
+  }
+
+  function deleteFlight(flight) {
+    setFlights(flights.filter(item => item.to !== flight.to && item.from !== flight.from && item.oneWayRound !== flight.oneWayRound))
   }
 
   function updateCars(car) {
@@ -38,7 +60,25 @@ function Interactive() {
   }
 
   function updateShipping(item) {
+    let new_item = {
+      "type": "shipping",
+      "weight_value": item.weight,
+      "weight_unit": "lb",
+      "distance_value": item.distance,
+      "distance_unit": "m",
+      "transport_method": item.method
+    };
     console.log(item);
+    setShipping(shipping.concat([{
+      "weight": item.weight,
+      "distance": item.distance,
+      "method": item.method,
+      "carbon": 100
+    }]))
+  }
+
+  function deleteShipping(shipment) {
+    setShipping(shipping.filter(item => item.weight !== shipment.weight && item.distance !== shipment.distance && item.method !== shipment.method))
   }
 
   function updateOffsets(event, data) {
@@ -89,8 +129,17 @@ function Interactive() {
   }
 
   useEffect(() => {
-
-  }, [people, years, electricity]);
+    console.log(electricity);
+    console.log(people);
+    console.log(years);
+    console.log(flights)
+    console.log(shipping);
+    console.log(vegan);
+    console.log(carFree);
+    console.log(ledBulbs);
+    console.log(trees);
+    console.log("------------------------------")
+  }, [electricity, people, years, flights, shipping, vegan, carFree, ledBulbs, trees]);
 
   return (
     <div className="interactive">
@@ -113,10 +162,12 @@ function Interactive() {
               updateElectricity={updateElectricity}
               flights={flights}
               updateFlights={updateFlights}
+              deleteFlight={deleteFlight}
               cars={cars}
               updateCars={updateCars}
               shipping={shipping}
               updateShipping={updateShipping}
+              deleteShipping={deleteShipping}
               updateOffsets={updateOffsets}
               years={years}
               updateYears={updateYears}

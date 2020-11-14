@@ -35,3 +35,11 @@
   padding: 0 0 3em 3em !important;
   max-width: 400px !important;
 }
+
+.ice-sea-container {
+  text-align: center;
+}
+
+.ice-sea-container .button {
+  margin-bottom: 2em !important;
+}

@@ -18,12 +18,9 @@ function ShippingModal(props) {
       if (new_weight > 0 && new_distance > 0) {
         setErrorHidden(true);
         let item = {
-          "type": "shipping",
-          "weight_value": new_weight,
-          "weight_unit": "lb",
-          "distance_value": new_distance,
-          "distance_unit": "m",
-          "transport_method": method
+          "weight": new_weight,
+          "distance": new_distance,
+          "method": method
         };
         props.toggleShippingModal(false);
         setWeight(0);
@@ -50,7 +47,7 @@ function ShippingModal(props) {
       size="tiny"
       className="shipping-modal"
     >
-      <Header className="modal-header" icon="box" content="Add Package"/>
+      <Header className="modal-header" icon="box" color='brown' content="Add Package"/>
       <Modal.Content>
         <Grid columns={3} widths="equal">
           <Grid.Row>
