@@ -1,5 +1,4 @@
 import React, {useEffect, useRef} from 'react';
-import {Container} from "semantic-ui-react";
 import {select} from 'd3-selection';
 import {scaleTime} from "d3-scale";
 import {extent} from "d3-array";
@@ -8,8 +7,6 @@ import {scaleLinear, scaleOrdinal} from "d3-scale";
 import {max, min} from "d3-array";
 import {line} from "d3-shape";
 import {group} from "d3-array";
-import {interpolate} from "d3-interpolate";
-// import './SvgStyles.css';
 
 // TODO pass width/height and radii as props
 const margin = {top: 0, right: 20, bottom: 60, left: 80},

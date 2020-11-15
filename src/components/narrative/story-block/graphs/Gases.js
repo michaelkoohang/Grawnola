@@ -1,5 +1,4 @@
 import React, {useEffect, useRef} from 'react';
-import {Container} from "semantic-ui-react";
 import {arc, pie} from 'd3-shape';
 import {interpolateCool} from 'd3-scale-chromatic';
 import {scaleSequential} from 'd3-scale';

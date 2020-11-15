@@ -10,18 +10,19 @@ import Paris from './graphs/Paris';
 import PolarIce from './graphs/PolarIce';
 import SeaLevel from './graphs/SeaLevel';
 import Sectors from './graphs/Sectors';
+import Temp from "./graphs/Temp";
 
 import carbon from '../../../data/narrative/carbon.json';
 import emissions from '../../../data/narrative/emissions.json';
 import greenhouse_gases from '../../../data/narrative/greenhouse_gases.json';
+import net_emissions_flow from '../../../data/narrative/net_emissions_flow.json';
 import sectors from '../../../data/narrative/sectors.json';
 import temp from '../../../data/narrative/temp.json';
 import text from '../../../data/narrative/text.json';
 import sea_level from '../../../data/narrative/sea_level.json';
 import polar_ice from '../../../data/narrative/polar_ice.json';
 import paris from '../../../data/narrative/paris.json';
-import Temp from "./graphs/Temp";
-
+import NetEmissionsFlow from "./graphs/NetEmissionsFlow";
 
 function StoryBlock(props) {
 
@@ -83,7 +84,9 @@ function StoryBlock(props) {
               <Sectors data={sectors} />
             }
             { props.story === 5 && // how do we stay in budget?
-              <p>Simple bar graph of "net emissions flow"</p>
+              <Container className='budget-container'>
+                <NetEmissionsFlow data={net_emissions_flow} />
+              </Container>
             }
             { props.story === 6 && // Paris Climate Accord
               <Container className='paris-container'>

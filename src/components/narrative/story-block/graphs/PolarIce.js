@@ -1,5 +1,4 @@
 import React, {useEffect, useRef} from 'react';
-import {Container} from "semantic-ui-react";
 import {select} from 'd3-selection';
 import {scaleTime} from "d3-scale";
 import {extent} from "d3-array";
@@ -7,7 +6,6 @@ import {axisBottom, axisLeft} from "d3-axis";
 import {scaleLinear} from "d3-scale";
 import {max, min} from "d3-array";
 import {line} from "d3-shape";
-// import './SvgStyles.css';
 
 // TODO pass width/height and radii as props
 const margin = {top: 0, right: 0, bottom: 60, left: 80},
@@ -49,16 +47,14 @@ function PolarIce(props) {
         var yAxisLabelText = 'Mass (Gigatonnes)';
         var xAxisLabelText = 'Date';
 
-        select('svg')
-          .append('text')
+        svg.append('text')
           .style('fill', 'white')
-          .attr('transform', `translate(250,390)`)
+          .attr('transform', `translate(180,390)`)
           .text(xAxisLabelText);
 
-        select('svg')
-          .append('text')
+        svg.append('text')
           .style('fill', 'white')
-          .attr('transform', "translate(20,230), rotate(270)")
+          .attr('transform', "translate(-55,230), rotate(270)")
           .text(yAxisLabelText);
 
         // Add the line

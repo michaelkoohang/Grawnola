@@ -1,0 +1,34 @@
+[
+  {
+    "emission": "Cheeseburger",
+    "carbon": 5
+  },
+  {
+    "emission": "Electricity",
+    "carbon": 100
+  },
+  {
+    "emission": "Flight from NYC to LA",
+    "carbon": 150
+  },
+  {
+    "emission": "Driving",
+    "carbon": 120
+  },
+  {
+    "emission": "Plant Based Meal",
+    "carbon": -40
+  },
+  {
+    "emission": "Tree Planted",
+    "carbon": -80
+  },
+  {
+    "emission": "1 less flight per year",
+    "carbon": -180
+  },
+  {
+    "emission": "5-mile bike ride",
+    "carbon": -10
+  }
+]
