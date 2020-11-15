@@ -6,36 +6,42 @@
           "colname": "level3",
           "name": "Passenger cars and small trucks",
           "percent": 59,
+          "subsector": "true",
           "value": 16.52
         },
         {
           "colname": "level3",
           "name": "Medium- and heavy-duty trucks",
           "percent": 23,
+          "subsector": "true",
           "value": 6.44
         },
         {
           "colname": "level3",
           "name": "Aircraft",
           "percent": 9,
+          "subsector": "true",
           "value": 2.52
         },
         {
           "colname": "level3",
           "name": "Other",
           "percent": 5,
+          "subsector": "true",
           "value": 1.4
         },
         {
           "colname": "level3",
           "name": "Rail",
           "percent": 2,
+          "subsector": "true",
           "value": 0.56
         },
         {
           "colname": "level3",
           "name": "Ship",
           "percent": 2,
+          "subsector": "true",
           "value": 0.56
         }
       ],
@@ -93,25 +99,19 @@
           "colname": "level3",
           "name": "Commercial",
           "percent": 7,
+          "subsector": "true",
           "value": 7
-        }
-      ],
-      "name": "Commercial",
-      "percent": 7,
-      "value": 0
-    },
-    {
-      "colname": "level2",
-      "children": [
+        },
         {
           "colname": "level3",
           "name": "Residential",
           "percent": 6,
+          "subsector": "true",
           "value": 6
         }
       ],
-      "name": "Residential",
-      "percent": 6,
+      "name": "Buildings",
+      "percent": 12,
       "value": 0
     }
   ],

@@ -25,17 +25,17 @@ function Sectors(props) {
       const color = scaleOrdinal()
         .domain(map(data.children, sector => sector.name))
         .range([
-          '#99B898', // Transportation
-          '#F67280', // Electricity
-          '#C06C84', // Industry
-          '#6C5B7B', // Agriculture
-          '#355C7D', // Commercial
-          '#F8B195' // Residential
+          '#FF2D55', // Transportation
+          '#64D2FF', // Electricity
+          '#32D74B', // Industry
+          '#FF9F0A', // Agriculture
+          // '#5E5CE6', // Commercial
+          '#BF5AF2' // Residential
         ]);
 
       const opacity = scaleLinear()
         .domain([0, 17]) // NOTE hardcoded values for transportation sub-sectors
-        .range([.7,1]);
+        .range([.6,1]);
 
       // remove the old svg
       select(d3Container.current)
@@ -58,7 +58,7 @@ function Sectors(props) {
 
       treemap()
         .size([width - (margin.right + margin.left), height - (margin.top + margin.bottom)])
-        .paddingTop(28)
+        .paddingTop(30)
         .paddingRight(margin.right)
         .paddingInner(3)
         .round(true)
@@ -99,7 +99,7 @@ function Sectors(props) {
         .append('text')
         .attr('x', d => d.x0 + 5)
         .attr('y', d => d.y0 + 20)
-        .text(d => d.parent && d.parent.data.name === 'Transportation'
+        .text(d => d.data.subsector
           ? d.data.name
           : '')
         .attr('font-size', '18px')
@@ -113,7 +113,7 @@ function Sectors(props) {
         .append('text')
         .attr('x', d => d.x0 + 5)
         .attr('y', d => d.y0 + 40)
-        .text(d => d.parent && d.parent.data.name === 'Transportation'
+        .text(d => d.data.subsector
           ? `${d.data.percent}%`
           : '')
         .attr('font-size', '16px')
@@ -125,9 +125,11 @@ function Sectors(props) {
         .enter()
         .append('text')
         .attr('x', d => d.x0)
-        .attr('y', d => d.y0 + 20)
+        .attr('y', d => d.y0 + 24)
         .text(d => `${d.data.name} (${d.data.percent}%)`)
-        .attr('font-size', '20px')
+        .attr('font-size', d => d.data.name === 'Agriculture'
+          ? '21px'
+          : '24px')
         .attr('fill', d => color(d.data.name));
     }
   },
