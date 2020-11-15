@@ -1,18 +1,86 @@
-[
-  {
-    "icon": "food",
-    "text": "1 hamburger = 45 methane units"
-  },
-  {
-    "icon": "lightbulb outline",
-    "text": "$45 electricity bill per month = 500K CO2 units"
-  },
-  {
-    "icon": "plane",
-    "text": "1 flight from NY to LA = 320K CO2 units"
-  },
-  {
-    "icon": "car",
-    "text": "1 mile drive in Nissan = 340K CO2 units"
-  }
-]
+{
+  "gases": [
+    {
+      "emissions": [
+        {"key": "transport", "value": "true"},
+        {"key": "electricity", "value": "true"},
+        {"key": "industry", "value": "true"},
+        {"key": "business-home", "value": "true"},
+        {"key": "agriculture", "value": "true"},
+        {"key": "lands", "value": "true"},
+        {"key": "waste", "value": "true"}
+      ],
+      "key": "co2",
+      "name": "CO\u2082"
+    },
+    {
+      "emissions": [
+        {"key": "transport"},
+        {"key": "electricity"},
+        {"key": "industry", "value": "true"},
+        {"key": "business-home"},
+        {"key": "agriculture", "value": "true"},
+        {"key": "lands", "value": "true"},
+        {"key": "waste", "value": "true"}
+      ],
+      "key": "ch4",
+      "name": "CH\u2084"
+    },
+    {
+      "emissions": [
+        {"key": "transport", "value": "true"},
+        {"key": "electricity"},
+        {"key": "industry", "value": "true"},
+        {"key": "business-home"},
+        {"key": "agriculture", "value": "true"},
+        {"key": "lands"},
+        {"key": "waste"}
+      ],
+      "key": "n2o",
+      "name": "N\u2082O"
+    },
+    {
+      "emissions": [
+        {"key": "transport", "value": "true"},
+        {"key": "electricity", "value": "true"},
+        {"key": "industry", "value": "true"},
+        {"key": "business-home", "value": "true"},
+        {"key": "agriculture"},
+        {"key": "lands"},
+        {"key": "waste"}
+      ],
+      "key": "fluorinated-gases",
+      "name": "Fluorinated gases"
+    }
+  ],
+  "sectors": [
+    {
+      "key": "transport",
+      "name": "Transportation"
+    },
+    {
+      "key": "electricity",
+      "name": "Electricity"
+    },
+    {
+      "key": "industry",
+      "name": "Industry"
+    },
+    {
+      "key": "business-home",
+      "name": "Commercial/ Residential"
+    },
+    {
+      "key": "agriculture",
+      "name": "Agriculture"
+    },
+    {
+      "key": "lands",
+      "name": "Land Use"
+    },
+    {
+      "key": "waste",
+      "name": "Waste"
+    }
+  ]
+}

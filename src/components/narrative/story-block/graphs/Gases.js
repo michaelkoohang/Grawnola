@@ -7,6 +7,10 @@ import {select} from 'd3-selection';
 
 import './SvgStyles.css';
 
+// SOURCES
+// https://medium.com/@Elijah_Meeks/interactive-applications-with-react-d3-f76f7b3ebc71
+// https://chartio.com/resources/tutorials/how-to-resize-an-svg-when-the-window-is-resized-in-d3-js/
+
 const margin = {top: 10, right: 10, bottom: 10, left: 10};
 // TODO pass width/height and radii as props
 const width = 320;
@@ -36,7 +40,7 @@ function Gases(props) {
         .attr('viewBox', `0 0 ${width} ${height}`)
         .classed('svg-content', true)
         .append('g')
-        .attr('transform', `translate(${(width - 2 * margin.right) / 2}, ${(height - 2 * margin.top) / 2})`);
+        .attr('transform', `translate(${width / 2}, ${height / 2})`);
 
       const arcGenerator = arc()
         .innerRadius(innerRadius)
@@ -82,7 +86,7 @@ function Gases(props) {
           const [x, y] = arcGenerator.centroid(d);
           return (d.data.name === 'Fluorinated gases')
             ? `translate(${x}, ${y})`
-            : `translate(${x}, ${y + 11})`;
+            : `translate(${x}, ${y + 13})`;
         });
 
       // NOTE if you comment out the code for the labels above,

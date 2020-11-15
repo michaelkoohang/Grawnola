@@ -1,7 +1,7 @@
 [
   {
     "icon": "tree",
-    "text": "1 tree planted = 2,500 CO2 units offset"
+    "text": "1 tree planted = 2,500 CO\u2082 units offset"
   },
   {
     "icon": "leaf",
@@ -9,10 +9,10 @@
   },
   {
     "icon": "paper plane",
-    "text": "1 less flight per year = 4,500K CO2 units offset"
+    "text": "1 less flight per year = 4,500K CO\u2082 units offset"
   },
   {
     "icon": "bicycle",
-    "text": "5-mile bike ride = 4500K CO2 units offset"
+    "text": "5-mile bike ride = 4500K CO\u2082 units offset"
   }
 ]

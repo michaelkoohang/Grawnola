@@ -6,6 +6,10 @@ import {filter, map} from 'lodash';
 
 import './SvgStyles.css';
 
+// SOURCES
+// https://www.d3-graph-gallery.com/graph/treemap_custom.html
+// https://www.pluralsight.com/guides/d3-treemap-in-react
+
 // set the dimensions and margins of the graph
 const margin = {top: 10, right: 10, bottom: 10, left: 10};
 // TODO pass width and height as props

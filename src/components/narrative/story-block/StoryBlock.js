@@ -2,12 +2,15 @@ import React, {useState} from 'react';
 import {Container, Grid, Icon, Image, Button} from "semantic-ui-react";
 
 import './StoryBlock.css';
-import Sectors from "./graphs/Sectors";
-import Gases from "./graphs/Gases";
-import PolarIce from "./graphs/PolarIce";
-import SeaLevel from "./graphs/SeaLevel";
-import Paris from "./graphs/Paris";
 
+import Emissions from './graphs/Emissions';
+import Gases from './graphs/Gases';
+import Paris from './graphs/Paris';
+import PolarIce from './graphs/PolarIce';
+import SeaLevel from './graphs/SeaLevel';
+import Sectors from './graphs/Sectors';
+
+import emissions from '../../../data/narrative/emissions.json';
 import earthBad from '../../../img/earth-bad.png';
 import greenhouse_gases from '../../../data/narrative/greenhouse_gases.json';
 import sectors from '../../../data/narrative/sectors.json';
@@ -62,7 +65,7 @@ function StoryBlock(props) {
               <Gases data={greenhouse_gases} />
             }
             { props.story === 3 && // why do we focus on co2?
-              <p>Matrix/table</p>
+              <Emissions data={emissions} />
             }
             { props.story === 4 && // why do we focus on individual action?
               <Sectors data={sectors} />
