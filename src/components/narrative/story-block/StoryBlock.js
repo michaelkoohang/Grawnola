@@ -3,6 +3,7 @@ import {Container, Grid, Icon, Image, Button} from "semantic-ui-react";
 
 import './StoryBlock.css';
 
+import Carbon from "./graphs/Carbon";
 import Emissions from './graphs/Emissions';
 import Gases from './graphs/Gases';
 import Paris from './graphs/Paris';
@@ -10,18 +11,21 @@ import PolarIce from './graphs/PolarIce';
 import SeaLevel from './graphs/SeaLevel';
 import Sectors from './graphs/Sectors';
 
+import carbon from '../../../data/narrative/carbon.json';
 import emissions from '../../../data/narrative/emissions.json';
-import earthBad from '../../../img/earth-bad.png';
 import greenhouse_gases from '../../../data/narrative/greenhouse_gases.json';
 import sectors from '../../../data/narrative/sectors.json';
+import temp from '../../../data/narrative/temp.json';
 import text from '../../../data/narrative/text.json';
 import sea_level from '../../../data/narrative/sea_level.json';
 import polar_ice from '../../../data/narrative/polar_ice.json';
 import paris from '../../../data/narrative/paris.json';
+import Temp from "./graphs/Temp";
 
 
 function StoryBlock(props) {
 
+  const [tempCarbonActive, setTempCarbonActive] = useState(0);
   const [seaIceActive, setSeaIceActive] = useState(0);
 
   return (
@@ -44,8 +48,16 @@ function StoryBlock(props) {
           </Grid.Column>
           <Grid.Column>
             { props.story === 0 && // temp and co2
-              <Container>
-                <Image className="earth-bad" src={earthBad} alt="Red earth" fluid centered/>
+              <Container className='temp-carbon-container'>
+                <Button.Group>
+                  <Button className={tempCarbonActive ? "active" : "negative"} onClick={() => setTempCarbonActive(0)}>Temperature</Button>
+                  <Button.Or />
+                  <Button className={tempCarbonActive ? "positive" : "active"} onClick={() => setTempCarbonActive(1)}>Carbon</Button>
+                </Button.Group>
+                { tempCarbonActive
+                  ? <Carbon data={carbon} />
+                  : <Temp data={temp} />
+                }
               </Container>
             }
             { props.story === 1 && // sea levels and ice caps
