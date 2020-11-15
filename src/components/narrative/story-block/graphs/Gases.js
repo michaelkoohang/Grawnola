@@ -40,7 +40,7 @@ function Gases(props) {
         .attr('viewBox', `0 0 ${width} ${height}`)
         .classed('svg-content', true)
         .append('g')
-        .attr('transform', `translate(${(width - 2 * margin.right) / 2}, ${(height - 2 * margin.top) / 2})`);
+        .attr('transform', `translate(${width / 2}, ${height / 2})`);
 
       const arcGenerator = arc()
         .innerRadius(innerRadius)
