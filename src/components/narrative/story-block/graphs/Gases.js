@@ -16,7 +16,7 @@ const margin = {top: 10, right: 10, bottom: 10, left: 10};
 const width = 320;
 const height = 320;
 const innerRadius = 80;
-const outerRadius = Math.min(width, height) / 2 - margin.top;
+const outerRadius = Math.min(width, height) / 2 - margin.top - margin.bottom;
 
 function Gases(props) {
   const d3Container = useRef(null);
@@ -66,7 +66,7 @@ function Gases(props) {
       donut.append('text')
         .attr('text-anchor', 'middle')
         .attr('aligment-baseline', 'middle')
-        .attr('font-size', '14px')
+        .attr('font-size', '12px')
         .text(d => d.data.formula || d.data.name)
         .style('fill', 'white')
         .attr('transform', (d) => {
@@ -79,7 +79,7 @@ function Gases(props) {
       donut.append('text')
         .attr('text-anchor', 'middle')
         .attr('aligment-baseline', 'middle')
-        .attr('font-size', '11px')
+        .attr('font-size', '10px')
         .text(d => `(${d.value}%)`)
         .style('fill', 'white')
         .attr('transform', (d) => {
