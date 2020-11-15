@@ -7,6 +7,10 @@ import {select} from 'd3-selection';
 
 import './SvgStyles.css';
 
+// SOURCES
+// https://medium.com/@Elijah_Meeks/interactive-applications-with-react-d3-f76f7b3ebc71
+// https://chartio.com/resources/tutorials/how-to-resize-an-svg-when-the-window-is-resized-in-d3-js/
+
 const margin = {top: 10, right: 10, bottom: 10, left: 10};
 // TODO pass width/height and radii as props
 const width = 320;
