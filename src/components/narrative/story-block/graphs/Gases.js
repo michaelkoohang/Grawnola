@@ -86,7 +86,7 @@ function Gases(props) {
           const [x, y] = arcGenerator.centroid(d);
           return (d.data.name === 'Fluorinated gases')
             ? `translate(${x}, ${y})`
-            : `translate(${x}, ${y + 11})`;
+            : `translate(${x}, ${y + 13})`;
         });
 
       // NOTE if you comment out the code for the labels above,
