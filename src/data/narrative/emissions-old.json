@@ -1,0 +1,18 @@
+[
+  {
+    "icon": "food",
+    "text": "1 hamburger = 45 methane units"
+  },
+  {
+    "icon": "lightbulb outline",
+    "text": "$45 electricity bill per month = 500K CO\u2082 units"
+  },
+  {
+    "icon": "plane",
+    "text": "1 flight from NY to LA = 320K CO\u2082 units"
+  },
+  {
+    "icon": "car",
+    "text": "1 mile drive in Nissan = 340K CO\u2082 units"
+  }
+]
