@@ -6,6 +6,7 @@ import Sectors from "./graphs/Sectors";
 import Gases from "./graphs/Gases";
 import PolarIce from "./graphs/PolarIce";
 import SeaLevel from "./graphs/SeaLevel";
+import Paris from "./graphs/Paris";
 
 import earthBad from '../../../img/earth-bad.png';
 import greenhouse_gases from '../../../data/narrative/greenhouse_gases.json';
@@ -13,6 +14,7 @@ import sectors from '../../../data/narrative/sectors.json';
 import text from '../../../data/narrative/text.json';
 import sea_level from '../../../data/narrative/sea_level.json';
 import polar_ice from '../../../data/narrative/polar_ice.json';
+import paris from '../../../data/narrative/paris.json';
 
 
 function StoryBlock(props) {
@@ -69,7 +71,9 @@ function StoryBlock(props) {
               <p>Simple bar graph of "net emissions flow"</p>
             }
             { props.story === 6 && // Paris Climate Accord
-              <p>Simple line graph of Paris Climate Accord</p>
+              <Container className='paris-container'>
+                <Paris data={paris}/>
+              </Container>
             }
           </Grid.Column>
         </Grid>
