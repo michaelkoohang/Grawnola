@@ -2,3 +2,18 @@
   background-color: #2b2b2e !important;
   padding: 2em !important;
 }
+
+.svg-categories {
+  width: 100%;
+  max-height: 300px;
+}
+
+.categories-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}

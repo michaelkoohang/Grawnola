@@ -1,14 +1,14 @@
 import React from 'react';
-import './Global.css';
+import './National.css';
 import {Segment} from "semantic-ui-react";
 
-function Global() {
+function National() {
 
   return (
-    <Segment className="global">
+    <Segment className="national">
 
     </Segment>
   );
 }
 
-export default Global;
+export default National;

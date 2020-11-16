@@ -6,6 +6,7 @@ import './StoryBlock.css';
 import Carbon from "./graphs/Carbon";
 import Emissions from './graphs/Emissions';
 import Gases from './graphs/Gases';
+import NetEmissionsFlow from "./graphs/NetEmissionsFlow";
 import Paris from './graphs/Paris';
 import PolarIce from './graphs/PolarIce';
 import SeaLevel from './graphs/SeaLevel';
@@ -22,7 +23,6 @@ import text from '../../../data/narrative/text.json';
 import sea_level from '../../../data/narrative/sea_level.json';
 import polar_ice from '../../../data/narrative/polar_ice.json';
 import paris from '../../../data/narrative/paris.json';
-import NetEmissionsFlow from "./graphs/NetEmissionsFlow";
 
 function StoryBlock(props) {
 

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Container, Grid} from "semantic-ui-react";
 import './Interactive.css';
 import Single from "./single/Single";
-import Global from "./global/Global";
+import National from "./national/National";
 import ControlPanel from "./control-panel/ControlPanel";
 
 function Interactive() {
@@ -92,7 +92,7 @@ function Interactive() {
         setCars(cars.concat([{
           "miles": car.miles,
           "frequency": car.frequency,
-          "carbon": 10
+          "carbon": 100
         }]));
       // });
   }
@@ -200,7 +200,7 @@ function Interactive() {
     console.log("Trees: " + trees);
     console.log("People: " + people);
     console.log("------------------------------")
-  }, [electricity, people, flights, shipping, cars, vegan, carFree, ledBulbs, trees]);
+  }, [electricity, flights, shipping, cars, vegan, carFree, ledBulbs, trees, people]);
 
   return (
     <Container className="interactive">
@@ -233,8 +233,17 @@ function Interactive() {
             />
           </Grid.Column>
           <Grid.Column width={11}>
-            <Single />
-            <Global />
+            <Single
+              electricity={electricity}
+              flights={flights}
+              cars={cars}
+              shipping={shipping}
+              vegan={vegan}
+              carFree={carFree}
+              ledBulbs={ledBulbs}
+              trees={trees}
+            />
+            <National />
           </Grid.Column>
         </Grid.Row>
       </Grid>
