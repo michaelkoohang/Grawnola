@@ -1,0 +1,12 @@
+[
+  {
+    "key": 1,
+    "text": "Weekly",
+    "value": "week"
+  },
+  {
+    "key": 2,
+    "text": "Yearly",
+    "value": "year"
+  }
+]

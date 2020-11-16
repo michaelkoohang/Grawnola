@@ -3,12 +3,12 @@ import {Container, Grid} from "semantic-ui-react";
 import './Interactive.css';
 import Single from "./single/Single";
 import Global from "./global/Global";
-import Temp from '../interactive/impact/planet/temp/Temp';
-import Sea from '../interactive/impact/planet/sea/Sea';
-import Ice from '../interactive/impact/planet/ice/Ice';
 import ControlPanel from "./control-panel/ControlPanel";
 
 function Interactive() {
+
+  const carbonInterfaceToken = "edqnsNcjCvigIYO2mtva7Q";
+  const carbonInterfaceURL = "https://www.carboninterface.com/api/v1/estimates";
 
   // Emissions
   const [electricity, setElectricity] = useState(0);
@@ -20,16 +20,28 @@ function Interactive() {
   const [carFree, setCarFree] = useState(0);
   const [ledBulbs, setLedBulbs] = useState(0);
   const [trees, setTrees] = useState(0);
-  // Time and people
+  // People
   const [people, setPeople] = useState(1);
 
   function updateElectricity(value) {
-    setElectricity(value);
+    let kwh = parseInt(value * 100 / 11.19 * 12);
+    let new_electricity = {
+      "type": "electricity",
+      "electricity_unit": "kwh",
+      "electricity_value": kwh,
+      "country": "us",
+    }
+    // setElectricity(100);
+    // getCarbon(new_electricity)
+    //   .then((carbon) => {
+        setElectricity(100);
+      // });
   }
 
   function updateFlights(flight) {
+    console.log(flight);
     let new_flight;
-    if (flight.oneWayRound === 0) {
+    if (flight.oneWayRound === "One Way") {
       new_flight = {
         "type": "flight",
         "passengers": 1,
@@ -47,7 +59,15 @@ function Interactive() {
         ]
       };
     }
-    setFlights(flights.concat([{"from": flight.from, "to": flight.to, "oneWayRound": flight.oneWayRound, "carbon": 100}]))
+    console.log(new_flight);
+    // getCarbon(new_flight)
+    //   .then((carbon) => {
+        setFlights(flights.concat([{
+          "from": flight.from, "to": flight.to,
+          "oneWayRound": flight.oneWayRound,
+          "carbon": 100
+        }]))
+    //   });
   }
 
   function deleteFlight(flight) {
@@ -55,7 +75,30 @@ function Interactive() {
   }
 
   function updateCars(car) {
-    console.log(car);
+    let miles;
+    if (car.frequency === "week") {
+      miles = car.miles * 52;
+    }
+    let new_car = {
+      "type": "vehicle",
+      "distance_unit": "mi",
+      "distance_value": miles,
+      "vehicle_make": "Toyota",
+      "vehicle_model": "Corolla",
+      "vehicle_year": 2017
+    }
+    // getCarbon(new_car)
+    //   .then((carbon) => {
+        setCars(cars.concat([{
+          "miles": car.miles,
+          "frequency": car.frequency,
+          "carbon": 10
+        }]));
+      // });
+  }
+
+  function deleteCar(car) {
+    setCars(cars.filter(item => item.miles !== car.miles && item.frequency !== car.frequency))
   }
 
   function updateShipping(item) {
@@ -64,16 +107,19 @@ function Interactive() {
       "weight_value": item.weight,
       "weight_unit": "lb",
       "distance_value": item.distance,
-      "distance_unit": "m",
+      "distance_unit": "mi",
       "transport_method": item.method
     };
-    console.log(item);
-    setShipping(shipping.concat([{
-      "weight": item.weight,
-      "distance": item.distance,
-      "method": item.method,
-      "carbon": 100
-    }]))
+    console.log(new_item);
+    // getCarbon(new_item)
+    //   .then((carbon) => {
+        setShipping(shipping.concat([{
+          "weight": item.weight,
+          "distance": item.distance,
+          "method": item.method,
+          "carbon": 100
+        }]));
+      // });
   }
 
   function deleteShipping(shipment) {
@@ -122,18 +168,39 @@ function Interactive() {
     }
   }
 
+  function getCarbon(json) {
+    return fetch(carbonInterfaceURL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${carbonInterfaceToken}`
+      },
+      body: JSON.stringify(json),
+    })
+      .then(response => response.json())
+      .then(data => {
+        return data.data.attributes.carbon_kg
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
+
   useEffect(() => {
     console.log("Electricity: " + electricity);
-    console.log("Flights: " + flights);
-    console.log("Cars: " + cars);
-    console.log("Shipping: " + shipping);
+    console.log("Flights: ");
+    console.log(flights);
+    console.log("Cars: ");
+    console.log(cars);
+    console.log("Shipping: ");
+    console.log(shipping);
     console.log("Vegan: " + vegan);
     console.log("Car Free: " + carFree);
     console.log("LED: " + ledBulbs);
     console.log("Trees: " + trees);
     console.log("People: " + people);
     console.log("------------------------------")
-  }, [electricity, people, flights, shipping, vegan, carFree, ledBulbs, trees]);
+  }, [electricity, people, flights, shipping, cars, vegan, carFree, ledBulbs, trees]);
 
   return (
     <Container className="interactive">
@@ -156,6 +223,7 @@ function Interactive() {
               deleteFlight={deleteFlight}
               cars={cars}
               updateCars={updateCars}
+              deleteCar={deleteCar}
               shipping={shipping}
               updateShipping={updateShipping}
               deleteShipping={deleteShipping}

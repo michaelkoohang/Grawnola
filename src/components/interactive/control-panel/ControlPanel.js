@@ -28,6 +28,7 @@ function ControlPanel(props) {
 
   function toggleCarsModal(hidden) { setOpenCars(hidden); }
   function updateCars(car) { props.updateCars(car); }
+  function deleteCar(car) { props.deleteCar(car); }
 
   function toggleShippingModal(hidden) { setOpenShipping(hidden); }
   function updateShipping(item) { props.updateShipping(item); }
@@ -69,7 +70,18 @@ function ControlPanel(props) {
       </div>
       <div className="emissions">
         <h5>Cars <Icon name="car" color="red" /></h5>
-        {props.cars}
+        { props.cars.map((car, index) => (
+          <Button as='div' labelPosition='left' className='flight-label' key={index}>
+            <Label as='div' basic>
+              <p>{car.miles} mi / {car.frequency} </p>
+            </Label>
+            <Button animated='vertical' color='red' onClick={() => deleteCar(car)}>
+              <Button.Content visible><Icon name='delete' /></Button.Content>
+              <Button.Content hidden>Delete</Button.Content>
+            </Button>
+          </Button>
+        ))
+        }
         <Button size="mini" onClick={() => setOpenCars(true)}><Icon name="add" />Add car</Button>
       </div>
       <div className="emissions">
