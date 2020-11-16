@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import {Grid} from "semantic-ui-react";
+import {Container, Grid} from "semantic-ui-react";
 import './Interactive.css';
-import Single from "./impact/carbon/single/Single";
-import Global from "./impact/carbon/global/Global";
+import Single from "./single/Single";
+import Global from "./global/Global";
 import Temp from '../interactive/impact/planet/temp/Temp';
 import Sea from '../interactive/impact/planet/sea/Sea';
 import Ice from '../interactive/impact/planet/ice/Ice';
@@ -22,7 +22,6 @@ function Interactive() {
   const [trees, setTrees] = useState(0);
   // Time and people
   const [people, setPeople] = useState(1);
-  const [years, setYears] = useState(1);
 
   function updateElectricity(value) {
     setElectricity(value);
@@ -123,40 +122,32 @@ function Interactive() {
     }
   }
 
-  // This needs to change all the values ahahhhh
-  function updateYears(value) {
-    setYears(value);
-  }
-
   useEffect(() => {
-    console.log(electricity);
-    console.log(people);
-    console.log(years);
-    console.log(flights)
-    console.log(shipping);
-    console.log(vegan);
-    console.log(carFree);
-    console.log(ledBulbs);
-    console.log(trees);
+    console.log("Electricity: " + electricity);
+    console.log("Flights: " + flights);
+    console.log("Cars: " + cars);
+    console.log("Shipping: " + shipping);
+    console.log("Vegan: " + vegan);
+    console.log("Car Free: " + carFree);
+    console.log("LED: " + ledBulbs);
+    console.log("Trees: " + trees);
+    console.log("People: " + people);
     console.log("------------------------------")
-  }, [electricity, people, years, flights, shipping, vegan, carFree, ledBulbs, trees]);
+  }, [electricity, people, flights, shipping, vegan, carFree, ledBulbs, trees]);
 
   return (
-    <div className="interactive">
+    <Container className="interactive">
       <Grid className="interactive-grid" columns={3}>
         <Grid.Row className="header" stretched>
-          <Grid.Column width={4}>
+          <Grid.Column width={5}>
             <h3>Measure Carbon Emissions</h3>
           </Grid.Column>
-          <Grid.Column width={8}>
+          <Grid.Column width={11}>
             <h3>Total Carbon Impact</h3>
-          </Grid.Column>
-          <Grid.Column width={4}>
-            <h3>Impact on Planet</h3>
           </Grid.Column>
         </Grid.Row>
         <Grid.Row className="viz-panels" stretched>
-          <Grid.Column width={4}>
+          <Grid.Column width={5}>
             <ControlPanel
               electricity={electricity}
               updateElectricity={updateElectricity}
@@ -169,24 +160,17 @@ function Interactive() {
               updateShipping={updateShipping}
               deleteShipping={deleteShipping}
               updateOffsets={updateOffsets}
-              years={years}
-              updateYears={updateYears}
               people={people}
               updatePeople={updatePeople}
             />
           </Grid.Column>
-          <Grid.Column width={8}>
+          <Grid.Column width={11}>
             <Single />
             <Global />
           </Grid.Column>
-          <Grid.Column width={4}>
-            <Temp />
-            <Sea />
-            <Ice />
-          </Grid.Column>
         </Grid.Row>
       </Grid>
-    </div>
+    </Container>
   );
 }
 

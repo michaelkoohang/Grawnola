@@ -114,22 +114,10 @@ function ControlPanel(props) {
         </div>
         <Slider
           onChange={props.updatePeople}
-          step={100000000}
+          step={20000000}
           min={1}
-          max={1000000001}
+          max={328000000}
           dots={true}
-        />
-      </div>
-      <div className="emissions">
-        <div className="emissions-header">
-          <h5 className="emissions-title">Years <Icon name="calendar" color="black" /></h5>
-          <h2 className="emissions-value">{props.years.toLocaleString()}</h2>
-        </div>
-        <Slider
-          onChange={props.updateYears}
-          step={1}
-          min={1}
-          max={100}
         />
       </div>
 

@@ -1,7 +1,8 @@
 
 .interactive {
-  padding: 2em;
+  padding: 2em 0;
   height: calc(100vh - 100px);
+  min-width: 78vw;
 }
 
 .interactive-grid {
