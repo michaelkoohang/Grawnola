@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import './Single.css';
-import {Grid, Segment} from "semantic-ui-react";
-import Categories from "./Categories";
-import Budget from "./Budget";
+import {Container, Grid, Progress, Segment} from "semantic-ui-react";
+import Categories from "./graphs/Categories";
+import Budget from "./graphs/Budget";
 import flow_data from '../../../data/narrative/net_emissions_flow.json';
+import Comparison from "./comparison/Comparison";
 
 function Single(props) {
 
+  const [emissionsTotal, setEmissionsTotal] = useState(0);
+  const [offsetsTotal, setOffsetsTotal] = useState(0);
   const [budgetData, setBudgetData] = useState(0);
   const [emissionsData, setEmissionsData] = useState(0);
 
@@ -21,16 +24,12 @@ function Single(props) {
       {"name": "cars", "value": cars_carbon},
       {"name": "shipping", "value": shipping_carbon},
     ];
-    let new_budget_data = electricity_carbon
-      + flights_carbon
-      + cars_carbon
-      + shipping_carbon
-      + props.vegan
-      + props.carFree
-      + props.ledBulbs
-      + props.trees
+    let new_emissions_total = new_emissions_data.reduce((a, b) => a + (b["value"] || 0), 0);
+    let new_offset_total = props.vegan + props.carFree + props.ledBulbs + props.trees;
+    setEmissionsTotal(new_emissions_total);
+    setOffsetsTotal(-1 * new_offset_total);
     setEmissionsData(new_emissions_data);
-    setBudgetData(new_budget_data)
+    setBudgetData(new_emissions_total + new_offset_total);
   }, [props]);
 
   return (
@@ -42,6 +41,7 @@ function Single(props) {
           </Grid.Column>
           <Grid.Column>
             <Budget data={budgetData}/>
+            <Comparison emissions={emissionsTotal} offsets={offsetsTotal}/>
           </Grid.Column>
         </Grid.Row>
       </Grid>

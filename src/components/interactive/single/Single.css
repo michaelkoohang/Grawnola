@@ -23,3 +23,10 @@
   height: 100%;
   width: 100%;
 }
+
+.comparison-container {
+  position: absolute;
+  top: 12.5em;
+  right: 0;
+  padding: 0 1.5em;
+}
