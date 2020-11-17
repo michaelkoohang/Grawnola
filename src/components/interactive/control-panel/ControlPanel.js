@@ -41,10 +41,10 @@ function ControlPanel(props) {
     <div className="input-panel">
       <div className="emissions">
         <div className="emissions-header">
-          <h5 className="emissions-title">
+          <h4 className="emissions-title">
             <Icon name="lightning" color="yellow" />
             Electricity Bill
-          </h5>
+          </h4>
           <h2 className="emissions-value">${electricityLabel}</h2>
         </div>
         <Slider
@@ -56,7 +56,7 @@ function ControlPanel(props) {
         />
       </div>
       <div className="emissions">
-        <h5><Icon name="plane" color="blue" /> Flights</h5>
+        <h4><Icon name="plane" color="blue" /> Flights</h4>
         { props.flights.map((flight, index) => (
           <Button as='div' labelPosition='left' className='flight-label' key={index}>
             <Label as='div' basic>
@@ -75,7 +75,7 @@ function ControlPanel(props) {
         <Button size="mini" onClick={() => setOpenFlights(true)}><Icon name="add" />Add flight</Button>
       </div>
       <div className="emissions">
-        <h5><Icon name="car" color="red" /> Cars</h5>
+        <h4><Icon name="car" color="red" /> Cars</h4>
         { props.cars.map((car, index) => (
           <Button as='div' labelPosition='left' className='flight-label' key={index}>
             <Label as='div' basic>
@@ -91,15 +91,15 @@ function ControlPanel(props) {
         <Button size="mini" onClick={() => setOpenCars(true)}><Icon name="add" />Add car</Button>
       </div>
       <div className="emissions">
-        <h5><Icon name="box" color="brown" /> Shipping</h5>
+        <h4><Icon name="box" color="brown" /> Shipping</h4>
         { props.shipping.map((shipment, index) => (
           <Button as='div' labelPosition='left' className='flight-label' key={index}>
             <Label as='div' basic>
               <p>{shipment.weight} lbs | {shipment.distance} mi | {shipment.method}</p>
             </Label>
             <Button animated='vertical' color='red' onClick={() => deleteShipping(shipment)}>
-              <Button.Content visible><Icon name='delete' /></Button.Content>
-              <Button.Content hidden>Delete</Button.Content>
+              <Button.Content hidden><Icon name='delete' /></Button.Content>
+              <Button.Content visible>{shipment.carbon} kg</Button.Content>
             </Button>
           </Button>
         ))
@@ -131,10 +131,10 @@ function ControlPanel(props) {
       </div>
       <div className="emissions">
         <div className="emissions-header">
-          <h5 className="emissions-title">
+          <h4 className="emissions-title">
             <Icon name="user" color="black" />
             People
-          </h5>
+          </h4>
           <h2 className="emissions-value">{(props.people).toLocaleString()}</h2>
         </div>
         <Slider

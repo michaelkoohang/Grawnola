@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react';
+import {Grid, Segment} from "semantic-ui-react";
 import './Single.css';
-import {Container, Grid, Progress, Segment} from "semantic-ui-react";
 import Categories from "./graphs/Categories";
-import Budget from "./graphs/Budget";
-import flow_data from '../../../data/narrative/net_emissions_flow.json';
 import Comparison from "./comparison/Comparison";
+import Budget from "./graphs/Budget";
 
 function Single(props) {
 

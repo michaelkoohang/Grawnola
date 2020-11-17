@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Grid} from "semantic-ui-react";
+import {filter} from "lodash";
+import { v4 as uuidv4 } from 'uuid';
 import './Interactive.css';
 import Single from "./single/Single";
 import National from "./national/National";
@@ -73,6 +75,7 @@ function Interactive() {
     // getCarbon(new_flight)
     //   .then((carbon) => {
         setFlights(flights.concat([{
+          "id": uuidv4(),
           "from": flight.from, "to": flight.to,
           "oneWayRound": flight.oneWayRound,
           "carbon": 1000
@@ -81,7 +84,7 @@ function Interactive() {
   }
 
   function deleteFlight(flight) {
-    setFlights(flights.filter(item => item.to !== flight.to && item.from !== flight.from && item.oneWayRound !== flight.oneWayRound))
+    setFlights(filter(flights, (item) => { return item.id !== flight.id }))
   }
 
   function updateCars(car) {
@@ -100,6 +103,7 @@ function Interactive() {
     // getCarbon(new_car)
     //   .then((carbon) => {
         setCars(cars.concat([{
+          "id": uuidv4(),
           "miles": car.miles,
           "frequency": car.frequency,
           "carbon": 1000
@@ -108,7 +112,7 @@ function Interactive() {
   }
 
   function deleteCar(car) {
-    setCars(cars.filter(item => item.miles !== car.miles && item.frequency !== car.frequency))
+    setCars(filter(cars, (item) => { return item.id !== car.id }))
   }
 
   function updateShipping(item) {
@@ -124,6 +128,7 @@ function Interactive() {
     // getCarbon(new_item)
     //   .then((carbon) => {
         setShipping(shipping.concat([{
+          "id": uuidv4(),
           "weight": item.weight,
           "distance": item.distance,
           "method": item.method,
@@ -133,7 +138,7 @@ function Interactive() {
   }
 
   function deleteShipping(shipment) {
-    setShipping(shipping.filter(item => item.weight !== shipment.weight && item.distance !== shipment.distance && item.method !== shipment.method))
+    setShipping(filter(shipping, (item) => { return item.id !== shipment.id }))
   }
 
   function updateOffsets(event, data) {
