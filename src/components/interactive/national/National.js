@@ -1,18 +1,22 @@
 import React from 'react';
 import {Segment} from "semantic-ui-react";
 
-import {getInitEmissions} from './grid-conversions';
+import {getEmissions} from './grid-conversions';
 
 import Grid from './Grid';
 
 import './National.css';
 
-function National() {
-  // const emissions = getInitEmissions() - 2000000000;
-  // TODO compute emissions based on input from the control panel
-  const emissions = getInitEmissions();
+const DEBUG = 0;
 
-  console.info('@National emissions', emissions);
+function National({carbon, people}) {
+  const emissions = getEmissions(carbon, people);
+
+  if(DEBUG) {
+    console.info('@National carbon', carbon);
+    console.info('@National emissions', emissions);
+    console.info('@National people', people);
+  }
 
   return (
     <Segment className="national">
