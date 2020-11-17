@@ -76,7 +76,7 @@ function Grid(props) {
       updateGrid(data.emissions);
     }
   },
-  []);
+  [data, d3Container.current]);
 
   return(
     <div className="national-container" ref={d3Container} />

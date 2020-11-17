@@ -6,6 +6,7 @@ import National from "./national/National";
 import ControlPanel from "./control-panel/ControlPanel";
 
 import {offsets} from './emission_conversions';
+import {getTotalCarbon} from './selectors';
 
 const DEBUG = 0;
 
@@ -201,6 +202,10 @@ function Interactive() {
     }
   }, [electricity, flights, shipping, cars, vegan, carFree, ledBulbs, trees, people]);
 
+  // NOTE i don't know where else to put this variable...
+  const totalCarbon = getTotalCarbon({
+    electricity, flights, shipping, cars, vegan, carFree, ledBulbs, trees
+  });
   return (
     <Container className="interactive">
       <Grid className="interactive-grid" columns={3}>
@@ -242,7 +247,7 @@ function Interactive() {
               ledBulbs={ledBulbs}
               trees={trees}
             />
-            <National />
+            <National carbon={totalCarbon} people={people} />
           </Grid.Column>
         </Grid.Row>
       </Grid>
