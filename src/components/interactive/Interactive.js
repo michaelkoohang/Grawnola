@@ -31,11 +31,16 @@ function Interactive() {
       "electricity_value": kwh,
       "country": "us",
     }
-    // setElectricity(100);
-    // getCarbon(new_electricity)
-    //   .then((carbon) => {
-        setElectricity(1000);
+    if (kwh > 0) {
+      // setElectricity(100);
+      // getCarbon(new_electricity)
+      //   .then((carbon) => {
+      setElectricity(value);
       // });
+    } else {
+      setElectricity(0);
+    }
+
   }
 
   function updateFlights(flight) {
