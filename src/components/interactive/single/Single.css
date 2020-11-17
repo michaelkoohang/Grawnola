@@ -3,12 +3,18 @@
   padding: 2em !important;
 }
 
-.svg-categories {
+.single-svg {
   width: 100%;
   max-height: 300px;
 }
 
-.categories-container {
+.single-svg-budget {
+  width: 100%;
+  max-height: 300px;
+  /*margin-top: 100px;*/
+}
+
+.single-container {
   position: absolute;
   top: 0;
   left: 0;

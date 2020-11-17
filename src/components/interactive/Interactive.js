@@ -34,7 +34,7 @@ function Interactive() {
     // setElectricity(100);
     // getCarbon(new_electricity)
     //   .then((carbon) => {
-        setElectricity(100);
+        setElectricity(1000);
       // });
   }
 
@@ -65,7 +65,7 @@ function Interactive() {
         setFlights(flights.concat([{
           "from": flight.from, "to": flight.to,
           "oneWayRound": flight.oneWayRound,
-          "carbon": 100
+          "carbon": 1000
         }]))
     //   });
   }
@@ -92,7 +92,7 @@ function Interactive() {
         setCars(cars.concat([{
           "miles": car.miles,
           "frequency": car.frequency,
-          "carbon": 100
+          "carbon": 1000
         }]));
       // });
   }
@@ -117,7 +117,7 @@ function Interactive() {
           "weight": item.weight,
           "distance": item.distance,
           "method": item.method,
-          "carbon": 100
+          "carbon": 1000
         }]));
       // });
   }
@@ -134,21 +134,21 @@ function Interactive() {
       switch (data.label) {
         case "Go Vegan":
           if (data.checked) {
-            setVegan(-100);
+            setVegan(-500);
           } else {
             setVegan(0);
           }
           break;
         case "Live Car Free":
           if (data.checked) {
-            setCarFree(-100);
+            setCarFree(-500);
           } else {
             setCarFree(0);
           }
           break;
         case "Use LED bulbs":
           if (data.checked) {
-            setLedBulbs(-100);
+            setLedBulbs(-500);
           } else {
             setLedBulbs(0);
           }

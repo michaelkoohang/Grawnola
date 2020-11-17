@@ -60,8 +60,8 @@ function ControlPanel(props) {
               </p>
             </Label>
             <Button animated='vertical' color='red' onClick={() => deleteFlight(flight)}>
-              <Button.Content visible><Icon name='delete' /></Button.Content>
-              <Button.Content hidden>Delete</Button.Content>
+              <Button.Content hidden><Icon name='delete' /></Button.Content>
+              <Button.Content visible>{flight.carbon} kg</Button.Content>
             </Button>
           </Button>
         ))
@@ -76,8 +76,8 @@ function ControlPanel(props) {
               <p>{car.miles} mi / {car.frequency} </p>
             </Label>
             <Button animated='vertical' color='red' onClick={() => deleteCar(car)}>
-              <Button.Content visible><Icon name='delete' /></Button.Content>
-              <Button.Content hidden>Delete</Button.Content>
+              <Button.Content hidden><Icon name='delete' /></Button.Content>
+              <Button.Content visible>{car.carbon} kg</Button.Content>
             </Button>
           </Button>
         ))
