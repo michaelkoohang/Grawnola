@@ -14,8 +14,8 @@ const margin = {top: 10, right: 10, bottom: 10, left: 10};
 // TODO pass width/height and radii as props
 const width = 300;
 const height = 300;
-const innerRadius = 50;
-const outerRadius = Math.min(width, height) / 3 - margin.top - margin.bottom;
+const innerRadius = 65;
+const outerRadius = Math.min(width, height) / 2.5 - margin.top - margin.bottom;
 
 function Categories(props) {
   const d3Container = useRef(null);
@@ -40,13 +40,13 @@ function Categories(props) {
           .attr('viewBox', `0 0 ${width} ${height}`)
           .classed('single-svg', true)
           .append('g')
-          .attr('transform', `translate(${width / 2}, ${height / 2 + 20})`);
+          .attr('transform', `translate(${width / 2}, ${height / 2})`);
 
         svg.append('text')
           .text("Emissions Categories")
-          .attr('transform', `translate(-120,-130)`)
+          .attr('transform', `translate(-85,-130)`)
           .style('fill', '#6b6b6b')
-          .style('font-size', '24px')
+          .style('font-size', '18px')
           .style('font-weight', '200')
           .style('font-family', 'Helvetica')
 

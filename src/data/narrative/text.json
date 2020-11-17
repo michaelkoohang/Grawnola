@@ -6,12 +6,12 @@
       {
         "icon": "sun",
         "icon_color": "yellow",
-        "text": "Global temperature is up <strong>32ºC</strong> from previous 10 years"
+        "text": "Global temperature was up <strong>1.15ºC</strong> in 2019 since the pre-industry average"
       },
       {
         "icon": "cloudsmith",
         "icon_color": "green",
-        "text": "Global carbon is up <strong>45 kilotons</strong> in last 10 years"
+        "text": "Global carbon is up <strong>~396 million</strong> metric tons since 2018"
       }
     ]
   },
@@ -22,11 +22,11 @@
       {
         "icon": "ship",
         "icon_color": "blue",
-        "text": "Sea levels rising at <strong>10 meters / year</strong>"
+        "text": "Sea levels are rising at a rate of <strong>7.62 mm / year</strong>"
       },
       {
         "icon": "cube",
-        "text": "Polar ice caps melting <strong>32 sq km / year</strong>"
+        "text": "Polar ice caps are melting at rate of <strong>13% each decade</strong>"
       }
     ]
   },

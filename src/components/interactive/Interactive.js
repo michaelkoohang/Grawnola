@@ -31,11 +31,16 @@ function Interactive() {
       "electricity_value": kwh,
       "country": "us",
     }
-    // setElectricity(100);
-    // getCarbon(new_electricity)
-    //   .then((carbon) => {
-        setElectricity(1000);
+    if (kwh > 0) {
+      // setElectricity(100);
+      // getCarbon(new_electricity)
+      //   .then((carbon) => {
+      setElectricity(value);
       // });
+    } else {
+      setElectricity(0);
+    }
+
   }
 
   function updateFlights(flight) {
@@ -129,7 +134,7 @@ function Interactive() {
   function updateOffsets(event, data) {
     if (typeof event === "number") {
       // Set trees to event (the number of trees) x whatever constant we use
-      setTrees(event);
+      setTrees(event * -100);
     } else {
       switch (data.label) {
         case "Go Vegan":
