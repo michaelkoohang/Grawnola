@@ -3,6 +3,13 @@ import {Button} from 'semantic-ui-react';
 import {range} from 'd3-array';
 import {select} from 'd3-selection';
 
+import {
+  getGridColor,
+  getGridLabel,
+  getGridSize,
+  MAX_GRID_SIZE
+} from './grid-conversions';
+
 const width = 500;
 const height = 275;
 
@@ -16,14 +23,11 @@ function Grid(props) {
   const {data} = props;
 
   function updateGrid(newEmissions) {
-    // TODO check if newEmissions is > budget
-    // Don't render more than the budget  (2750 squares),
-    // but use that to calculate whether the squares are red or yellow
-    const cell = select(d3Container.current)
-      .select('svg')
-      .select('g')
+    const emissionCells = getGridSize(newEmissions);
+    const svg = select(d3Container.current).select('svg');
+    const cell = svg.select('g')
       .selectAll('rect')
-      .data(range(newEmissions));
+      .data(range(MAX_GRID_SIZE));
 
     cell.exit()
       .remove();
@@ -42,8 +46,15 @@ function Grid(props) {
         const y1 = Math.floor(i % 100 / 10);
         return groupSpacing * y0 + (cellSpacing + cellSize) * (y1 + y0 * 10); 
       })
-      .attr('fill', '#FF453A');
-      // TODO color the squares based on the emissions
+      .attr('fill', i => i > emissionCells
+        ? '#8E8E93'
+        : getGridColor(newEmissions));
+
+    svg.append('text')
+      .attr('x', offset)
+      .attr('y', offset)
+      .text(getGridLabel(newEmissions))
+      .style('fill', 'white');
   }
 
   // component mounted
