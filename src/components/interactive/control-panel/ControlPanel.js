@@ -38,7 +38,10 @@ function ControlPanel(props) {
     <div className="input-panel">
       <div className="emissions">
         <div className="emissions-header">
-          <h5 className="emissions-title">Electricity Bill <Icon name="lightning" color="yellow" /></h5>
+          <h5 className="emissions-title">
+            <Icon name="lightning" color="yellow" />
+            Electricity Bill
+          </h5>
           <h2 className="emissions-value">${electricityLabel}</h2>
         </div>
         <Slider
@@ -50,7 +53,7 @@ function ControlPanel(props) {
         />
       </div>
       <div className="emissions">
-        <h5>Flights <Icon name="plane" color="blue" /></h5>
+        <h5><Icon name="plane" color="blue" /> Flights</h5>
         { props.flights.map((flight, index) => (
           <Button as='div' labelPosition='left' className='flight-label' key={index}>
             <Label as='div' basic>
@@ -69,7 +72,7 @@ function ControlPanel(props) {
         <Button size="mini" onClick={() => setOpenFlights(true)}><Icon name="add" />Add flight</Button>
       </div>
       <div className="emissions">
-        <h5>Cars <Icon name="car" color="red" /></h5>
+        <h5><Icon name="car" color="red" /> Cars</h5>
         { props.cars.map((car, index) => (
           <Button as='div' labelPosition='left' className='flight-label' key={index}>
             <Label as='div' basic>
@@ -85,7 +88,7 @@ function ControlPanel(props) {
         <Button size="mini" onClick={() => setOpenCars(true)}><Icon name="add" />Add car</Button>
       </div>
       <div className="emissions">
-        <h5>Shipping <Icon name="box" color="brown" /></h5>
+        <h5><Icon name="box" color="brown" /> Shipping</h5>
         { props.shipping.map((shipment, index) => (
           <Button as='div' labelPosition='left' className='flight-label' key={index}>
             <Label as='div' basic>
@@ -101,7 +104,7 @@ function ControlPanel(props) {
         <Button size="mini" onClick={() => setOpenShipping(true)}><Icon name="add" />Add package</Button>
       </div>
       <div className="emissions">
-        <h5>Offsets <Icon name="leaf" color="green" /></h5>
+        <h5><Icon name="leaf" color="green" /> Offsets</h5>
         <Checkbox className="offset" label='Go Vegan' onChange={props.updateOffsets}/>
         <Checkbox className="offset" label='Live Car Free' onChange={props.updateOffsets} />
         <Checkbox className="offset" label='Use LED bulbs' onChange={props.updateOffsets} />
@@ -121,7 +124,10 @@ function ControlPanel(props) {
       </div>
       <div className="emissions">
         <div className="emissions-header">
-          <h5 className="emissions-title">People <Icon name="user" color="black" /></h5>
+          <h5 className="emissions-title">
+            <Icon name="user" color="black" />
+            People
+          </h5>
           <h2 className="emissions-value">{(props.people).toLocaleString()}</h2>
         </div>
         <Slider

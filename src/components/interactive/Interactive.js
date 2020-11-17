@@ -5,6 +5,8 @@ import Single from "./single/Single";
 import National from "./national/National";
 import ControlPanel from "./control-panel/ControlPanel";
 
+const DEBUG = 0;
+
 function Interactive() {
 
   const carbonInterfaceToken = "edqnsNcjCvigIYO2mtva7Q";
@@ -44,7 +46,7 @@ function Interactive() {
   }
 
   function updateFlights(flight) {
-    console.log(flight);
+    if (DEBUG) console.log(flight);
     let new_flight;
     if (flight.oneWayRound === "One Way") {
       new_flight = {
@@ -64,7 +66,7 @@ function Interactive() {
         ]
       };
     }
-    console.log(new_flight);
+    if (DEBUG) console.log(new_flight);
     // getCarbon(new_flight)
     //   .then((carbon) => {
         setFlights(flights.concat([{
@@ -115,7 +117,7 @@ function Interactive() {
       "distance_unit": "mi",
       "transport_method": item.method
     };
-    console.log(new_item);
+    if (DEBUG) console.log(new_item);
     // getCarbon(new_item)
     //   .then((carbon) => {
         setShipping(shipping.concat([{
@@ -192,19 +194,21 @@ function Interactive() {
   }
 
   useEffect(() => {
-    console.log("Electricity: " + electricity);
-    console.log("Flights: ");
-    console.log(flights);
-    console.log("Cars: ");
-    console.log(cars);
-    console.log("Shipping: ");
-    console.log(shipping);
-    console.log("Vegan: " + vegan);
-    console.log("Car Free: " + carFree);
-    console.log("LED: " + ledBulbs);
-    console.log("Trees: " + trees);
-    console.log("People: " + people);
-    console.log("------------------------------")
+    if (DEBUG) {
+      console.log("Electricity: " + electricity);
+      console.log("Flights: ");
+      console.log(flights);
+      console.log("Cars: ");
+      console.log(cars);
+      console.log("Shipping: ");
+      console.log(shipping);
+      console.log("Vegan: " + vegan);
+      console.log("Car Free: " + carFree);
+      console.log("LED: " + ledBulbs);
+      console.log("Trees: " + trees);
+      console.log("People: " + people);
+      console.log("------------------------------")
+    }
   }, [electricity, flights, shipping, cars, vegan, carFree, ledBulbs, trees, people]);
 
   return (

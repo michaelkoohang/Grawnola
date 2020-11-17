@@ -27,8 +27,8 @@ function Sectors(props) {
         .range([
           '#FF2D55', // Transportation
           '#64D2FF', // Electricity
-          '#32D74B', // Industry
-          '#FF9F0A', // Agriculture
+          '#FF9F0A', // Industry
+          '#32D74B', // Agriculture
           // '#5E5CE6', // Commercial
           '#BF5AF2' // Residential
         ]);
