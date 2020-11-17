@@ -12,7 +12,7 @@ function StoryProgress(props) {
     if (i <= props.story) {
       bars.push(
         <Grid.Column key={i}>
-          <Progress indicating percent={100}/>
+          <Progress color='grey' inverted indicating percent={100}/>
         </Grid.Column>
       );
     } else {
