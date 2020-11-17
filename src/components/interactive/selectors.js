@@ -18,5 +18,5 @@ const getOffsets = (props) => sum(values(pick(props, keys(offsets))));
 
 export const getTotalCarbon = createSelector(
   [getEmissions, getOffsets],
-  (emissions, offsets) => (emissions + offsets)
+  (emissions, offsets) => ((emissions + offsets) / 1000)
 );

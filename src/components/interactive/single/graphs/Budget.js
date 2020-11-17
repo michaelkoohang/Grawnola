@@ -3,6 +3,8 @@ import {select} from 'd3-selection';
 import {axisBottom, axisLeft} from "d3-axis";
 import {scaleLinear, scaleBand} from "d3-scale";
 
+const DEBUG = 0;
+
 // TODO pass width/height and radii as props
 const margin = {top: 0, right: 0, bottom: 0, left: 100},
   width = 460 - margin.left - margin.right,
@@ -13,7 +15,7 @@ function Budget(props) {
   const per_capita_limit = 15.5;
   const d3Container = useRef(null);
   const data = [props.data / 1000];
-  console.log(data)
+  if (DEBUG) console.log(data)
 
   useEffect(() => {
     if (data && d3Container.current) {
