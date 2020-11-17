@@ -5,6 +5,8 @@ import Single from "./single/Single";
 import National from "./national/National";
 import ControlPanel from "./control-panel/ControlPanel";
 
+import {offsets} from './emission_conversions';
+
 const DEBUG = 0;
 
 function Interactive() {
@@ -136,29 +138,17 @@ function Interactive() {
   function updateOffsets(event, data) {
     if (typeof event === "number") {
       // Set trees to event (the number of trees) x whatever constant we use
-      setTrees(event * -100);
+      setTrees(event * offsets.trees.offset);
     } else {
       switch (data.label) {
-        case "Go Vegan":
-          if (data.checked) {
-            setVegan(-500);
-          } else {
-            setVegan(0);
-          }
+        case offsets.vegan.label:
+          setVegan(data.checked ? offsets.vegan.offset : 0);
           break;
-        case "Live Car Free":
-          if (data.checked) {
-            setCarFree(-500);
-          } else {
-            setCarFree(0);
-          }
+        case offsets.carFree.label:
+          setCarFree(data.checked ? offsets.carFree.offset : 0);
           break;
-        case "Use LED bulbs":
-          if (data.checked) {
-            setLedBulbs(-500);
-          } else {
-            setLedBulbs(0);
-          }
+        case offsets.ledBulbs.label:
+          setLedBulbs(data.checked ? offsets.ledBulbs.offset : 0);
           break;
         default:
           break;

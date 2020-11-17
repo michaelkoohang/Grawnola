@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {filter, map} from 'lodash';
 import {Button, Icon, Checkbox, List, Label} from "semantic-ui-react";
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
@@ -6,6 +7,8 @@ import './ControlPanel.css';
 import FlightsModal from "./flights/FlightsModal";
 import CarsModal from "./cars/CarsModal";
 import ShippingModal from "./shipping/ShippingModal";
+
+import {offsets} from '../emission_conversions';
 
 function ControlPanel(props) {
 
@@ -105,9 +108,13 @@ function ControlPanel(props) {
       </div>
       <div className="emissions">
         <h5><Icon name="leaf" color="green" /> Offsets</h5>
-        <Checkbox className="offset" label='Go Vegan' onChange={props.updateOffsets}/>
-        <Checkbox className="offset" label='Live Car Free' onChange={props.updateOffsets} />
-        <Checkbox className="offset" label='Use LED bulbs' onChange={props.updateOffsets} />
+        {map(filter(offsets, offset => !offset.multiplier), offset => (
+          <Checkbox
+            className='offset'
+            key={`offset-${offset.id}`}
+            label={offset.label}
+            onChange={props.updateOffsets} />
+        ))}
         <div className="offset-tree">
           <div className="offset-tree-header">
             <p className="offset-tree-label">Plant a tree</p>
