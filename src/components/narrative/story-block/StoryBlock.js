@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Container, Grid, Icon, Image, Button} from "semantic-ui-react";
+import {Button, Container, Grid, Icon, Message} from "semantic-ui-react";
 
 import './StoryBlock.css';
 
@@ -38,13 +38,19 @@ function StoryBlock(props) {
             {text[props.story].subtext.length > 0 &&
             <p className="story-subtext" dangerouslySetInnerHTML={{__html: text[props.story].subtext}}/>
             }
-            {text[props.story].facts.length > 0 &&
-            text[props.story].facts.map((fact, index) => (
-              <div className="fact" key={index}>
-                <Icon className="fact-icon" name={fact.icon} color={fact.icon_color}/>
-                <p className="fact-text" dangerouslySetInnerHTML={{__html: fact.text}}/>
-              </div>
-            ))
+            { text[props.story].facts.length > 0 &&
+              text[props.story].facts.map((fact, index) => (
+                <div className="fact" key={index}>
+                  <Icon className="fact-icon" name={fact.icon} color={fact.icon_color}/>
+                  <p className="fact-text" dangerouslySetInnerHTML={{__html: fact.text}}/>
+                </div>
+              ))
+            }
+            { text[props.story].message.header.length > 0 && text[props.story].message.text.length > 0 &&
+              <Message className="story-message" color='black'>
+                <Message.Header><Icon name='star'/> {text[props.story].message.header}</Message.Header>
+                <p>{text[props.story].message.text}</p>
+              </Message>
             }
           </Grid.Column>
           <Grid.Column>

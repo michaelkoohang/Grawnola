@@ -13,7 +13,11 @@
         "icon_color": "green",
         "text": "Global carbon is up <strong>~396 million</strong> metric tons since 2018"
       }
-    ]
+    ],
+    "message": {
+      "header": "",
+      "text": ""
+    }
   },
   {
     "heading": "The increase in global temperatures contributes to sea levels <span style=\"color: #ec4d3d;\">rising</span> and polar ice caps <span style=\"color: #ec4d3d;\">melting</span>, among other complications.",
@@ -28,31 +32,55 @@
         "icon": "cube",
         "text": "Polar ice caps are melting at rate of <strong>13% each decade</strong>"
       }
-    ]
+    ],
+    "message": {
+      "header": "",
+      "text": ""
+    }
   },
   {
     "heading": "How did we get here?",
     "subtext": "The most common greenhouse gases are: carbon dioxide (CO\u2082), methane (CH\u2084), nitrous oxide (N\u2082O), and fluorinated gases. The Earth has a budget for the amount of greenhouse gases that it can handle. If too many gases build up, they trap more of the sun’s heat within the atmosphere.",
-    "facts": []
+    "facts": [],
+    "message": {
+      "header": "",
+      "text": ""
+    }
   },
   {
-      "heading": "Why do we focus on CO\u2082?",
-      "subtext": "When the concentration of greenhouse gases in the atmosphere increases above the Earth's budget, the trapped heat causes the global temperature to rise. Human activity has caused a steady increase in CO\u2082 in the atmosphere, especially after the industrial revolution.",
-      "facts": []
+    "heading": "Why do we focus on CO\u2082?",
+    "subtext": "When the concentration of greenhouse gases in the atmosphere increases above the Earth's budget, the trapped heat causes the global temperature to rise. Human activity has caused a steady increase in CO\u2082 in the atmosphere, especially after the industrial revolution.",
+    "facts": [],
+    "message": {
+      "header": "",
+      "text": ""
+    }
   },
   {
     "heading": "Why do we focus on individual action?",
     "subtext": "Although there are many areas where large companies can work to reduce their emissions, our collective action adds up in the atmosphere! Take a look at the sectors that contribute the most greenhouse gas emissions.",
-    "facts": []
+    "facts": [],
+    "message": {
+      "header": "",
+      "text": ""
+    }
   },
   {
     "heading": "How do we stay in budget?",
     "subtext": "We can try to stay on budget by limiting our own emissions of CO\u2082. Here are the greenhouse gas offset rates for swaps you can make to save our planet. Yet we can only stay on budget if everybody limits their emissions globally. Check out the power of our collective impact on the next slides!",
-    "facts": []
+    "facts": [],
+    "message": {
+      "header": "",
+      "text": ""
+    }
   },
   {
     "heading": "What is our collective goal?",
     "subtext": "According to the Paris Accord, if we want to limit global temperature change to under 1.5 degrees Celsius, our global actions must only use 9K gigatons of CO\u2082 per year.",
-    "facts": []
+    "facts": [],
+    "message": {
+      "header": "",
+      "text": ""
+    }
   }
 ]
