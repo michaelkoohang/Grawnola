@@ -6,6 +6,7 @@ import {axisBottom, axisLeft} from "d3-axis";
 import {scaleLinear} from "d3-scale";
 import {max, min} from "d3-array";
 import {line} from "d3-shape";
+import {brushX} from "d3-brush";
 
 // TODO pass width/height and radii as props
 const margin = {top: 0, right: 10, bottom: 60, left: 80},
@@ -33,7 +34,7 @@ function SeaLevel(props) {
       var x = scaleTime()
         .domain(extent(data, function(d) { return new Date(d.date); }))
         .range([ 0, width ]);
-      svg.append("g")
+      var xAxis = svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(axisBottom(x));
 
@@ -57,16 +58,69 @@ function SeaLevel(props) {
         .attr('transform', "translate(-40,230), rotate(270)")
         .text(yAxisLabelText);
 
-      // Add the line
-      svg.append("path")
+      svg.append("defs").append("svg:clipPath")
+        .attr("id", "clip-sea")
+        .append("svg:rect")
+        .attr("width", width)
+        .attr("height", height)
+        .attr("x", 0)
+        .attr("y", 0);
+
+      var brush = brushX()
+        .extent( [ [0,0], [width,height] ] )
+        .on("end", updateChart);
+
+      svg.append('g')
+        .attr("clip-path", "url(#clip-sea)")
+        .attr('class', 'clip-path-sea')
+        .append("path")
         .datum(data)
+        .attr("class", "line")
         .attr("fill", "none")
         .attr("stroke", "steelblue")
-        .attr("stroke-width", 2)
+        .attr("stroke-width", 1)
         .attr("d", line()
           .x(function(d) { return x(new Date(d.date)) })
-          .y(function(d) { return y(d.level) })
-        )
+          .y(function(d) { return y(+d.level) })
+        );
+
+      svg.select('.clip-path-sea')
+        .append("g")
+        .attr("class", "brush-sea")
+        .call(brush);
+
+      var idleTimeout;
+      function idled() { idleTimeout = null; }
+
+      function updateChart({selection}) {
+        if (!selection){
+          if (!idleTimeout) return idleTimeout = setTimeout(idled, 350);
+          x.domain([ 4,8]);
+        } else{
+          x.domain([ x.invert(selection[0]), x.invert(selection[1]) ])
+          select(".brush-sea").call(brush.move, null);
+        }
+
+        xAxis.transition().duration(1000).call(axisBottom(x))
+        svg.select('.line')
+          .transition()
+          .duration(1000)
+          .attr("d", line()
+            .x(function(d) { return x(new Date(d.date)) })
+            .y(function(d) { return y(+d.level) })
+          )
+      }
+
+      svg.on("dblclick",function(){
+        x.domain(extent(data, function(d) { return new Date(d.date); }))
+        xAxis.transition().call(axisBottom(x))
+        svg.select('.line')
+          .transition()
+          .attr("d", line()
+            .x(function(d) { return x(new Date(d.date)) })
+            .y(function(d) { return y(+d.level) })
+          )
+      });
 
     }
   },[data, d3Container.current]);

@@ -1,11 +1,12 @@
 import React, {useEffect, useRef} from 'react';
-import {select} from 'd3-selection';
+import {pointer, select} from 'd3-selection';
 import {scaleTime} from "d3-scale";
-import {extent} from "d3-array";
+import {bisector, extent} from "d3-array";
 import {axisBottom, axisLeft} from "d3-axis";
 import {scaleLinear} from "d3-scale";
 import {max, min} from "d3-array";
 import {line} from "d3-shape";
+import {brushX} from "d3-brush";
 
 // TODO pass width/height and radii as props
 const margin = {top: 0, right: 0, bottom: 60, left: 80},
@@ -33,7 +34,7 @@ function Carbon(props) {
       var x = scaleTime()
         .domain(extent(data, function(d) { return new Date(d.date); }))
         .range([ 0, width ]);
-      svg.append("g")
+      var xAxis = svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(axisBottom(x));
 
@@ -57,16 +58,76 @@ function Carbon(props) {
         .attr('transform', "translate(-40,230), rotate(270)")
         .text(yAxisLabelText);
 
-      // Add the line
-      svg.append("path")
+      svg
+        .append("path")
         .datum(data)
         .attr("fill", "none")
         .attr("stroke", "#32D74B")
-        .attr("stroke-width", 2)
+        .attr("stroke-width", 1.5)
         .attr("d", line()
           .x(function(d) { return x(new Date(d.date)) })
           .y(function(d) { return y(d.value) })
         )
+
+      // This allows to find the closest X index of the mouse:
+      var bisect = bisector(function(d) { return new Date(d.date); }).left;
+
+      // Create the circle that travels along the curve of chart
+      var focus = svg
+        .append('g')
+        .append('circle')
+        .style("fill", "none")
+        .attr("stroke", "white")
+        .attr('r', 8.5)
+        .style("opacity", 0)
+
+      // Create the text that travels along the curve of chart
+      var focusText = svg
+        .append('g')
+        .append('text')
+        .style("opacity", 0)
+        .style("fill", "white")
+        .attr("text-anchor", "left")
+        .attr("alignment-baseline", "middle")
+
+      svg
+        .append('rect')
+        .style("fill", "none")
+        .style("pointer-events", "all")
+        .attr('width', width)
+        .attr('height', height)
+        .on('mouseover', mouseover)
+        .on('mousemove', mousemove)
+        .on('mouseout', mouseout);
+
+
+      // What happens when the mouse move -> show the annotations at the right positions.
+      function mouseover() {
+        focus.style("opacity", 1)
+        focusText.style("opacity",1)
+      }
+
+      function mousemove(event, d) {
+        // recover coordinate we need
+        let xy = pointer(event);
+        var x0 = x.invert(xy[0]);
+        var i = bisect(data, x0, 1);
+        if (i < data.length) {
+          let selectedData = {"x": new Date(data[i].date), "y": data[i].value};
+          focus
+            .attr("cx", x(selectedData.x))
+            .attr("cy", y(selectedData.y));
+          focusText
+            .html(`${selectedData.y} ppm`)
+            .attr("x", x(selectedData.x)+15)
+            .attr("y", y(selectedData.y))
+        }
+
+      }
+      function mouseout() {
+        focus.style("opacity", 0)
+        focusText.style("opacity", 0)
+      }
 
     }
   },[data, d3Container.current]);
