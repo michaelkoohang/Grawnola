@@ -13,8 +13,11 @@ export function getGridSize(emissions) {
   return min([MAX_GRID_SIZE, getTotalSquares(emissions)]);
 }
 
-export function getInitEmissions() {
-  return NATIONAL_STATS.total_emissions_2018;
+export function getEmissions(carbon, people) {
+  const avgEmissions = (NATIONAL_STATS.total_pop - people) *
+    NATIONAL_STATS.avg_per_capita_emissions;
+  const calculatedEmissions = people * carbon;
+  return avgEmissions + calculatedEmissions;
 }
 
 export function getGridColor(emissions) {
