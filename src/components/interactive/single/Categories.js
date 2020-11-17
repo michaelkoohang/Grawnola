@@ -27,6 +27,7 @@ function Categories(props) {
 
   useEffect(() => {
       if (data && d3Container.current) {
+        let total_carbon = data.reduce((a, b) => a + (b["value"] || 0), 0);
         // remove the old svg
         select(d3Container.current)
           .select('svg')
@@ -37,7 +38,7 @@ function Categories(props) {
           .append('svg')
           .attr('preserveAspectRatio', 'xMidYMin')
           .attr('viewBox', `0 0 ${width} ${height}`)
-          .classed('svg-categories', true)
+          .classed('single-svg', true)
           .append('g')
           .attr('transform', `translate(${width / 2}, ${height / 2 + 20})`);
 
@@ -46,107 +47,146 @@ function Categories(props) {
           .attr('transform', `translate(-120,-130)`)
           .style('fill', '#6b6b6b')
           .style('font-size', '24px')
-          .style('font-weight', '600')
+          .style('font-weight', '200')
           .style('font-family', 'Helvetica')
 
-        const arcGenerator = arc()
-          .innerRadius(innerRadius)
-          .outerRadius(outerRadius);
+        if (total_carbon > 0) {
+          const arcGenerator = arc()
+            .innerRadius(innerRadius)
+            .outerRadius(outerRadius);
 
-        const pieGenerator = pie()
-          .padAngle(0)
-          .value(d => d.value);
+          const pieGenerator = pie()
+            .padAngle(0)
+            .value(d => d.value);
 
-        const donut = svg
-          .selectAll()
-          .data(pieGenerator(data))
-          .enter();
+          const donut = svg
+            .selectAll()
+            .data(pieGenerator(data))
+            .enter();
 
-        donut.append('path')
-          .attr('d', arcGenerator)
-          .style('fill', (d, i) => colorScale(i))
-          .style('stroke-width', 0);
-        // TODO add interactivity so that when you hover different sections of the
-        // donut, you can preview info on each of the greenhouse gases
+          donut.append('path')
+            .attr('d', arcGenerator)
+            .style('fill', (d, i) => colorScale(i))
+            .style('stroke-width', 0);
+          // TODO add interactivity so that when you hover different sections of the
+          // donut, you can preview info on each of the greenhouse gases
 
-        // Add labels
-        // donut.append('text')
-        //   .attr('text-anchor', 'middle')
-        //   .attr('aligment-baseline', 'middle')
-        //   .attr('font-size', '12px')
-        //   .text(d => d.data.formula || d.data.name)
-        //   .style('fill', 'white')
-        //   .attr('transform', (d) => {
-        //     const [x, y] = arcGenerator.centroid(d);
-        //     return (d.data.name === 'Fluorinated gases')
-        //       ? `translate(${x}, ${y - 15})`
-        //       : `translate(${x}, ${y})`;
-        //   });
-        //
-        // donut.append('text')
-        //   .attr('text-anchor', 'middle')
-        //   .attr('aligment-baseline', 'middle')
-        //   .attr('font-size', '10px')
-        //   .text(d => `(${d.value}%)`)
-        //   .style('fill', 'white')
-        //   .attr('transform', (d) => {
-        //     const [x, y] = arcGenerator.centroid(d);
-        //     return (d.data.name === 'Fluorinated gases')
-        //       ? `translate(${x}, ${y})`
-        //       : `translate(${x}, ${y + 13})`;
-        //   });
+          // Add labels
+          // donut.append('text')
+          //   .attr('text-anchor', 'middle')
+          //   .attr('aligment-baseline', 'middle')
+          //   .attr('font-size', '12px')
+          //   .text(d => d.data.formula || d.data.name)
+          //   .style('fill', 'white')
+          //   .attr('transform', (d) => {
+          //     const [x, y] = arcGenerator.centroid(d);
+          //     return (d.data.name === 'Fluorinated gases')
+          //       ? `translate(${x}, ${y - 15})`
+          //       : `translate(${x}, ${y})`;
+          //   });
+          //
+          // donut.append('text')
+          //   .attr('text-anchor', 'middle')
+          //   .attr('aligment-baseline', 'middle')
+          //   .attr('font-size', '10px')
+          //   .text(d => `(${d.value}%)`)
+          //   .style('fill', 'white')
+          //   .attr('transform', (d) => {
+          //     const [x, y] = arcGenerator.centroid(d);
+          //     return (d.data.name === 'Fluorinated gases')
+          //       ? `translate(${x}, ${y})`
+          //       : `translate(${x}, ${y + 13})`;
+          //   });
 
-        // NOTE if you comment out the code for the labels above,
-        // and instead use the code that's commented out below, you get labels
-        // with fancy lines outside of the donut.
-        // TODO figure out how to size the svg properly so that the labels
-        // are not cut out of the svg bounds
-        const arcLabel = arc()
-          .innerRadius(outerRadius * 0.9)
-          .outerRadius(outerRadius * 0.9);
+          // NOTE if you comment out the code for the labels above,
+          // and instead use the code that's commented out below, you get labels
+          // with fancy lines outside of the donut.
+          // TODO figure out how to size the svg properly so that the labels
+          // are not cut out of the svg bounds
+          const arcLabel = arc()
+            .innerRadius(outerRadius * 0.9)
+            .outerRadius(outerRadius * 0.9);
 
-        donut.append('polyline')
-          .attr('stroke', 'white')
-          .style('fill', 'none')
-          .attr('stroke-width', 1)
-          .attr('opacity', d => {
-            if (d.data.value === 0) {
-              return "0"
-            }
-          })
-          .attr('points', (d) => {
-            const posA = arcGenerator.centroid(d);
-            const posB = arcLabel.centroid(d);
-            const posC = arcLabel.centroid(d);
-            const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2
-            posC[0] = outerRadius * 0.88 * (midAngle < Math.PI ? 1 : -1);
-            return [posA, posB, posC];
-          });
+          donut.append('polyline')
+            .attr('stroke', 'white')
+            .style('fill', 'none')
+            .attr('stroke-width', 1)
+            .attr('opacity', d => {
+              if (d.data.value === 0) {
+                return "0"
+              }
+            })
+            .attr('points', (d) => {
+              const posA = arcGenerator.centroid(d);
+              const posB = arcLabel.centroid(d);
+              const posC = arcLabel.centroid(d);
+              const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2
+              posC[0] = outerRadius * 0.88 * (midAngle < Math.PI ? 1 : -1);
+              return [posA, posB, posC];
+            });
 
-        donut.append('text')
-          .text(d => d.data.name.charAt(0).toUpperCase() + d.data.name.slice(1))
-          .attr('opacity', d => {
-            if (d.data.value === 0) {
-              return "0"
-            }
-          })
-          .attr('transform', (d) => {
-            const pos = arcLabel.centroid(d);
-            const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2;
-            pos[0] = outerRadius * 0.9 * (midAngle < Math.PI ? 1 : -1);
-            return `translate(${pos})`;
-          })
-          .style('text-anchor', (d) => {
-            const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2;
-            return (midAngle < Math.PI ? 'start' : 'end');
-          })
-          .style('fill', 'white');
+          donut.append('text')
+            .text(d => d.data.name.charAt(0).toUpperCase() + d.data.name.slice(1))
+            .attr('opacity', d => {
+              if (d.data.value === 0) {
+                return "0"
+              }
+            })
+            .attr('transform', (d) => {
+              const pos = arcLabel.centroid(d);
+              const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+              pos[0] = outerRadius * 0.9 * (midAngle < Math.PI ? 1 : -1);
+              return `translate(${pos})`;
+            })
+            .style('text-anchor', (d) => {
+              const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+              return (midAngle < Math.PI ? 'start' : 'end');
+            })
+            .style('fill', 'white');
+
+          donut.append('text')
+            .text(d => (d.data.value + " kg"))
+            .attr('opacity', d => {
+              if (d.data.value === 0) {
+                return "0"
+              }
+            })
+            .attr('transform', (d) => {
+              const pos = arcLabel.centroid(d);
+              const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+              pos[0] = outerRadius * 0.9 * (midAngle < Math.PI ? 1 : -1);
+              return `translate(${pos}), translate(0,20)`;
+            })
+            .style('text-anchor', (d) => {
+              const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+              return (midAngle < Math.PI ? 'start' : 'end');
+            })
+            .style('fill', 'white');
+        } else {
+          svg.append('text')
+            .text("Add data on the control panel")
+              .attr('transform', `translate(-170,-40)`)
+            .style('fill', '#6b6b6b')
+            .style('font-size', '24px')
+            .style('font-weight', '600')
+            .style('font-family', 'Helvetica')
+          svg.append('text')
+            .text("to see your emissions!")
+            .attr('transform', `translate(-130,-10)`)
+            .style('fill', '#6b6b6b')
+            .style('font-size', '24px')
+            .style('font-weight', '600')
+            .style('font-family', 'Helvetica')
+
+        }
+
+
       }
     },
     [data, d3Container.current]);
 
   return (
-    <div className='categories-container' ref={d3Container} />
+    <div className='single-container' ref={d3Container} />
   );
 }
 
