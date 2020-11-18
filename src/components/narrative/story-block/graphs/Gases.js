@@ -63,11 +63,11 @@ function Gases(props) {
       svg.append('text')
         .style("opacity", 1)
         .style("fill", "white")
-        .style('font-size', '14px')
+        .style('font-size', '13px')
         .style('font-weight', '100')
         .style('font-family', 'Helvetica')
-        .text('Overview of Greenhouse Gas Emissions in 2018')
-        .attr('transform',`translate(${-width/2 + 5},${-140})`)
+        .text('Overview of US Greenhouse Gas Emissions in 2018')
+        .attr('transform',`translate(${-width/2},${-140})`)
 
       // Add labels
       donut.append('text')
