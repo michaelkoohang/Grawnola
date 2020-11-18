@@ -32,7 +32,7 @@ function ControlPanel(props) {
   function updateElectricityLabel(value) { setElectricityLabel(value) }
   function updateTreesLabel(value) {
     setTreesLabel(value);
-    props.updateOffsets(value);
+    // props.updateOffsets(value);
   }
 
   // Modal logic
@@ -219,9 +219,10 @@ function ControlPanel(props) {
           </div>
           <Slider
             onChange={updateTreesLabel}
+            onAfterChange={props.updateOffsets}
             step={1}
             min={0}
-            max={10}
+            max={100}
             className="tree-slider"
           />
         </div>
