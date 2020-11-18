@@ -52,7 +52,7 @@ function Paris(props) {
 
       // Add labels for each axis
       var yAxisLabelText = 'CO2 (Gigatonnes)';
-      var xAxisLabelText = 'Year';
+      var xAxisLabelText = 'Date';
 
       svg.append('text')
         .style('fill', 'white')
@@ -63,6 +63,38 @@ function Paris(props) {
         .style('fill', 'white')
         .attr('transform', "translate(-40,230), rotate(270)")
         .text(yAxisLabelText);
+
+      svg.append("line")
+        .attr("x1", 0)
+        .attr("x2", width)
+        .attr("y1", y(9))
+        .attr("y2", y(9))
+        .attr("stroke", "#ffcc00")
+        .attr("stroke-width", 2);
+
+      svg.append('text')
+        .text('Where we\'re headed')
+        .style("fill", "#FF453A")
+        .style('font-size', '16px')
+        .style('font-weight', '900')
+        .style('font-family', 'Helvetica')
+        .attr('transform','translate(120,120) rotate(-32)')
+
+      svg.append('text')
+        .text('Where we can go')
+        .style("fill", "#32D74B")
+        .style('font-size', '16px')
+        .style('font-weight', '900')
+        .style('font-family', 'Helvetica')
+        .attr('transform','translate(110,230) rotate(25)')
+
+      svg.append('text')
+        .text('The goal')
+        .style("fill", "#ffcc00")
+        .style('font-size', '16px')
+        .style('font-weight', '900')
+        .style('font-family', 'Helvetica')
+        .attr('transform','translate(30,305)')
 
       // Draw the line
       svg.append("path")

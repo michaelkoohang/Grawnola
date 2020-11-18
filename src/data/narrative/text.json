@@ -62,7 +62,7 @@
     "facts": [],
     "message": {
       "header": "Interactive",
-      "text": "Hover over each sector to see how much CO₂ they account for in metric tons."
+      "text": "Hover over each sector to see how much CO₂ they output in metric tons."
     }
   },
   {
@@ -76,11 +76,11 @@
   },
   {
     "heading": "What is our collective goal?",
-    "subtext": "According to the Paris Accord, if we want to limit global temperature change to under 1.5 degrees Celsius, our global actions must only use 9K gigatons of CO\u2082 per year.",
+    "subtext": "According to the <span style=\"color: #32D74B;\">Paris Climate Accords</span>, if we want to limit global temperature change to under 1.5 degrees Celsius, our global actions must only use <strong>9K gigatons</strong> of CO\u2082 per year by 2100.",
     "facts": [],
     "message": {
-      "header": "",
-      "text": ""
+      "header": "Next Steps",
+      "text": "Check out the interactive viz to see how your carbon footprint can be managed on an individual and national scale."
     }
   }
 ]
