@@ -173,7 +173,7 @@ function ControlPanel(props) {
             onChange={updateTreesLabel}
             step={1}
             min={0}
-            max={1000}
+            max={10}
             className="tree-slider"
           />
         </div>
