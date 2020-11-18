@@ -6,9 +6,9 @@ import {extent, max} from "d3-array";
 import {line} from "d3-shape";
 
 // TODO pass width/height and radii as props
-const margin = {top: 10, right: 0, bottom: 100, left: 80},
+const margin = {top: 30, right: 0, bottom: 100, left: 80},
   width = 460 - margin.left - margin.right,
-  height = 300 + margin.top + margin.bottom;
+  height = 280 + margin.top + margin.bottom;
 
 function NetEmissionsFlow(props) {
   const d3Container = useRef(null);
@@ -114,6 +114,14 @@ function NetEmissionsFlow(props) {
         .attr("y2", height / 2)
         .attr("stroke", "grey")
         .attr("stroke-dasharray", "4")
+
+      svg.append('text')
+        .style('font-size', '14px')
+        .style('font-weight', '100')
+        .style('font-family', 'Helvetica')
+        .text('CO\u2082 Swaps')
+        .style("fill", "white")
+        .attr('transform','translate(150,-18)')
 
     }
   },[data, d3Container.current]);
