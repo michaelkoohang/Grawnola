@@ -47,7 +47,7 @@ function ShippingModal(props) {
       size="tiny"
       className="shipping-modal"
     >
-      <Header className="modal-header" icon="box" color='brown' content="Add Package"/>
+      <Header className="modal-header" icon="box" content="Add Package"/>
       <Modal.Content>
         <Grid columns={3} widths="equal">
           <Grid.Row>
@@ -88,15 +88,14 @@ function ShippingModal(props) {
       </Modal.Content>
       <Modal.Actions>
         <Button
-          color='red'
           onClick={() => cancelShipping()}>
           Cancel
         </Button>
         <Button
+          color='blue'
           content="Save"
-          labelPosition='right'
+          labelPosition='left'
           icon='checkmark'
-          positive
           onClick={() => addShipping()}
         />
       </Modal.Actions>
