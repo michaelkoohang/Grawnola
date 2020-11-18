@@ -56,8 +56,6 @@ function Sectors(props) {
       const root = hierarchy(data)
         .sum(d => d.value);
 
-      console.info('@Sectors root', root);
-
       treemap()
         .size([width - (margin.right + margin.left), height - (margin.top + margin.bottom)])
         .paddingTop(30)

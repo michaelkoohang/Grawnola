@@ -284,7 +284,7 @@ function ControlPanel(props) {
         </Header>
         <Modal.Content>
           <p className="modal-content">
-            You can use this interactive viz to explore how you can offset your own CO<sub>2</sub> emitting behviors.
+            You can use this interactive visualization to explore how you can offset your own CO<sub>2</sub> emitting behviors.
           </p>
           <Message color='black'>
             <Message.Header><Icon name='list ol'/> Directions</Message.Header>

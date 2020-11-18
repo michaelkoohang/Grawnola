@@ -33,7 +33,7 @@ function Paris(props) {
 
       // group the data: I want to draw one line per group
       var grouped_data = group(data, d => d.pathway);
-      console.log(grouped_data);
+      // console.log(grouped_data);
 
       // Add X axis --> it is a date format
       var x = scaleTime()

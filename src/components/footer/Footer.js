@@ -14,7 +14,7 @@ function Footer() {
               href='#/'
             />
             <Menu.Item
-              name='Interactive'
+              name='Your Impact'
               href='#/interactive'
             />
           </Menu>

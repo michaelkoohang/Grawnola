@@ -90,9 +90,12 @@ function Narrative() {
         </Transition>
       </Container>
       { currentStory < text.length - 1
-        // TODO rename the button text... and avoid use of "viz" spelling
-        ? <a href="#/interactive" className="skip-viz">Skip to Interactive Viz <Icon name="arrow right"/></a>
-        : <Button href="#/interactive" className="go-viz" positive>Go to Interactive Viz <Icon name="arrow right"/></Button>
+        ? (<a href="#/interactive" className="skip-viz">
+            Skip to your CO<sub>2</sub> impact<Icon name="arrow right"/>
+          </a>)
+        : (<Button href="#/interactive" className="go-viz" positive>
+            Explore your CO<sub>2</sub> impact<Icon name="arrow right"/>
+          </Button>)
       }
     </div>
   );

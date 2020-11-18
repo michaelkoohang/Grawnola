@@ -37,7 +37,7 @@
     "message": {
       "icon": "zoom",
       "header": "Interactive",
-      "text": "Click and drag to zoom in and out of the graph. Double click the graph to reset. Note: 1 metric ton = tonne."
+      "text": "Click and drag to zoom in and out of the graph. Double click the graph to reset. Note: 1 metric ton = 1 tonne."
     }
   },
   {
@@ -85,7 +85,7 @@
     "message": {
       "icon": "step forward",
       "header": "Next steps",
-      "text": "Check out the interactive viz to see how your carbon footprint can be managed on an individual and national scale."
+      "text": "Check out the CO\u2082 impact visualization to see how your carbon footprint can be managed on an individual and national scale."
     }
   }
 ]
