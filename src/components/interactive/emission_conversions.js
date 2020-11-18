@@ -3,23 +3,22 @@ export const offsets = {
   vegan: {
     id: 'vegan',
     label: 'Go vegan',
-    offset: -500
+    offset: -1556.28
   },
   carFree: {
     id: 'carFree',
     label: 'Live car free',
-    offset: -500
+    offset: -5355.57
   },
   ledBulbs: {
-    id: 'ledBulbs',
-    label: 'Use LED bulbs',
-    offset: -500
+    id: 'recycle',
+    label: 'Recycle',
+    offset: -136.08
   },
   trees: {
     id: 'trees',
     label: 'Plant a tree',
     multiplier: true,
-    offset: -100
-
+    offset: -33.26
   }
 };
