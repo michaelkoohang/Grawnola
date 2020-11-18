@@ -35,6 +35,7 @@
       }
     ],
     "message": {
+      "icon": "zoom",
       "header": "Interactive",
       "text": "Click and drag to zoom in and out of the graph. Double click the graph to reset. Note: 1 metric ton = tonne."
     }
@@ -53,8 +54,9 @@
     "subtext": "When the concentration of greenhouse gases in the atmosphere increases above the Earth's budget, the trapped heat causes the global temperature to rise. Human activity has caused a steady increase in CO\u2082 in the atmosphere, especially after the industrial revolution. Because CO\u2082 is the most abundant greenhouse gas, and it offers the most opportunities for offset, we choose to focus on understanding CO\u2082 emissions and offsets in the remainder of this visualization.",
     "facts": [],
     "message": {
-      "header": "Table",
-      "text": "Check out the table to see opportunities for reducing emissions. A green checkmark indicates which sectors produce certain greenhouse gases."
+      "icon": "arrows alternate horizontal",
+      "header": "Interactive",
+      "text": "Explore the table to see opportunities for reducing emissions according to the US Environmental Protection Agency (EPA). A green checkmark indicates which sectors could offer significant reduction in emissions for a given greenhouse gas."
     }
   },
   {
@@ -62,6 +64,7 @@
     "subtext": "Although there are many areas where large companies can work to reduce their emissions, our collective actions add up in the atmosphere! Take a look at the sectors that contribute the most greenhouse gas emissions measured in metric tons.",
     "facts": [],
     "message": {
+      "icon": "mouse pointer",
       "header": "Interactive",
       "text": "Hover over each sector to see how much CO₂ they output in metric tons. Note: 1 metric ton = 1000 kg."
     }
@@ -77,10 +80,11 @@
   },
   {
     "heading": "What is our collective goal?",
-    "subtext": "According to the <span style=\"color: #32D74B;\">Paris Agreement</span>, if we want to limit global temperature change to under <strong>1.5 degrees Celsius</strong>, our global actions must only use <strong>9,000 gigatonnes</strong> of CO\u2082 per year by 2100. Take a look at what will happen if every country upholds the agreement or continues on the current path.",
+    "subtext": "According to the <span style=\"color: #32D74B;\"><strong>Paris Agreement</strong></span>, we must limit the global temperature change to stay under <strong>1.5 degrees Celsius</strong>. To accomplish this, our collective CO\u2082 emissions must not surpass <strong>9,000 Gigatonnes</strong> per year by 2100. Take a look at what will happen if every country upholds the agreement or continues on the current path.",
     "facts": [],
     "message": {
-      "header": "Next Steps",
+      "icon": "step forward",
+      "header": "Next steps",
       "text": "Check out the interactive viz to see how your carbon footprint can be managed on an individual and national scale."
     }
   }

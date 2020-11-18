@@ -73,7 +73,7 @@ function Paris(props) {
         .attr("stroke-width", 2);
 
       svg.append('text')
-        .text('Where we\'re headed')
+        .text('where we\'re headed')
         .style("fill", "#FF453A")
         .style('font-size', '16px')
         .style('font-weight', '900')
@@ -89,7 +89,7 @@ function Paris(props) {
         .attr('transform','translate(110,205) rotate(25)')
 
       svg.append('text')
-        .text('The goal')
+        .text('the goal')
         .style("fill", "#ffcc00")
         .style('font-size', '16px')
         .style('font-weight', '900')
