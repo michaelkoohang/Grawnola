@@ -9,6 +9,7 @@ import {
   getGridSize,
   MAX_GRID_SIZE
 } from './grid-conversions';
+import { offsets } from '../emission_conversions';
 
 const width = 500;
 const height = 275;
@@ -51,10 +52,37 @@ function Grid(props) {
         : getGridColor(newEmissions));
 
     svg.append('text')
-      .attr('x', offset)
-      .attr('y', offset)
-      .text(getGridLabel(newEmissions))
-      .style('fill', 'white');
+      .attr('transform', `translate(${offset * 5}, ${offset - 10})`)
+      .style('fill', 'white')
+      // .style('opacity', 0.8)
+      .style('font-weight', '200')
+      .style('font-family', 'Helvetica')
+      .style('font-size', '10px')
+      .text('USA National CO\u2082 Budget');
+
+    svg.append('rect')
+      .attr('transform', `translate(${offset}, ${offset * 5 - cellSize})`)
+      .attr('width', cellSize)
+      .attr('height', cellSize)
+      .attr('fill', '#8E8E93');
+    svg.append('text')
+    .attr('transform', `translate(${offset + (2 * cellSize)}, ${offset * 5 + cellSize / 3})`)
+    .style('fill', 'white')
+    .style('opacity', 0.8)
+    .style('font-weight', '200')
+    .style('font-family', 'Helvetica')
+    .style('font-size', '9px')
+    .text('––> 2 million metric tons of CO\u2082')
+
+    cell.enter()
+      .append('text')
+      .attr('transform', `translate(${0}, ${3.6 * offset})`)
+      .style('fill', d => getGridColor(newEmissions))
+      // .style('opacity', 0.8)
+      .style('font-weight', '200')
+      .style('font-family', 'Helvetica')
+      .style('font-size', '10px')
+      .text(getGridLabel(newEmissions));
   }
 
   // component mounted

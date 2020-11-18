@@ -69,15 +69,14 @@ function CarsModal(props) {
       </Modal.Content>
       <Modal.Actions>
         <Button
-          color='red'
           onClick={() => cancelCar()}>
           Cancel
         </Button>
         <Button
+          color='blue'
           content="Save"
-          labelPosition='right'
+          labelPosition='left'
           icon='checkmark'
-          positive
           onClick={() => addCar()}
         />
       </Modal.Actions>

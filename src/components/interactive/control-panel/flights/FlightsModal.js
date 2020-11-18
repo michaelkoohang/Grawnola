@@ -42,7 +42,7 @@ function FlightsModal(props) {
       size="tiny"
       className="flight-modal"
     >
-      <Header className="modal-header" icon="plane" color='blue' content="Add Flight"/>
+      <Header className="modal-header" icon="plane" content="Add Flight"/>
       <Modal.Content>
         <Grid>
           <Grid.Row>
@@ -96,15 +96,14 @@ function FlightsModal(props) {
       </Modal.Content>
       <Modal.Actions>
         <Button
-          color='red'
           onClick={() => cancelFlight()}>
           Cancel
         </Button>
         <Button
+          color='blue'
           content="Save"
-          labelPosition='right'
+          labelPosition='left'
           icon='checkmark'
-          positive
           onClick={() => addFlight()}
         />
       </Modal.Actions>
