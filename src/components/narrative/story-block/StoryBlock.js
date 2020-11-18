@@ -48,7 +48,9 @@ function StoryBlock(props) {
             }
             { text[props.story].message.header.length > 0 && text[props.story].message.text.length > 0 &&
               <Message className="story-message" color='black'>
-                <Message.Header><Icon name='star'/> {text[props.story].message.header}</Message.Header>
+                <Message.Header><Icon name={text[props.story].message.icon || 'star'}/>
+                  {text[props.story].message.header}
+                </Message.Header>
                 <p>{text[props.story].message.text}</p>
               </Message>
             }
@@ -59,7 +61,7 @@ function StoryBlock(props) {
                 <Button.Group>
                   <Button className={tempCarbonActive ? "active" : "negative"} onClick={() => setTempCarbonActive(0)}>Temperature</Button>
                   <Button.Or />
-                  <Button className={tempCarbonActive ? "positive" : "active"} onClick={() => setTempCarbonActive(1)}>Carbon</Button>
+                  <Button className={tempCarbonActive ? "negative" : "active"} onClick={() => setTempCarbonActive(1)}>Carbon</Button>
                 </Button.Group>
                 { tempCarbonActive
                   ? <Carbon data={carbon} />
