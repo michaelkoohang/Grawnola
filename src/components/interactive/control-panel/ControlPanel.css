@@ -7,6 +7,11 @@
   height: calc(100vh - 200px);
 }
 
+ul {
+  padding: 15px;
+  /* list-style-type: none; */
+}
+
 .offset {
   padding-bottom: 0.5em;
   display: block !important;
