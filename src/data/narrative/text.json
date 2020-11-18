@@ -34,8 +34,8 @@
       }
     ],
     "message": {
-      "header": "",
-      "text": ""
+      "header": "Interactive",
+      "text": "Click and drag to zoom in and out of the graph. Double click the graph to reset."
     }
   },
   {

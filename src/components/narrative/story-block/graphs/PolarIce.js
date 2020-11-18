@@ -58,6 +58,14 @@ function PolarIce(props) {
           .attr('transform', "translate(-55,230), rotate(270)")
           .text(yAxisLabelText);
 
+        svg.append("line")
+          .attr("x1", 0)
+          .attr("x2", width)
+          .attr("y1", y(0))
+          .attr("y2", y(0))
+          .attr("stroke", "grey")
+          .attr("stroke-dasharray", "4");
+
         svg.append("defs").append("svg:clipPath")
           .attr("id", "clip-ice")
           .append("svg:rect")
