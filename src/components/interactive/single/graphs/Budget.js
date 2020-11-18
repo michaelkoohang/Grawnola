@@ -2,6 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import {select} from 'd3-selection';
 import {axisBottom, axisLeft} from "d3-axis";
 import {scaleLinear, scaleBand} from "d3-scale";
+import {round} from 'lodash';
 
 import NATIONAL_STATS from '../../../../data/interactive/national_statistics';
 
@@ -97,7 +98,7 @@ function Budget(props) {
         .style('font-size', '16px')
         .style('font-weight', '900')
         .style('font-family', 'Helvetica')
-        .text(`${data}`);
+        .text(`${round(data, 2)}`);
 
       svg.append('text')
         .style('fill', 'white')

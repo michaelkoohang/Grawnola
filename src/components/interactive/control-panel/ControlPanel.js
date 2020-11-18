@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {filter, map} from 'lodash';
-import {Button, Icon, Checkbox, List, Label} from "semantic-ui-react";
+import {Button, Icon, Checkbox, List, Label, Popup, Modal, Message, Header} from "semantic-ui-react";
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import './ControlPanel.css';
@@ -9,6 +9,15 @@ import CarsModal from "./cars/CarsModal";
 import ShippingModal from "./shipping/ShippingModal";
 
 import {offsets} from '../emission_conversions';
+import {
+  emissionsTitle,
+  electricityTitle,
+  flightsTitle,
+  carsTitle,
+  shippingTitle,
+  offsetsTitle,
+  multipliersTitle
+} from './headers';
 
 function ControlPanel(props) {
 
@@ -17,6 +26,8 @@ function ControlPanel(props) {
   const [openFlights, setOpenFlights] = useState(false);
   const [openCars, setOpenCars] = useState(false);
   const [openShipping, setOpenShipping] = useState(false);
+
+  const [introOpen, setIntroOpen] = useState(true);
 
   function updateElectricityLabel(value) { setElectricityLabel(value) }
   function updateTreesLabel(value) {
@@ -40,15 +51,22 @@ function ControlPanel(props) {
   return (
     <div className="input-panel">
       <div className="emissions">
-        <h2>
-          <Icon color='red' name='fire' />
-          Emissions
-        </h2>
+      <Popup basic trigger={emissionsTitle}>
+      <Popup.Header>Emissions</Popup.Header>
+        <Popup.Content>
+          Add estimates for your behavior to calculate your CO2 emissions.
+          Values correspond to yearly emissions.
+        </Popup.Content>
+      </Popup>
         <div className="emissions-header">
-          <h3 className="emissions-title">
-            <Icon name="lightning" color="yellow" />
-            Electricity Bill
-          </h3>
+        <Popup basic trigger={electricityTitle}>
+        <Popup.Header>Electricity</Popup.Header>
+          <Popup.Content>
+            The average American pays $50 per month.
+            Our emissions calculator uses the&nbsp;
+            <a href="https://www.carboninterface.com">Carbon Interface API.</a>
+          </Popup.Content>
+        </Popup>
           <h3 className="offset-tree-value">
             <Icon name='dollar' color='yellow' />
             {electricityLabel}
@@ -63,7 +81,13 @@ function ControlPanel(props) {
         />
       </div>
       <div className="emissions">
-        <h3><Icon name="plane" color="teal" /> Flights</h3>
+        <Popup basic trigger={flightsTitle}>
+        <Popup.Header>Flights</Popup.Header>
+          <Popup.Content>
+            Our emissions calculator uses the&nbsp;
+            <a href="https://www.carboninterface.com">Carbon Interface API.</a>
+          </Popup.Content>
+        </Popup>
         { props.flights.map((flight, index) => (
           <Button
             as='div'
@@ -98,7 +122,14 @@ function ControlPanel(props) {
         </Button>
       </div>
       <div className="emissions">
-        <h3><Icon name="car" color="purple" /> Cars</h3>
+        <Popup basic trigger={carsTitle}>
+        <Popup.Header>Cars</Popup.Header>
+          <Popup.Content>
+            This projection is based on the mileage of a Toyota Corolla 2017.
+            Our emissions calculator uses the&nbsp;
+            <a href="https://www.carboninterface.com">Carbon Interface API.</a>
+          </Popup.Content>
+        </Popup>
         { props.cars.map((car, index) => (
           <Button
             as='div'
@@ -125,7 +156,13 @@ function ControlPanel(props) {
         <Button size="mini" onClick={() => setOpenCars(true)}><Icon name="add" />Add car</Button>
       </div>
       <div className="emissions">
-        <h3><Icon name="box" color="brown" /> Shipping</h3>
+        <Popup basic trigger={shippingTitle}>
+        <Popup.Header>Shipping</Popup.Header>
+          <Popup.Content>
+            Our emissions calculator uses the&nbsp;
+            <a href="https://www.carboninterface.com">Carbon Interface API.</a>
+          </Popup.Content>
+        </Popup>
         { props.shipping.map((shipment, index) => (
           <Button
             as='div'
@@ -153,7 +190,18 @@ function ControlPanel(props) {
         <Button size="mini" onClick={() => setOpenShipping(true)}><Icon name="add" />Add package</Button>
       </div>
       <div className="emissions">
-        <h2><Icon name="leaf" color="green" /> Offsets</h2>
+        <Popup basic trigger={offsetsTitle}>
+        <Popup.Header>Offsets</Popup.Header>
+          <Popup.Content>
+            <p>Select behaviors to offset your CO2 emissions.</p>
+            <ul>
+              <li>Going vegan saves 3,372.91 kg of CO2/year</li>
+              <li>Living car free saves 5,355.57 kg CO2/year</li>
+              <li>Recycling saves 136.08 kg of CO2/year</li>
+              <li>Planting a tree saves 33.11kg of CO2/year</li>
+            </ul>
+          </Popup.Content>
+        </Popup>
         {map(filter(offsets, offset => !offset.multiplier), offset => (
           <Checkbox
             className='offset'
@@ -173,16 +221,19 @@ function ControlPanel(props) {
             onChange={updateTreesLabel}
             step={1}
             min={0}
-            max={1000}
+            max={10}
             className="tree-slider"
           />
         </div>
       </div>
       <div className="emissions">
-        <h2>
-          <Icon color='blue' name='sliders horizontal' />
-          &nbsp;Multipliers
-        </h2>
+        <Popup basic trigger={multipliersTitle}>
+        <Popup.Header>Multipliers</Popup.Header>
+          <Popup.Content>
+            Scale the people slider to see the collective action if everyone
+            had the same carbon footprint as you.
+          </Popup.Content>
+        </Popup>
         <div className="emissions-header">
           <h3 className="emissions-title">
             <Icon name="users" color="blue" />
@@ -218,6 +269,33 @@ function ControlPanel(props) {
         toggleCarsModal={toggleCarsModal}
         updateCars={updateCars}
       />
+      <Modal
+        basic
+        onClose={() => setIntroOpen(false)}
+        open={introOpen}
+        size='small'>
+        <Header icon>
+          <div className="modal-icons">
+            <Icon name='thermometer full' />
+            {/* <Icon name='globe' /> */}
+          </div>
+          <p className="modal-title">Optimize your CO<sub>2</sub> budget</p>
+        </Header>
+        <Modal.Content>
+          <p className="modal-content">
+            Use the left and right arrow keys on your keyboard to move through the visualizations.
+          </p>
+          <Message color='black'>
+            <Message.Header><Icon name='star'/> Directions</Message.Header>
+            
+          </Message>
+        </Modal.Content>
+        <Modal.Actions>
+          <Button color='white' inverted onClick={() => setIntroOpen(false)}>
+            <Icon name='checkmark' /> Ok
+          </Button>
+        </Modal.Actions>
+      </Modal>
     </div>
   );
 }
