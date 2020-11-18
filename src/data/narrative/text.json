@@ -80,7 +80,7 @@
   },
   {
     "heading": "What is our collective goal?",
-    "subtext": "According to the <span style=\"color: #32D74B;\"><strong>Paris Agreement</strong></span>, we must limit the global temperature change to stay under <strong>1.5 degrees Celsius</strong>. To accomplish this, our collective CO\u2082 emissions must not surpass <strong>9,000 Gigatonnes</strong> per year by 2100. Take a look at what will happen if every country upholds the agreement or continues on the current path.",
+    "subtext": "According to the <span style=\"color: #32D74B;\"><strong>Paris Agreement</strong></span>, we must limit the global temperature change to stay under <strong>1.5º Celsius</strong>. To accomplish this, our collective CO\u2082 emissions must not surpass <strong><span style=\"color: #ffcc00;\">9,000 Gigatonnes</span></strong> per year by 2100. Take a look at what will happen if every country upholds the agreement or continues on the current path.",
     "facts": [],
     "message": {
       "icon": "step forward",
