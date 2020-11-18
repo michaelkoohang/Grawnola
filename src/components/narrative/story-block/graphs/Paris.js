@@ -94,14 +94,15 @@ function Paris(props) {
         .style('font-size', '16px')
         .style('font-weight', '900')
         .style('font-family', 'Helvetica')
-        .attr('transform','translate(30,270)')
+        .attr('transform','translate(30,275)')
 
       svg.append('text')
+        .style('font-size', '14px')
+        .style('font-weight', '100')
+        .style('font-family', 'Helvetica')
         .text('Global CO\u2082 Emissions')
         .style("fill", "white")
-        .style('font-size', '16px')
-        .style('font-family', 'Helvetica')
-        .attr('transform','translate(100,-15)')
+        .attr('transform','translate(110,-18)')
 
       // Draw the line
       svg.append("path")
