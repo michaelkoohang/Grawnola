@@ -45,7 +45,7 @@ function Carbon(props) {
         .call(axisLeft(y));
 
       // Add labels for each axis
-      var yAxisLabelText = 'CO2 (parts per million)';
+      var yAxisLabelText = 'CO\u2082 (parts per million)';
       var xAxisLabelText = 'Date';
 
       svg.append('text')

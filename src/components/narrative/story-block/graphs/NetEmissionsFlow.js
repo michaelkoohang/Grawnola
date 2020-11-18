@@ -46,7 +46,7 @@ function NetEmissionsFlow(props) {
       svg.append("g")
         .call(axisLeft(y));
 
-      var yAxisLabelText = 'CO2 Emissions (kg)';
+      var yAxisLabelText = 'CO\u2082 Emissions (kg)';
 
       svg.append('text')
         .style('fill', 'white')

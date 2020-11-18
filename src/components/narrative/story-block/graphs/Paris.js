@@ -51,7 +51,7 @@ function Paris(props) {
         .call(axisLeft(y));
 
       // Add labels for each axis
-      var yAxisLabelText = 'CO2 (Gigatonnes)';
+      var yAxisLabelText = 'CO\u2082 (Gigatonnes)';
       var xAxisLabelText = 'Date';
 
       svg.append('text')

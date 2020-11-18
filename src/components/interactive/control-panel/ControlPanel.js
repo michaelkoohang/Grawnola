@@ -54,7 +54,7 @@ function ControlPanel(props) {
       <Popup basic trigger={emissionsTitle}>
       <Popup.Header>Emissions</Popup.Header>
         <Popup.Content>
-          Add estimates for your behavior to calculate your CO2 emissions.
+          Add estimates for your behavior to calculate your CO<sub>2</sub> emissions.
           Values correspond to yearly emissions.
         </Popup.Content>
       </Popup>
@@ -193,12 +193,12 @@ function ControlPanel(props) {
         <Popup basic trigger={offsetsTitle}>
         <Popup.Header>Offsets</Popup.Header>
           <Popup.Content>
-            <p>Select behaviors to offset your CO2 emissions.</p>
+            <p>Select behaviors to offset your CO<sub>2</sub> emissions.</p>
             <ul>
-              <li>Going vegan saves 3,372.91 kg of CO2/year</li>
-              <li>Living car free saves 5,355.57 kg CO2/year</li>
-              <li>Recycling saves 136.08 kg of CO2/year</li>
-              <li>Planting a tree saves 33.11kg of CO2/year</li>
+              <li>Going vegan saves 3,372.91 kg of CO<sub>2</sub> per year</li>
+              <li>Living car free saves 5,355.57 kg CO<sub>2</sub> per year</li>
+              <li>Recycling saves 136.08 kg of CO<sub>2</sub> per year</li>
+              <li>Planting a tree saves 33.11kg of CO<sub>2</sub> per year</li>
             </ul>
           </Popup.Content>
         </Popup>
