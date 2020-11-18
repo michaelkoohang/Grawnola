@@ -10,25 +10,17 @@ function Footer() {
         <Grid columns={1} stackable textAlign='center'>
           <Menu inverted secondary>
             <Menu.Item
-              name='help'
-              href='/'
+              name='Story'
+              href='#/'
             />
             <Menu.Item
-              name='data'
-              href='/'
-            />
-            <Menu.Item
-              name='team'
-              href='/'
-            />
-            <Menu.Item
-              name='references'
-              href='/'
+              name='Interactive'
+              href='#/interactive'
             />
           </Menu>
         </Grid>
         <Grid id='footer-text' columns={1} stackable textAlign='center'>
-          <Icon name='fire'/><span id='grawnola'>grawnola</span>
+          <Icon name='tree'/><span id='grawnola'>grawnola</span>
         </Grid>
       </Segment>
     </div>
