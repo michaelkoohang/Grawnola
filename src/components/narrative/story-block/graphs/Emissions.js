@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Icon, Table} from "semantic-ui-react";
 import {map} from 'lodash';
 

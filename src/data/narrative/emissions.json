@@ -49,8 +49,8 @@
         {"key": "lands"},
         {"key": "waste"}
       ],
-      "key": "fluorinated-gases",
-      "name": "Fluorinated gases"
+      "key": "hfc",
+      "name": "HFCs"
     }
   ],
   "sectors": [
