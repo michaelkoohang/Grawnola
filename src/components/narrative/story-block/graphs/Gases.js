@@ -1,9 +1,8 @@
 import React, {useEffect, useRef} from 'react';
 import {arc, pie} from 'd3-shape';
-import {interpolateCool} from 'd3-scale-chromatic';
+import {interpolateCool, schemeTableau10} from 'd3-scale-chromatic';
 import {scaleSequential} from 'd3-scale';
 import {select} from 'd3-selection';
-
 import './SvgStyles.css';
 
 // SOURCES
@@ -14,8 +13,8 @@ const margin = {top: 10, right: 10, bottom: 10, left: 10};
 // TODO pass width/height and radii as props
 const width = 320;
 const height = 320;
-const innerRadius = 80;
-const outerRadius = Math.min(width, height) / 2 - margin.top - margin.bottom;
+const innerRadius = 70;
+const outerRadius = Math.min(width, height) / 2.4 - margin.top - margin.bottom;
 
 function Gases(props) {
   const d3Container = useRef(null);
@@ -61,6 +60,16 @@ function Gases(props) {
       // TODO add interactivity so that when you hover different sections of the
       // donut, you can preview info on each of the greenhouse gases
 
+      svg.append('g')
+        .append('text')
+        .style("opacity", 1)
+        .style("fill", "white")
+        .style('font-size', '14px')
+        .style('font-weight', '100')
+        .style('font-family', 'Helvetica')
+        .text('Overview of Greenhouse Gas Emissions in 2018')
+        .attr('transform',`translate(${-width/2 + 5},${-140})`)
+
       // Add labels
       donut.append('text')
         .attr('text-anchor', 'middle')
@@ -70,8 +79,8 @@ function Gases(props) {
         .style('fill', 'white')
         .attr('transform', (d) => {
           const [x, y] = arcGenerator.centroid(d);
-          return (d.data.name === 'Fluorinated gases')
-            ? `translate(${x}, ${y - 15})`
+          return (d.data.name === 'HFCs')
+            ? `translate(${x}, ${y - 10})`
             : `translate(${x}, ${y})`;
         });
 
@@ -83,7 +92,7 @@ function Gases(props) {
         .style('fill', 'white')
         .attr('transform', (d) => {
           const [x, y] = arcGenerator.centroid(d);
-          return (d.data.name === 'Fluorinated gases')
+          return (d.data.name === 'HFCs')
             ? `translate(${x}, ${y})`
             : `translate(${x}, ${y + 13})`;
         });
