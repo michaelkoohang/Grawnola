@@ -11,13 +11,13 @@
       {
         "icon": "cloudsmith",
         "icon_color": "red",
-        "text": "Carbon dioxide in the atmosphere is up <strong>~396 million</strong> metric tons since 2018"
+        "text": "CO\u2082 in the atmosphere is up <strong>~396 million</strong> metric tons since 2018"
       }
     ],
     "message": {
       "header": "Interactive",
       "icon": "mouse pointer",
-      "text": "Hover over the graph to see the values. Notice the correlation between CO\u2082 and and temperature increasing over time."
+      "text": "Hover over the graph to see the values. Notice the correlation between CO\u2082 concentration in the atmosphere and and temperature increasing over time."
     }
   },
   {

@@ -61,7 +61,7 @@ function StoryBlock(props) {
                 <Button.Group>
                   <Button className={tempCarbonActive ? "active" : "negative"} onClick={() => setTempCarbonActive(0)}>Temperature</Button>
                   <Button.Or />
-                  <Button className={tempCarbonActive ? "negative" : "active"} onClick={() => setTempCarbonActive(1)}>Carbon</Button>
+                  <Button className={tempCarbonActive ? "negative" : "active"} onClick={() => setTempCarbonActive(1)}>CO<sub>2</sub></Button>
                 </Button.Group>
                 { tempCarbonActive
                   ? <Carbon data={carbon} />
