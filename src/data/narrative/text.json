@@ -15,8 +15,8 @@
       }
     ],
     "message": {
-      "header": "",
-      "text": ""
+      "header": "Interactive",
+      "text": "Hover over the graph to see the values. Notice the correlation between CO\u2082 and and temperature increasing over time."
     }
   },
   {

@@ -76,9 +76,9 @@ function Carbon(props) {
       var focus = svg
         .append('g')
         .append('circle')
-        .style("fill", "none")
+        .style("fill", "white")
         .attr("stroke", "white")
-        .attr('r', 8.5)
+        .attr('r', 4.5)
         .style("opacity", 0)
 
       // Create the text that travels along the curve of chart
@@ -86,9 +86,22 @@ function Carbon(props) {
         .append('g')
         .append('text')
         .style("opacity", 0)
-        .style("fill", "white")
-        .attr("text-anchor", "left")
-        .attr("alignment-baseline", "middle")
+        .style("fill", "#32D74B")
+        .style('font-size', '48px')
+        .style('font-weight', '900')
+        .style('font-family', 'Helvetica')
+        .attr('transform','translate(50,80)')
+
+      var focusSubtext = svg
+        .append('g')
+        .append('text')
+        .html('ppm')
+        .style("opacity", 0)
+        .style("fill", "#32D74B")
+        .style('font-size', '48px')
+        .style('font-weight', '900')
+        .style('font-family', 'Helvetica')
+        .attr('transform','translate(50,120)')
 
       svg
         .append('rect')
@@ -105,6 +118,8 @@ function Carbon(props) {
       function mouseover() {
         focus.style("opacity", 1)
         focusText.style("opacity",1)
+        focusSubtext.style("opacity",1)
+
       }
 
       function mousemove(event, d) {
@@ -118,15 +133,14 @@ function Carbon(props) {
             .attr("cx", x(selectedData.x))
             .attr("cy", y(selectedData.y));
           focusText
-            .html(`${selectedData.y} ppm`)
-            .attr("x", x(selectedData.x)+15)
-            .attr("y", y(selectedData.y))
+            .html(`${selectedData.y}`)
         }
 
       }
       function mouseout() {
         focus.style("opacity", 0)
         focusText.style("opacity", 0)
+        focusSubtext.style("opacity",0)
       }
 
     }
