@@ -9,7 +9,7 @@ import {line} from "d3-shape";
 import {group} from "d3-array";
 
 // TODO pass width/height and radii as props
-const margin = {top: 0, right: 20, bottom: 60, left: 80},
+const margin = {top: 30, right: 20, bottom: 60, left: 80},
   width = 460 - margin.left - margin.right,
   height = 400 - margin.top - margin.bottom;
 
@@ -56,19 +56,19 @@ function Paris(props) {
 
       svg.append('text')
         .style('fill', 'white')
-        .attr('transform', `translate(180,390)`)
+        .attr('transform', `translate(165,360)`)
         .text(xAxisLabelText);
 
       svg.append('text')
         .style('fill', 'white')
-        .attr('transform', "translate(-40,230), rotate(270)")
+        .attr('transform', "translate(-60,210), rotate(270)")
         .text(yAxisLabelText);
 
       svg.append("line")
         .attr("x1", 0)
         .attr("x2", width)
-        .attr("y1", y(9))
-        .attr("y2", y(9))
+        .attr("y1", y(9000))
+        .attr("y2", y(9000))
         .attr("stroke", "#ffcc00")
         .attr("stroke-width", 2);
 
@@ -78,15 +78,15 @@ function Paris(props) {
         .style('font-size', '16px')
         .style('font-weight', '900')
         .style('font-family', 'Helvetica')
-        .attr('transform','translate(120,120) rotate(-32)')
+        .attr('transform','translate(120,110) rotate(-30)')
 
       svg.append('text')
-        .text('Where we can go')
+        .text('Paris Agreement')
         .style("fill", "#32D74B")
         .style('font-size', '16px')
         .style('font-weight', '900')
         .style('font-family', 'Helvetica')
-        .attr('transform','translate(110,230) rotate(25)')
+        .attr('transform','translate(110,205) rotate(25)')
 
       svg.append('text')
         .text('The goal')
@@ -94,7 +94,14 @@ function Paris(props) {
         .style('font-size', '16px')
         .style('font-weight', '900')
         .style('font-family', 'Helvetica')
-        .attr('transform','translate(30,305)')
+        .attr('transform','translate(30,270)')
+
+      svg.append('text')
+        .text('Global CO\u2082 Emissions')
+        .style("fill", "white")
+        .style('font-size', '16px')
+        .style('font-family', 'Helvetica')
+        .attr('transform','translate(100,-15)')
 
       // Draw the line
       svg.append("path")
