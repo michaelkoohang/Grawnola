@@ -3,6 +3,7 @@ import {arc, pie} from 'd3-shape';
 import {interpolateCool, interpolateWarm} from 'd3-scale-chromatic';
 import {scaleSequential} from 'd3-scale';
 import {select} from 'd3-selection';
+import {round} from 'lodash';
 
 // import './SvgStyles.css';
 
@@ -146,7 +147,7 @@ function Categories(props) {
             .style('fill', 'white');
 
           donut.append('text')
-            .text(d => (d.data.value + " kg"))
+            .text(d => (round(d.data.value).toLocaleString() + " kg"))
             .attr('opacity', d => {
               if (d.data.value === 0) {
                 return "0"
