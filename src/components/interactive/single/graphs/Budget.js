@@ -3,6 +3,8 @@ import {select} from 'd3-selection';
 import {axisBottom, axisLeft} from "d3-axis";
 import {scaleLinear, scaleBand} from "d3-scale";
 
+import NATIONAL_STATS from '../../../../data/interactive/national_statistics';
+
 const DEBUG = 0;
 
 // TODO pass width/height and radii as props
@@ -12,7 +14,7 @@ const margin = {top: 0, right: 0, bottom: 0, left: 100},
   heightTranslated = height / 3.9;
 
 function Budget(props) {
-  const per_capita_limit = 15.5;
+  const per_capita_limit = NATIONAL_STATS.budget_per_capita;
   const d3Container = useRef(null);
   const data = [props.data / 1000];
   if (DEBUG) console.log(data)
@@ -37,8 +39,8 @@ function Budget(props) {
       var titleText = 'Your CO\u2082 Budget';
       svg.append('text')
         .style('fill', 'white')
+        // .style('opacity', 0.9)
         .attr('transform', "translate(100,20)")
-        .style('fill', '#6b6b6b')
         .style('font-size', '18px')
         .style('font-weight', '200')
         .style('font-family', 'Helvetica')

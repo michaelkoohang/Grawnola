@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import './Comparison.css';
 import {Container, Progress} from "semantic-ui-react";
 
 function Comparison(props) {
@@ -16,8 +15,20 @@ function Comparison(props) {
 
   return (
     <Container className='comparison-container'>
-      <Progress progress='value' value={props.offsets} total={total} success>Offsets (kg)</Progress>
-      <Progress progress='value' value={props.emissions} total={total} error>Emissions (kg)</Progress>
+      <Progress
+        color='green'
+        progress='value'
+        total={total}
+        value={props.offsets}>
+          <p style={{color: '#32D74B'}}>Offsets (kg)</p>
+      </Progress>
+      <Progress
+        color='red'
+        progress='value'
+        value={props.emissions}
+        total={total}>
+          <p style={{color: '#FF453A'}}>Emissions (kg)</p>
+      </Progress>
     </Container>
   );
 }
