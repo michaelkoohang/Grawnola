@@ -13,7 +13,7 @@ import {
 // https://bl.ocks.org/mbostock/1009139
 
 const width = 500;
-const height = 275;
+const height = 200;
 
 const groupSpacing = 3;
 const cellSpacing = 1;
@@ -62,22 +62,22 @@ function Grid(props) {
       .text('USA National CO\u2082 Budget');
 
     svg.append('rect')
-      .attr('transform', `translate(${offset}, ${offset * 5 - cellSize})`)
+      .attr('transform', `translate(${offset * 8.4}, ${offset * 4.8 - cellSize})`)
       .attr('width', cellSize)
       .attr('height', cellSize)
       .attr('fill', '#8E8E93');
     svg.append('text')
-    .attr('transform', `translate(${offset + (2 * cellSize)}, ${offset * 5 + cellSize / 3})`)
+    .attr('transform', `translate(${offset * 8.4 + 2 * cellSize}, ${offset * 4.8 + cellSize / 3})`)
     .style('fill', 'white')
     .style('opacity', 0.8)
     .style('font-weight', '200')
     .style('font-family', 'Helvetica')
-    .style('font-size', '9px')
+    .style('font-size', '10px')
     .text('––> 2 million metric tons of CO\u2082')
 
     cell.enter()
       .append('text')
-      .attr('transform', `translate(${0}, ${3.6 * offset})`)
+      .attr('transform', `translate(${0}, ${3.85 * offset})`)
       .style('fill', d => getGridColor(newEmissions))
       // .style('opacity', 0.8)
       .style('font-weight', '200')
@@ -96,7 +96,7 @@ function Grid(props) {
       const svg = select(d3Container.current)
         .append('svg')
         .attr('preserveAspectRatio', 'xMinYMin meet')
-        .attr('viewBox', `0 0 ${width} ${height + 50}`);
+        .attr('viewBox', `0 0 ${width} ${height}`);
 
       svg.append('g')
         .attr('class', 'cells')
