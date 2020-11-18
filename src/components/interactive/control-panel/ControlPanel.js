@@ -296,7 +296,7 @@ function ControlPanel(props) {
           </Message>
         </Modal.Content>
         <Modal.Actions>
-          <Button color='white' inverted onClick={() => setIntroOpen(false)}>
+          <Button color='grey' inverted onClick={() => setIntroOpen(false)}>
             <Icon name='checkmark' /> Ok
           </Button>
         </Modal.Actions>
