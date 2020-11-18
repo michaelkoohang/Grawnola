@@ -1,4 +1,4 @@
-import {min} from 'lodash';
+import {min, round} from 'lodash';
 import NATIONAL_STATS from '../../../data/interactive/national_statistics';
 
 export const MAX_GRID_SIZE = getTotalSquares(NATIONAL_STATS.budget);
@@ -27,9 +27,10 @@ export function getGridColor(emissions) {
 }
 
 export function getGridLabel(emissions) {
-  // TODO represent the number in terms of metric tons or millions of metric tons?
+  // const formatted = ((NATIONAL_STATS.budget - emissions) / 1000000).toPrecision(4);
+  const formatted = round(NATIONAL_STATS.budget - emissions).toLocaleString();
   if (emissions > NATIONAL_STATS.budget) {
-    return `${NATIONAL_STATS.budget - emissions} tons of CO\u2082 over`;
+    return `${formatted} metric tons of CO\u2082 over`;
   }
-  return `${NATIONAL_STATS.budget - emissions} tons of CO\u2082 left`;
+  return `${formatted} metric tons of CO\u2082 left`;
 }
