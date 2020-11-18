@@ -54,8 +54,7 @@ function Temp(props) {
         .attr('transform', "translate(-40,230), rotate(270)")
         .text(yAxisLabelText);
 
-      svg
-        .append("path")
+      svg.append("path")
         .datum(data)
         .attr("fill", "none")
         .attr("stroke", "#FF453A")
@@ -65,6 +64,14 @@ function Temp(props) {
           .y(function(d) { return y(d.value) })
         )
 
+      svg.append("line")
+        .attr("x1", 0)
+        .attr("x2", width)
+        .attr("y1", y(0))
+        .attr("y2", y(0))
+        .attr("stroke", "grey")
+        .attr("stroke-dasharray", "4");
+
       // This allows to find the closest X index of the mouse:
       var bisect = bisector(function(d) { return new Date(d.date); }).left;
 
@@ -72,9 +79,9 @@ function Temp(props) {
       var focus = svg
         .append('g')
         .append('circle')
-        .style("fill", "none")
+        .style("fill", "white")
         .attr("stroke", "white")
-        .attr('r', 8.5)
+        .attr('r', 4.5)
         .style("opacity", 0)
 
       // Create the text that travels along the curve of chart
@@ -82,9 +89,11 @@ function Temp(props) {
         .append('g')
         .append('text')
         .style("opacity", 0)
-        .style("fill", "white")
-        .attr("text-anchor", "left")
-        .attr("alignment-baseline", "middle")
+        .style("fill", "#FF453A")
+        .style('font-size', '48px')
+        .style('font-weight', '900')
+        .style('font-family', 'Helvetica')
+        .attr('transform','translate(50,100)')
 
       svg
         .append('rect')
@@ -115,8 +124,6 @@ function Temp(props) {
             .attr("cy", y(selectedData.y));
           focusText
             .html(`${selectedData.y} ºC`)
-            .attr("x", x(selectedData.x)+15)
-            .attr("y", y(selectedData.y))
         }
 
       }

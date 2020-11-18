@@ -1,34 +1,26 @@
 [
   {
+    "emission": "5 Days of Electricty Usage",
+    "carbon": 34
+  },
+  {
     "emission": "Cheeseburger",
-    "carbon": 5
+    "carbon": 4.54
   },
   {
-    "emission": "Electricity",
-    "carbon": 100
-  },
-  {
-    "emission": "Flight from NYC to LA",
-    "carbon": 150
-  },
-  {
-    "emission": "Driving",
-    "carbon": 120
-  },
-  {
-    "emission": "Plant Based Meal",
-    "carbon": -40
-  },
-  {
-    "emission": "Tree Planted",
-    "carbon": -80
-  },
-  {
-    "emission": "1 less flight per year",
-    "carbon": -180
+    "emission": "5 mi drive",
+    "carbon": 1.36
   },
   {
     "emission": "5-mile bike ride",
-    "carbon": -10
+    "carbon": -1.36
+  },
+  {
+    "emission": "1 Plant Based Meal",
+    "carbon": -4.54
+  },
+  {
+    "emission": "1 Tree Planted",
+    "carbon": -33.11
   }
 ]

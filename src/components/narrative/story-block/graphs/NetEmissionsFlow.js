@@ -41,7 +41,7 @@ function NetEmissionsFlow(props) {
 
 // Add Y axis
       var y = scaleLinear()
-        .domain([-200, 200])
+        .domain([-40, 40])
         .range([ height, 0]);
       svg.append("g")
         .call(axisLeft(y));
@@ -81,6 +81,31 @@ function NetEmissionsFlow(props) {
             return "#32D74B"
           }
         })
+
+      svg.selectAll("mybar")
+        .data(data)
+        .enter()
+        .append('text')
+        .attr('fill', 'white')
+        .attr('font-size', '12px')
+        .attr('font-weight', '800')
+        .text(function(d) {
+          return `${Math.round(d.carbon)}`
+        })
+        .attr("x", function(d){
+          if (d.emission === '1 Tree Planted') {
+            return x(d.emission) + 13;
+          }
+          return x(d.emission) + 20;
+        })
+        .attr("y", function(d) {
+          if (d.carbon < 0) {
+            return y(d.carbon) + 20;
+          } else {
+            return y(d.carbon) - 10;
+          }
+        });
+
 
       svg.append("line")
         .attr("x1", 0 )

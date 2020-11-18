@@ -7,42 +7,48 @@
           "name": "Passenger cars and small trucks",
           "percent": 59,
           "subsector": "true",
-          "value": 16.52
+          "value": 16.52,
+          "carbon": 1.10
         },
         {
           "colname": "level3",
           "name": "Medium- and heavy-duty trucks",
           "percent": 23,
           "subsector": "true",
-          "value": 6.44
+          "value": 6.44,
+          "carbon": 0.43
         },
         {
           "colname": "level3",
           "name": "Aircraft",
           "percent": 9,
           "subsector": "true",
-          "value": 2.52
+          "value": 2.52,
+          "carbon": 0.17
         },
         {
           "colname": "level3",
           "name": "Other",
           "percent": 5,
           "subsector": "true",
-          "value": 1.4
+          "value": 1.4,
+          "carbon": 0.0935
         },
         {
           "colname": "level3",
           "name": "Rail",
           "percent": 2,
           "subsector": "true",
-          "value": 0.56
+          "value": 0.56,
+          "carbon": 0.0374
         },
         {
           "colname": "level3",
           "name": "Ship",
           "percent": 2,
           "subsector": "true",
-          "value": 0.56
+          "value": 0.56,
+          "carbon": 0.0374
         }
       ],
       "colname": "level2",
@@ -57,7 +63,8 @@
           "colname": "level3",
           "name": "Electricity",
           "percent": 27,
-          "value": 27
+          "value": 27,
+          "carbon": 1.80279
         }
       ],
       "name": "Electricity",
@@ -71,7 +78,8 @@
           "colname": "level3",
           "name": "Industry",
           "percent": 22,
-          "value": 22
+          "value": 22,
+          "carbon": 1.46894
         }
       ],
       "name": "Industry",
@@ -85,7 +93,8 @@
           "colname": "level3",
           "name": "Agriculture",
           "percent": 10,
-          "value": 10
+          "value": 10,
+          "carbon": 0.18696
         }
       ],
       "name": "Agriculture",
@@ -100,14 +109,16 @@
           "name": "Commercial",
           "percent": 7,
           "subsector": "true",
-          "value": 7
+          "value": 7,
+          "carbon": 0.05609
         },
         {
           "colname": "level3",
           "name": "Residential",
           "percent": 6,
           "subsector": "true",
-          "value": 6
+          "value": 6,
+          "carbon": 0.04807
         }
       ],
       "name": "Buildings",
