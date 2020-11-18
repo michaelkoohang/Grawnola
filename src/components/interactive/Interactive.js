@@ -39,11 +39,11 @@ function Interactive() {
       "country": "us",
     }
     if (kwh > 0) {
-      // setElectricity(100);
-      // getCarbon(new_electricity)
-      //   .then((carbon) => {
-      setElectricity(value);
-      // });
+      setElectricity(100);
+      getCarbon(new_electricity)
+        .then((carbon) => {
+          setElectricity(carbon);
+      });
     } else {
       setElectricity(0);
     }
@@ -72,15 +72,15 @@ function Interactive() {
       };
     }
     if (DEBUG) console.log(new_flight);
-    // getCarbon(new_flight)
-    //   .then((carbon) => {
+    getCarbon(new_flight)
+      .then((carbon) => {
         setFlights(flights.concat([{
-          "id": uuidv4(),
-          "from": flight.from, "to": flight.to,
-          "oneWayRound": flight.oneWayRound,
-          "carbon": 1000
+          id: uuidv4(),
+          from: flight.from, "to": flight.to,
+          oneWayRound: flight.oneWayRound,
+          carbon
         }]))
-    //   });
+      });
   }
 
   function deleteFlight(flight) {
@@ -96,19 +96,17 @@ function Interactive() {
       "type": "vehicle",
       "distance_unit": "mi",
       "distance_value": miles,
-      "vehicle_make": "Toyota",
-      "vehicle_model": "Corolla",
-      "vehicle_year": 2017
+      "vehicle_model_id": "cc5e1c93-2684-4424-afad-40a6b8145761"
     }
-    // getCarbon(new_car)
-    //   .then((carbon) => {
+    getCarbon(new_car)
+      .then((carbon) => {
         setCars(cars.concat([{
-          "id": uuidv4(),
-          "miles": car.miles,
-          "frequency": car.frequency,
-          "carbon": 1000
+          id: uuidv4(),
+          miles: car.miles,
+          frequency: car.frequency,
+          carbon
         }]));
-      // });
+      });
   }
 
   function deleteCar(car) {
@@ -125,16 +123,16 @@ function Interactive() {
       "transport_method": item.method
     };
     if (DEBUG) console.log(new_item);
-    // getCarbon(new_item)
-    //   .then((carbon) => {
+    getCarbon(new_item)
+      .then((carbon) => {
         setShipping(shipping.concat([{
-          "id": uuidv4(),
-          "weight": item.weight,
-          "distance": item.distance,
-          "method": item.method,
-          "carbon": 1000
+          id: uuidv4(),
+          weight: item.weight,
+          distance: item.distance,
+          method: item.method,
+          carbon
         }]));
-      // });
+      });
   }
 
   function deleteShipping(shipment) {
@@ -182,6 +180,7 @@ function Interactive() {
     })
       .then(response => response.json())
       .then(data => {
+        console.info('@getCarbon data', data);
         return data.data.attributes.carbon_kg
       })
       .catch((error) => {
