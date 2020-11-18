@@ -1,5 +1,4 @@
 import React, {useEffect, useRef} from 'react';
-import {Button} from 'semantic-ui-react';
 import {range} from 'd3-array';
 import {select} from 'd3-selection';
 
@@ -9,7 +8,9 @@ import {
   getGridSize,
   MAX_GRID_SIZE
 } from './grid-conversions';
-import { offsets } from '../emission_conversions';
+
+// SOURCE
+// https://bl.ocks.org/mbostock/1009139
 
 const width = 500;
 const height = 275;
