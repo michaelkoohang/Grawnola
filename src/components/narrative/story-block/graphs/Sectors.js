@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from 'react';
-import {select} from 'd3-selection';
+import {pointer, select} from 'd3-selection';
 import {hierarchy, treemap} from 'd3-hierarchy';
 import {scaleLinear, scaleOrdinal} from 'd3-scale';
 import {filter, map} from 'lodash';
@@ -11,7 +11,7 @@ import './SvgStyles.css';
 // https://www.pluralsight.com/guides/d3-treemap-in-react
 
 // set the dimensions and margins of the graph
-const margin = {top: 10, right: 10, bottom: 10, left: 10};
+const margin = {top: 30, right: 10, bottom: 10, left: 10};
 // TODO pass width and height as props
 const width = 900;
 const height = 900;
@@ -49,7 +49,9 @@ function Sectors(props) {
         .attr('viewBox', `0 0 ${width} ${height}`)
         .classed('svg-content', true)
         .append('g')
-        .attr('transform', `translate(${margin.left}, ${margin.top})`);
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .on('mousemove', mousemove)
+        .on('mouseout', mouseout);
 
       const root = hierarchy(data)
         .sum(d => d.value);
@@ -63,7 +65,6 @@ function Sectors(props) {
         .paddingInner(3)
         .round(true)
         (root);
-
 
       const nodes = svg.selectAll('rect')
         .data(root.leaves());
@@ -85,8 +86,8 @@ function Sectors(props) {
           //   : d.data.name)
           return color(d.parent.data.name);
         })
-        .style('opacity', d => d.data.colname === 'level3'
-          ? opacity(d.data.value) : 1);
+        .style('opacity', 1)
+        .on('mouseover', mouseover);
 
       nodes.exit().remove()
 
@@ -131,7 +132,60 @@ function Sectors(props) {
           ? '21px'
           : '24px')
         .attr('fill', d => color(d.data.name));
+
+      // Add title
+      svg.append('text')
+        .style("opacity", 1)
+        .style("fill", "white")
+        .style('font-size', '24px')
+        .style('font-weight', '100')
+        .style('font-family', 'Helvetica')
+        .text('Total US Greenhouse Gas Emissions by Sector 2018')
+        .attr('transform',`translate(${width/6},${-10})`)
+
+      var tooltip = svg.append('text')
+        .style("opacity", 0)
+        .style("fill", "white")
+        .style('font-size', '32px')
+        .style('font-weight', '600')
+        .style('font-family', 'Helvetica')
+        .style('z-index', 999)
+        .attr('x',0)
+        .attr('y', 0)
+
+      var tooltipunits = svg.append('text')
+        .text('million mt')
+        .style("opacity", 0)
+        .style("fill", "white")
+        .style('font-size', '32px')
+        .style('font-weight', '600')
+        .style('font-family', 'Helvetica')
+        .style('z-index', 999)
+        .attr('x',0)
+        .attr('y', 0)
+
+      function mouseout(event, d) {
+        tooltip.style('opacity', 0);
+        tooltipunits.style('opacity', 0);
+      }
+
+      function mousemove(event, d) {
+        let xy = pointer(event);
+        tooltip
+          .attr('x', xy[0] + 15)
+          .attr('y', xy[1])
+        tooltipunits
+          .attr('x', xy[0] + 15)
+          .attr('y', xy[1] + 35)
+      }
+
+      function mouseover(event, d) {
+        tooltip.style('opacity', 1)
+          .text(`~ ${(Math.round(d.data.carbon * 1000)).toLocaleString()}`);
+        tooltipunits.style('opacity', 1)
+      }
     }
+
   },
   [data, d3Container.current]);
 

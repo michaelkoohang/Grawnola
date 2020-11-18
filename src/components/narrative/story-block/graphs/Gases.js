@@ -60,8 +60,7 @@ function Gases(props) {
       // TODO add interactivity so that when you hover different sections of the
       // donut, you can preview info on each of the greenhouse gases
 
-      svg.append('g')
-        .append('text')
+      svg.append('text')
         .style("opacity", 1)
         .style("fill", "white")
         .style('font-size', '14px')
