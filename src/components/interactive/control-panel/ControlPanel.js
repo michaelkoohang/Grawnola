@@ -284,11 +284,15 @@ function ControlPanel(props) {
         </Header>
         <Modal.Content>
           <p className="modal-content">
-            Use the left and right arrow keys on your keyboard to move through the visualizations.
+            You can use this interactive viz to explore how you can offset your own CO<sub>2</sub> emitting behviors.
           </p>
           <Message color='black'>
-            <Message.Header><Icon name='star'/> Directions</Message.Header>
-            
+            <Message.Header><Icon name='list ol'/> Directions</Message.Header>
+            <List ordered inverted>
+              <List.Item>You can use the control panel on the left to enter your behaviors, and explore offsets that you can do</List.Item>
+              <List.Item>The net carbon impact of your choices is visualized by your personal budget, and your goal is to stay within your 16.7 mt limit (the US's per capita goal for 2020 according to the Paris Agreement).</List.Item>
+              <List.Item>At the bottom you will see the US National CO2 emissions, far over budget. Use the people slider to visualize the impact on the national budget if more people behaved like you.</List.Item>
+            </List>
           </Message>
         </Modal.Content>
         <Modal.Actions>
