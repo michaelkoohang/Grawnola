@@ -6,9 +6,7 @@ import {axisBottom, axisLeft} from "d3-axis";
 import {scaleLinear} from "d3-scale";
 import {max, min} from "d3-array";
 import {line} from "d3-shape";
-import {brushX} from "d3-brush";
 
-// TODO pass width/height and radii as props
 const margin = {top: 0, right: 0, bottom: 60, left: 80},
   width = 460 - margin.left - margin.right,
   height = 400 - margin.top - margin.bottom;
@@ -34,7 +32,7 @@ function Carbon(props) {
       var x = scaleTime()
         .domain(extent(data, function(d) { return new Date(d.date); }))
         .range([ 0, width ]);
-      var xAxis = svg.append("g")
+      svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(axisBottom(x));
 
@@ -44,7 +42,6 @@ function Carbon(props) {
       svg.append("g")
         .call(axisLeft(y));
 
-      // Add labels for each axis
       var yAxisLabelText = 'CO\u2082 (parts per million)';
       var xAxisLabelText = 'Date';
 
@@ -69,10 +66,8 @@ function Carbon(props) {
           .y(function(d) { return y(d.value) })
         )
 
-      // This allows to find the closest X index of the mouse:
       var bisect = bisector(function(d) { return new Date(d.date); }).left;
 
-      // Create the circle that travels along the curve of chart
       var focus = svg
         .append('g')
         .append('circle')
@@ -81,7 +76,6 @@ function Carbon(props) {
         .attr('r', 4.5)
         .style("opacity", 0)
 
-      // Create the text that travels along the curve of chart
       var focusText = svg
         .append('g')
         .append('text')
@@ -113,17 +107,13 @@ function Carbon(props) {
         .on('mousemove', mousemove)
         .on('mouseout', mouseout);
 
-
-      // What happens when the mouse move -> show the annotations at the right positions.
       function mouseover() {
         focus.style("opacity", 1)
         focusText.style("opacity",1)
         focusSubtext.style("opacity",1)
-
       }
 
-      function mousemove(event, d) {
-        // recover coordinate we need
+      function mousemove(event) {
         let xy = pointer(event);
         var x0 = x.invert(xy[0]);
         var i = bisect(data, x0, 1);
@@ -135,16 +125,16 @@ function Carbon(props) {
           focusText
             .html(`${selectedData.y}`)
         }
-
       }
+
       function mouseout() {
         focus.style("opacity", 0)
         focusText.style("opacity", 0)
         focusSubtext.style("opacity",0)
       }
-
     }
-  },[data, d3Container.current]);
+
+  },[data]);
 
   return (
     <div ref={d3Container} />

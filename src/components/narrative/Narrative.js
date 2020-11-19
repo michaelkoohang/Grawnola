@@ -3,8 +3,8 @@ import React, {useState, useEffect} from 'react';
 import StoryProgress from "./story-progress/StoryProgress";
 import StoryBlock from "./story-block/StoryBlock";
 import './Narrative.css';
-import earth from '../../img/earth.png';
 
+import earth from '../../img/earth.png';
 import text from '../../data/narrative/text.json';
 
 function Narrative() {
@@ -13,7 +13,6 @@ function Narrative() {
   const [visible] = useState([true, false, false, false, false, false, false, false]);
   const storyBlocks = [];
 
-  // Set up each story block. Needed for the animation between blocks to work.
   for (let i = 0; i < text.length; i++) {
     storyBlocks.push (
       <Transition visible={visible[i]} animation='fade' duration={500} key={i}>
@@ -24,7 +23,6 @@ function Narrative() {
     )
   }
 
-  // Handler for keyboard presses.
   function handleKeyPress(event) {
     if (event.key === "ArrowLeft" && currentStory >= 0) {
       visible[currentStory] = false;
@@ -38,7 +36,6 @@ function Narrative() {
     }
   }
 
-  // Add keyboard listener for arrow keys
   useEffect(() => {
     document.addEventListener("keydown", handleKeyPress, false);
     return () => {

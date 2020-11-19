@@ -1,14 +1,11 @@
 import React, {useEffect, useRef} from 'react';
 import {select} from 'd3-selection';
-import {scaleTime} from "d3-scale";
-import {extent} from "d3-array";
+import {extent, max, min} from "d3-array";
 import {axisBottom, axisLeft} from "d3-axis";
-import {scaleLinear} from "d3-scale";
-import {max, min} from "d3-array";
+import {scaleLinear, scaleTime} from "d3-scale";
 import {line} from "d3-shape";
 import {brushX} from "d3-brush";
 
-// TODO pass width/height and radii as props
 const margin = {top: 0, right: 10, bottom: 60, left: 80},
   width = 460 - margin.left - margin.right,
   height = 400 - margin.top - margin.bottom;
@@ -44,7 +41,6 @@ function SeaLevel(props) {
       svg.append("g")
         .call(axisLeft(y));
 
-      // Add labels for each axis
       var yAxisLabelText = 'Sea Level Change (mm)';
       var xAxisLabelText = 'Date';
 
@@ -129,9 +125,8 @@ function SeaLevel(props) {
             .y(function(d) { return y(+d.level) })
           )
       });
-
     }
-  },[data, d3Container.current]);
+  },[data]);
 
   return (
     <div ref={d3Container} />

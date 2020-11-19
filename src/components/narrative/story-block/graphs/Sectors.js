@@ -1,16 +1,10 @@
 import React, {useEffect, useRef} from 'react';
 import {pointer, select} from 'd3-selection';
 import {hierarchy, treemap} from 'd3-hierarchy';
-import {scaleLinear, scaleOrdinal} from 'd3-scale';
+import {scaleOrdinal} from 'd3-scale';
 import {filter, map} from 'lodash';
 
-// SOURCES
-// https://www.d3-graph-gallery.com/graph/treemap_custom.html
-// https://www.pluralsight.com/guides/d3-treemap-in-react
-
-// set the dimensions and margins of the graph
 const margin = {top: 30, right: 10, bottom: 10, left: 10};
-// TODO pass width and height as props
 const width = 900;
 const height = 900;
 
@@ -27,20 +21,13 @@ function Sectors(props) {
           '#64D2FF', // Electricity
           '#FF9F0A', // Industry
           '#32D74B', // Agriculture
-          // '#5E5CE6', // Commercial
           '#BF5AF2' // Residential
         ]);
 
-      const opacity = scaleLinear()
-        .domain([0, 17]) // NOTE hardcoded values for transportation sub-sectors
-        .range([.6,1]);
-
-      // remove the old svg
       select(d3Container.current)
         .select('svg')
         .remove();
 
-      // create new svg
       const svg = select(d3Container.current)
         .append('svg')
         .attr('preserveAspectRatio', 'xMinYMin meet')
@@ -65,7 +52,6 @@ function Sectors(props) {
       const nodes = svg.selectAll('rect')
         .data(root.leaves());
 
-      // draw rectangles
       nodes.enter()
         .append('rect')
         .attr('id', d => d.data.name)
@@ -76,10 +62,6 @@ function Sectors(props) {
         .style('stroke', 'white')
         .style('fill', d => {
           if (d.data.colname !== 'level3') return 'none';
-          // if (d.data.name === 'Transportation') return 'white';
-          // return color(d.parent && d.parent.data.name !== 'Sectors'
-          //   ? d.parent.data.name
-          //   : d.data.name)
           return color(d.parent.data.name);
         })
         .style('opacity', 1)
@@ -91,7 +73,6 @@ function Sectors(props) {
         .selectAll('text')
         .data(root.leaves());
 
-      // add main text
       nodeText.enter()
         .append('text')
         .attr('x', d => d.x0 + 5)
@@ -105,7 +86,6 @@ function Sectors(props) {
       const nodeVals = svg.selectAll('vals')
         .data(root.leaves())
 
-      // display the values
       nodeVals.enter()
         .append('text')
         .attr('x', d => d.x0 + 5)
@@ -116,7 +96,6 @@ function Sectors(props) {
         .attr('font-size', '16px')
         .attr('fill', 'white')
 
-      // parent node titles
       svg.selectAll('titles')
         .data(filter(root.descendants(), sector => sector.depth === 1))
         .enter()
@@ -129,7 +108,6 @@ function Sectors(props) {
           : '24px')
         .attr('fill', d => color(d.data.name));
 
-      // Add title
       svg.append('text')
         .style("opacity", 1)
         .style("fill", "white")
@@ -182,11 +160,10 @@ function Sectors(props) {
       }
     }
 
-  },
-  [data, d3Container.current]);
+  }, [data]);
 
   return (
-    <div id="container" className="svg-container" ref={d3Container} />
+    <div className="svg-container" ref={d3Container} />
   );
 }
 
