@@ -5,7 +5,7 @@ import {scaleLinear, scaleBand} from "d3-scale";
 
 const margin = {top: 30, right: 0, bottom: 100, left: 80},
   width = 460 - margin.left - margin.right,
-  height = 280 + margin.top + margin.bottom;
+  height = 220 + margin.top + margin.bottom;
 
 function NetEmissionsFlow(props) {
   const d3Container = useRef(null);
