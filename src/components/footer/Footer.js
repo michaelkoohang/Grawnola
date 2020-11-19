@@ -17,6 +17,14 @@ function Footer() {
               name='Your Impact'
               href='#/interactive'
             />
+            <Menu.Item
+              name='Team'
+              href='#/team'
+            />
+            <Menu.Item
+              name='References'
+              href='#/references'
+            />
           </Menu>
         </Grid>
         <Grid id='footer-text' columns={1} stackable textAlign='center'>
