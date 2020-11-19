@@ -4,8 +4,6 @@ import {hierarchy, treemap} from 'd3-hierarchy';
 import {scaleLinear, scaleOrdinal} from 'd3-scale';
 import {filter, map} from 'lodash';
 
-import './SvgStyles.css';
-
 // SOURCES
 // https://www.d3-graph-gallery.com/graph/treemap_custom.html
 // https://www.pluralsight.com/guides/d3-treemap-in-react

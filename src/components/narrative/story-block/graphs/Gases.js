@@ -3,7 +3,6 @@ import {arc, pie} from 'd3-shape';
 import {interpolateCool, schemeTableau10} from 'd3-scale-chromatic';
 import {scaleSequential} from 'd3-scale';
 import {select} from 'd3-selection';
-import './SvgStyles.css';
 
 // SOURCES
 // https://medium.com/@Elijah_Meeks/interactive-applications-with-react-d3-f76f7b3ebc71

@@ -5,8 +5,6 @@ import {scaleSequential} from 'd3-scale';
 import {select} from 'd3-selection';
 import {round} from 'lodash';
 
-// import './SvgStyles.css';
-
 // SOURCES
 // https://medium.com/@Elijah_Meeks/interactive-applications-with-react-d3-f76f7b3ebc71
 // https://chartio.com/resources/tutorials/how-to-resize-an-svg-when-the-window-is-resized-in-d3-js/
