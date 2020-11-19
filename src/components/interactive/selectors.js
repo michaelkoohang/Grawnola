@@ -1,6 +1,5 @@
 import {keys, map, pick, sum, values} from 'lodash';
 import {createSelector} from 'reselect';
-
 import {offsets} from './emission_conversions';
 
 const getCars = ({cars}) => sum(map(cars, car => car.carbon));

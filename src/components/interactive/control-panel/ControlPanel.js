@@ -26,16 +26,13 @@ function ControlPanel(props) {
   const [openFlights, setOpenFlights] = useState(false);
   const [openCars, setOpenCars] = useState(false);
   const [openShipping, setOpenShipping] = useState(false);
-
   const [introOpen, setIntroOpen] = useState(true);
 
   function updateElectricityLabel(value) { setElectricityLabel(value) }
   function updateTreesLabel(value) {
     setTreesLabel(value);
-    // props.updateOffsets(value);
   }
 
-  // Modal logic
   function toggleFlightsModal(hidden) { setOpenFlights(hidden); }
   function updateFlights(flight) { props.updateFlights(flight); }
   function deleteFlight(flight) { props.deleteFlight(flight); }
@@ -278,7 +275,6 @@ function ControlPanel(props) {
         <Header icon>
           <div className="modal-icons">
             <Icon name='thermometer full' />
-            {/* <Icon name='globe' /> */}
           </div>
           <p className="modal-title">Optimize your CO<sub>2</sub> budget</p>
         </Header>

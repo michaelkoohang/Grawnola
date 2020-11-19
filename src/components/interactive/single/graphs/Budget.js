@@ -8,7 +8,6 @@ import NATIONAL_STATS from '../../../../data/interactive/national_statistics';
 
 const DEBUG = 0;
 
-// TODO pass width/height and radii as props
 const margin = {top: 0, right: 0, bottom: 0, left: 100},
   width = 460 - margin.left - margin.right,
   height = 150 - margin.top - margin.bottom,
@@ -40,7 +39,6 @@ function Budget(props) {
       var titleText = 'Your CO\u2082 Budget';
       svg.append('text')
         .style('fill', 'white')
-        // .style('opacity', 0.9)
         .attr('transform', "translate(100,20)")
         .style('font-size', '18px')
         .style('font-weight', '200')
@@ -57,7 +55,6 @@ function Budget(props) {
         .attr("transform", "translate(-10,0)rotate(-45)")
         .style("text-anchor", "end");
 
-      // Y axis
       var y = scaleBand()
         .range([0, height/2])
         .domain([""])
@@ -67,7 +64,6 @@ function Budget(props) {
         .style('opacity', "0")
         .call(axisLeft(y));
 
-      //Bars
       svg.selectAll("myRect")
         .data(data)
         .enter()
@@ -134,7 +130,7 @@ function Budget(props) {
         .style('font-family', 'Helvetica')
         .text(`${per_capita_limit} mt limit`);
     }
-  },[data, d3Container.current]);
+  },[data, per_capita_limit]);
 
   return (
     <div className='single-container' ref={d3Container} />

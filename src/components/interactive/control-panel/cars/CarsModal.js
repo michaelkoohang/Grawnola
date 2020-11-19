@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {Button, Modal, Header, Grid, Message, Input, Dropdown} from "semantic-ui-react";
-import './CarsModal.css';
 import driving_frequency from "../../../../data/interactive/driving_frequency.json";
 
 function CarsModal(props) {

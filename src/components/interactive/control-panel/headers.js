@@ -45,7 +45,7 @@ export const offsetsTitle =
   Offsets
 </h2>;
 
-  /* MULTIPLIERS */
+/* MULTIPLIERS */
 
 export const multipliersTitle = 
 <h2>
