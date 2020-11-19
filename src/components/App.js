@@ -1,9 +1,10 @@
-import Narrative from './narrative/Narrative';
-import Interactive from './interactive/Interactive';
+
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-import './App.css';
+import Narrative from './narrative/Narrative';
+import Interactive from './interactive/Interactive';
 import Footer from "./footer/Footer";
+import './App.css';
 
 function App() {
 

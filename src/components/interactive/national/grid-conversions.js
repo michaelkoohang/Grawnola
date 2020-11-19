@@ -27,7 +27,6 @@ export function getGridColor(emissions) {
 }
 
 export function getGridLabel(emissions) {
-  // const formatted = ((NATIONAL_STATS.budget - emissions) / 1000000).toPrecision(4);
   const formatted = round(NATIONAL_STATS.budget - emissions).toLocaleString();
   if (emissions > NATIONAL_STATS.budget) {
     return `${formatted} metric tons of CO\u2082 over`;
