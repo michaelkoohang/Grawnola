@@ -17,3 +17,6 @@ The app should now open in your default browser.
 
 ## hosting ☁️
 The app is also being hosted at [http://grawnola.herokuapp.com/#/](http://grawnola.herokuapp.com/#/).
+
+## contact 📧
+Email [koohang@gatech.edu](mailto:koohang@gatech.edu) if you have questions or run into any issues.
