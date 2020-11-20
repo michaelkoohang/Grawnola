@@ -23,21 +23,21 @@ function Teams() {
         image={bea}
         header='Beatriz Palacios'
         meta='Computer Science Ph.D. Candidate'
-        description='Beatriz is a Ph.D. student at Georgia Tech. She enjoys hiking and cooking tasty Venezuelan food.'
+        description='Beatriz is a Ph.D. student at Georgia Tech. She enjoys hiking and cooking tasty Venezuelan food. Her advisor is Dr. Ellen Zegura.'
         extra={emails.bea}
       />
       <Card
         image={michael}
         header='Michael Koohang'
         meta='Computer Science M.S. Candidate'
-        description='Michael is an incoming Software Engineer at Nike. He enjoys playing soccer and riding his electric skateboard.'
+        description='Michael is an incoming Software Engineer at Nike. He enjoys playing soccer and riding his electric skateboard. His advisor is Dr. Ellen Zegura.'
         extra={emails.michael}
       />
       <Card
         image={kunal}
         header='Kunal Dhodapkar'
         meta='MS-HCI Candidate'
-        description='Kunal is a techie-turned-designer. Currently in the MS-HCI program at Georgia Tech, he loves designing experiences that empower people.'
+        description='Kunal is a techie-turned-designer. Currently in the MS-HCI program at Georgia Tech, he loves designing experiences that empower people. His advisor is Dr. Elizabeth Mynatt.'
         extra={emails.kunal}
       />
       <Card
