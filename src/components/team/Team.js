@@ -42,9 +42,9 @@ function Teams() {
       />
       <Card
         image={toma}
-        header='Toma Zubatiy'
+        header='Tamara Zubatiy'
         meta='Human-Centered Computing Ph.D. Candidate'
-        description='Toma is a Ph.D. student at Georgia Tech. She has her own startup and loves to travel.'
+        description='Tamara is a Ph.D. student at Georgia Tech studying Human-Centered Computing. She is a researcher at the Everyday Computing Lab and her advisor is Dr. Elizabeth Mynatt.'
         extra={emails.toma}
       />
       </Card.Group>
