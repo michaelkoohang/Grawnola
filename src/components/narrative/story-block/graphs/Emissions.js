@@ -2,8 +2,6 @@ import React from 'react';
 import {Icon, Table} from "semantic-ui-react";
 import {map} from 'lodash';
 
-import './SvgStyles.css';
-
 function Emissions(props) {
   const {gases, sectors} = props.data;
 

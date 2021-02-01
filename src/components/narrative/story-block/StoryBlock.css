@@ -34,11 +34,34 @@
   padding-left: 0.8em;
 }
 
-/* Block Specific Graphics */
+/* Intro Slide */
 
 .earth-bad {
   padding: 0 0 3em 3em !important;
   max-width: 400px !important;
+}
+
+/* Graphs */
+
+.svg-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+.svg-content {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: scroll;
 }
 
 .ice-sea-container {

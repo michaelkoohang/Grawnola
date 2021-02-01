@@ -1,0 +1,11 @@
+.team-container {
+  padding-top: 5em;
+}
+
+.card {
+  font-family: "Helvetica";
+}
+
+.card .header {
+  font-family: "Helvetica" !important;
+}

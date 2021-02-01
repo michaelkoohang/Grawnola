@@ -2,13 +2,10 @@ import React, {useEffect, useRef} from 'react';
 import {select} from 'd3-selection';
 import {axisBottom, axisLeft} from "d3-axis";
 import {scaleLinear, scaleBand} from "d3-scale";
-import {extent, max} from "d3-array";
-import {line} from "d3-shape";
 
-// TODO pass width/height and radii as props
 const margin = {top: 30, right: 0, bottom: 100, left: 80},
   width = 460 - margin.left - margin.right,
-  height = 280 + margin.top + margin.bottom;
+  height = 220 + margin.top + margin.bottom;
 
 function NetEmissionsFlow(props) {
   const d3Container = useRef(null);
@@ -39,7 +36,6 @@ function NetEmissionsFlow(props) {
         .attr("transform", "translate(-10,0)rotate(-45)")
         .style("text-anchor", "end");
 
-// Add Y axis
       var y = scaleLinear()
         .domain([-40, 40])
         .range([ height, 0]);
@@ -47,14 +43,12 @@ function NetEmissionsFlow(props) {
         .call(axisLeft(y));
 
       var yAxisLabelText = 'CO\u2082 Emissions (kg)';
-
       svg.append('text')
         .style('fill', 'white')
         .attr('transform', "translate(-50,270), rotate(270)")
         .text(yAxisLabelText);
 
-// Bars
-      svg.selectAll("mybar")
+      svg.selectAll("nefbar")
         .data(data)
         .enter()
         .append("rect")
@@ -82,7 +76,7 @@ function NetEmissionsFlow(props) {
           }
         })
 
-      svg.selectAll("mybar")
+      svg.selectAll("nefbar")
         .data(data)
         .enter()
         .append('text')
@@ -106,7 +100,6 @@ function NetEmissionsFlow(props) {
           }
         });
 
-
       svg.append("line")
         .attr("x1", 0 )
         .attr("x2", width )
@@ -124,7 +117,7 @@ function NetEmissionsFlow(props) {
         .attr('transform','translate(150,-18)')
 
     }
-  },[data, d3Container.current]);
+  },[data]);
 
   return (
     <div ref={d3Container} />

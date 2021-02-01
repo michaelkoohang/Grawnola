@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {Button, Modal, Header, Radio, Dropdown, Grid, Message} from "semantic-ui-react";
-import './FlightsModal.css';
 import airports from '../../../../data/interactive/us_airports.json';
 
 function FlightsModal(props) {

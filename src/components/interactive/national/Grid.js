@@ -9,9 +9,6 @@ import {
   MAX_GRID_SIZE
 } from './grid-conversions';
 
-// SOURCE
-// https://bl.ocks.org/mbostock/1009139
-
 const width = 500;
 const height = 200;
 
@@ -55,7 +52,6 @@ function Grid(props) {
     svg.append('text')
       .attr('transform', `translate(${offset * 5}, ${offset - 10})`)
       .style('fill', 'white')
-      // .style('opacity', 0.8)
       .style('font-weight', '200')
       .style('font-family', 'Helvetica')
       .style('font-size', '10px')
@@ -66,27 +62,26 @@ function Grid(props) {
       .attr('width', cellSize)
       .attr('height', cellSize)
       .attr('fill', '#8E8E93');
+
     svg.append('text')
-    .attr('transform', `translate(${offset * 8.4 + 2 * cellSize}, ${offset * 4.8 + cellSize / 3})`)
-    .style('fill', 'white')
-    .style('opacity', 0.8)
-    .style('font-weight', '200')
-    .style('font-family', 'Helvetica')
-    .style('font-size', '10px')
-    .text('––> 2 million metric tons of CO\u2082')
+      .attr('transform', `translate(${offset * 8.4 + 2 * cellSize}, ${offset * 4.8 + cellSize / 3})`)
+      .style('fill', 'white')
+      .style('opacity', 0.8)
+      .style('font-weight', '200')
+      .style('font-family', 'Helvetica')
+      .style('font-size', '10px')
+      .text('––> 2 million metric tons of CO\u2082')
 
     cell.enter()
       .append('text')
       .attr('transform', `translate(${0}, ${3.85 * offset})`)
       .style('fill', d => getGridColor(newEmissions))
-      // .style('opacity', 0.8)
       .style('font-weight', '200')
       .style('font-family', 'Helvetica')
       .style('font-size', '10px')
       .text(getGridLabel(newEmissions));
   }
 
-  // component mounted
   useEffect(() => {
     if (data && d3Container.current) {
       select(d3Container.current)
@@ -104,8 +99,7 @@ function Grid(props) {
 
       updateGrid(data.emissions);
     }
-  },
-  [data, d3Container.current]);
+  }, [data]);
 
   return(
     <div className="national-container" ref={d3Container} />

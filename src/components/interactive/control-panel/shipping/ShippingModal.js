@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {Button, Modal, Header, Input, Dropdown, Grid, Message} from "semantic-ui-react";
-import './ShippingModal.css';
 import shipping_methods from '../../../../data/interactive/shipping_methods.json';
 
 function ShippingModal(props) {

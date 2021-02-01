@@ -1,10 +1,9 @@
 import React, {useEffect, useRef} from 'react';
 import {axisBottom, axisLeft} from "d3-axis";
-import {brushX} from "d3-brush";
 import {bisector, extent, max} from "d3-array";
-import {line} from "d3-shape";
 import {scaleLinear, scaleTime} from "d3-scale";
 import {pointer, select} from 'd3-selection';
+import {line} from "d3-shape";
 
 const margin = {top: 0, right: 20, bottom: 60, left: 80},
   width = 460 - margin.left - margin.right,
@@ -31,7 +30,7 @@ function Temp(props) {
       var x = scaleTime()
         .domain(extent(data, function(d) { return new Date(d.date); }))
         .range([ 0, width ]);
-      var xAxis = svg.append("g")
+      svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(axisBottom(x).ticks(5));
 
@@ -72,10 +71,8 @@ function Temp(props) {
         .attr("stroke", "grey")
         .attr("stroke-dasharray", "4");
 
-      // This allows to find the closest X index of the mouse:
       var bisect = bisector(function(d) { return new Date(d.date); }).left;
 
-      // Create the circle that travels along the curve of chart
       var focus = svg
         .append('g')
         .append('circle')
@@ -84,7 +81,6 @@ function Temp(props) {
         .attr('r', 4.5)
         .style("opacity", 0)
 
-      // Create the text that travels along the curve of chart
       var focusText = svg
         .append('g')
         .append('text')
@@ -95,8 +91,7 @@ function Temp(props) {
         .style('font-family', 'Helvetica')
         .attr('transform','translate(50,100)')
 
-      svg
-        .append('rect')
+      svg.append('rect')
         .style("fill", "none")
         .style("pointer-events", "all")
         .attr('width', width)
@@ -105,15 +100,12 @@ function Temp(props) {
         .on('mousemove', mousemove)
         .on('mouseout', mouseout);
 
-
-      // What happens when the mouse move -> show the annotations at the right positions.
       function mouseover() {
         focus.style("opacity", 1)
         focusText.style("opacity",1)
       }
 
-      function mousemove(event, d) {
-        // recover coordinate we need
+      function mousemove(event) {
         let xy = pointer(event);
         var x0 = x.invert(xy[0]);
         var i = bisect(data, x0, 1);
@@ -125,13 +117,12 @@ function Temp(props) {
           focusText
             .html(`${selectedData.y} ºC`)
         }
-
       }
+
       function mouseout() {
         focus.style("opacity", 0)
         focusText.style("opacity", 0)
       }
-
     }
   },[data]);
 

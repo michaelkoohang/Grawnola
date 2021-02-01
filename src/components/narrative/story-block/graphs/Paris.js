@@ -1,14 +1,10 @@
 import React, {useEffect, useRef} from 'react';
 import {select} from 'd3-selection';
-import {scaleTime} from "d3-scale";
-import {extent} from "d3-array";
+import {scaleTime, scaleLinear} from "d3-scale";
 import {axisBottom, axisLeft} from "d3-axis";
-import {scaleLinear, scaleOrdinal} from "d3-scale";
-import {max, min} from "d3-array";
+import {max, group, extent} from "d3-array";
 import {line} from "d3-shape";
-import {group} from "d3-array";
 
-// TODO pass width/height and radii as props
 const margin = {top: 30, right: 20, bottom: 60, left: 80},
   width = 460 - margin.left - margin.right,
   height = 400 - margin.top - margin.bottom;
@@ -31,11 +27,8 @@ function Paris(props) {
         .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-      // group the data: I want to draw one line per group
       var grouped_data = group(data, d => d.pathway);
-      // console.log(grouped_data);
 
-      // Add X axis --> it is a date format
       var x = scaleTime()
         .domain(extent(data, function(d) { return new Date(d.year); }))
         .range([ 0, width ]);
@@ -43,14 +36,12 @@ function Paris(props) {
         .attr("transform", "translate(0," + height + ")")
         .call(axisBottom(x).ticks(5));
 
-      // Add Y axis
       var y = scaleLinear()
         .domain([0, max(data, function(d) { return +d.value; })])
         .range([ height, 0 ]);
       svg.append("g")
         .call(axisLeft(y));
 
-      // Add labels for each axis
       var yAxisLabelText = 'CO\u2082 (Gigatonnes)';
       var xAxisLabelText = 'Date';
 
@@ -104,7 +95,6 @@ function Paris(props) {
         .style("fill", "white")
         .attr('transform','translate(110,-18)')
 
-      // Draw the line
       svg.append("path")
         .datum(grouped_data.get("6"))
         .attr("fill", "none")
@@ -125,7 +115,7 @@ function Paris(props) {
           .y(function(d) { return y(d.value) })
         )
     }
-  },[data, d3Container.current]);
+  },[data]);
 
   return (
     <div ref={d3Container} />

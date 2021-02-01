@@ -1,10 +1,7 @@
 import React from 'react';
 import {Segment} from "semantic-ui-react";
-
 import {getEmissions} from './grid-conversions';
-
 import Grid from './Grid';
-
 import './National.css';
 
 const DEBUG = 0;

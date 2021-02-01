@@ -160,7 +160,6 @@ function Interactive() {
     }
   }
 
-  // This needs to change all the values aaaaaahhhhh
   function updatePeople(value) {
     if (value !== 1) {
       setPeople(value - 1);
@@ -206,10 +205,10 @@ function Interactive() {
     }
   }, [electricity, flights, shipping, cars, vegan, carFree, ledBulbs, trees, people]);
 
-  // NOTE i don't know where else to put this variable...
   const totalCarbon = getTotalCarbon({
     electricity, flights, shipping, cars, vegan, carFree, ledBulbs, trees
   });
+
   return (
     <Container className="interactive">
       <Grid className="interactive-grid" columns={3}>

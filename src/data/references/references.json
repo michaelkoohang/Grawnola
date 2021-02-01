@@ -1,0 +1,145 @@
+{
+  "narrative": [
+    {
+      "slide": "Slide 1",
+      "items": [
+        {
+          "name": "2019 Temperature Increase",
+          "link": "https://www.climate.gov/news-features/understanding-climate/climate-change-global-temperature#:~:text=According%20to%20the%20NOAA%202019,more%20than%20twice%20as%20grea"
+        },
+        {
+          "name": "Carbon Increase Over Time",
+          "link": "https://www.iea.org/articles/global-co2-emissions-in-2019"
+        },
+        {
+          "name": "CO\u2082 Chart",
+          "link": "ftp://aftp.cmdl.noaa.gov/products/trends/co2/co2_mm_mlo.txt"
+        },
+        {
+          "name": "Temperature Chart",
+          "link": "https://data.giss.nasa.gov/gistemp/graphs/graph_data/Global_Mean_Estimates_based_on_Land_and_Ocean_Data/graph.txt"
+        }
+      ]
+    },
+    {
+      "slide": "Slide 2",
+      "items": [
+        {
+          "name": "Sea Level Change",
+          "link": "https://sealevelrise.org/forecast/"
+        },
+        {
+          "name": "Ice Caps Change",
+          "link": "https://climate.nasa.gov/vital-signs/arctic-sea-ice/"
+        },
+        {
+          "name": "Sea Level Chart",
+          "link": "https://podaac-tools.jpl.nasa.gov/drive/files/allData/merged_alt/L2/TP_J1_OSTM/global_mean_sea_level/GMSL_TPJAOS_4.2_199209_202004.txt"
+        },
+        {
+          "name": "Ice Caps Chart",
+          "link": "https://podaac-tools.jpl.nasa.gov/drive/files/allData/tellus/L4/ice_mass/RL06/v02/mascon_CRI/antarctica_mass_200204_202008.txt"
+        }
+      ]
+    },
+    {
+      "slide": "Slide 3",
+      "items": [
+        {
+          "name": "Overview of Greenhouse Gas Emissions 2018",
+          "link": "https://www.epa.gov/ghgemissions/overview-greenhouse-gases"
+        }
+      ]
+    },
+    {
+      "slide": "Slide 4",
+      "items": [
+        {
+          "name": "Sector Tree Map",
+          "link": "https://www.epa.gov/ghgemissions/sources-greenhouse-gas-emissions"
+        },
+        {
+          "name": "Transportation Sector Tree Map",
+          "link": "https://www.epa.gov/greenvehicles/fast-facts-transportation-greenhouse-gas-emissions"
+        }
+      ]
+    },
+    {
+      "slide": "Slide 5",
+      "items": [
+        {
+          "name": "Opportunities for Reducing Emissions",
+          "link": "https://www.epa.gov/ghgemissions/overview-greenhouse-gases"
+        }
+      ]
+    },
+    {
+      "slide": "Slide 6",
+      "items": [
+        {
+          "name": "Electricity",
+          "link": "https://www.carboninterface.com/"
+        },
+        {
+          "name": "Cheeseburger/Plant Based Meal",
+          "link": "https://www.sixdegreesnews.org/archives/10261/the-carbon-footprint-of-a-cheeseburger#:~:text=To%20put%20this%20in%20to,to%20600%20kg%20of%20emissions"
+        },
+        {
+          "name": "5 mile drive",
+          "link": "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator"
+        },
+        {
+          "name": "1 Tree Planted",
+          "link": "https://www.unm.edu/~jbrink/365/Documents/Calculating_tree_carbon.pdf"
+        }
+      ]
+    },
+    {
+      "slide": "Slide 7",
+      "items": [
+        {
+          "name": "Paris Agreement",
+          "link": "https://ig.ft.com/sites/climate-change-calculator/"
+        }
+      ]
+    }
+  ],
+  "interactive": [
+    {
+      "section": "Emissions",
+      "items": [ 
+        {
+          "name": "Carbon Interface API",
+          "link": "https://www.carboninterface.com/"
+        }
+      ]
+    },
+    {
+      "section": "Offsets",
+      "items": [ 
+        {
+          "name": "Going Car Free, Recycling",
+          "link": "https://www3.epa.gov/carbon-footprint-calculator/"
+        },
+        {
+          "name": "Going Vegan for a Year",
+          "link": "https://vegancalculator.com/"
+        },
+        {
+          "name": "Trees",
+          "link": "https://www.unm.edu/~jbrink/365/Documents/Calculating_tree_carbon.pdf"
+        }
+      ]
+    },
+    {
+      "section": "Budget",
+      "items": [ 
+        {
+          "name": "National CO\u2082 Budget",
+          "link": "https://www4.unfccc.int/sites/ndcstaging/PublishedDocuments/United%20States%20of%20America%20First/U.S.A.%20First%20NDC%20Submission.pdf"
+        }
+      ]
+    }
+    
+  ]
+}
