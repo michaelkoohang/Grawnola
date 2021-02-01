@@ -14,7 +14,7 @@ const DEBUG = 0;
 
 function Interactive() {
 
-  const carbonInterfaceToken = "edqnsNcjCvigIYO2mtva7Q";
+  const carbonInterfaceToken = "bHsVWXBB9zpHqk9r4XvCw";
   const carbonInterfaceURL = "https://www.carboninterface.com/api/v1/estimates";
 
   // Emissions
